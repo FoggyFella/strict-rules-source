@@ -187,7 +187,7 @@ node_connections = [&"output", 0, &"Blend2", &"Blend2", 0, &"Animation", &"Blend
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_annbg"]
 render_priority = -1
 shader = ExtResource("3_5swuk")
-shader_parameter/pixel_size = 10
+shader_parameter/pixel_size = 8
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vy8ix"]
 
