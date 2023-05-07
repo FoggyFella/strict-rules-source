@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbe3ar5umnve0"]
+
+[ext_resource type="FontFile" uid="uid://dfyrsdlftvhwm" path="res://Assets/schluber/Schluber.otf" id="1_td30y"]
+[ext_resource type="Shader" path="res://Assets/Shaders/node_3d2.gdshader" id="2_vapuv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bxuf2"]
+shader = ExtResource("2_vapuv")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.095
+shader_parameter/scanlines_width = 0.088
+shader_parameter/grille_opacity = 0.31
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 2.256
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[node name="MenuButtonsScene" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.607843, 0.607843, 0.607843, 1)
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -253.5
+offset_top = -145.0
+offset_right = 253.5
+offset_bottom = 145.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Button" parent="Container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_td30y")
+theme_override_font_sizes/font_size = 62
+text = "BEGIN"
+
+[node name="Label2" type="Button" parent="Container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_td30y")
+theme_override_font_sizes/font_size = 62
+text = "OPTIONS"
+
+[node name="Label3" type="Button" parent="Container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_td30y")
+theme_override_font_sizes/font_size = 62
+text = "CLOSE"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_bxuf2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

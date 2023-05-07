@@ -1,0 +1,140 @@
+[gd_scene load_steps=18 format=3 uid="uid://bilioyq5n5ibl"]
+
+[ext_resource type="Script" path="res://Scripts/HonorWarrior/Enemy.gd" id="1_5bris"]
+[ext_resource type="Texture2D" uid="uid://onxrp07c57hi" path="res://Assets/HonorWarrior/Enemies/Enemy.png" id="2_nq1m3"]
+[ext_resource type="AudioStream" uid="uid://dyqp4r2q3g647" path="res://Assets/SFX/snow_crunch.ogg" id="3_xf74o"]
+[ext_resource type="AudioStream" uid="uid://dkkjngekfth2p" path="res://Assets/SFX/enemy_damage.ogg" id="4_k27na"]
+[ext_resource type="AudioStream" uid="uid://cxvxq765tonv5" path="res://Assets/SFX/08_Step_rock_02.wav" id="4_qq4ku"]
+[ext_resource type="AudioStream" uid="uid://dgjpnygnjpb8n" path="res://Assets/SFX/enemy_death.ogg" id="5_0viyr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykccm"]
+atlas = ExtResource("2_nq1m3")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bymbk"]
+atlas = ExtResource("2_nq1m3")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8w8dp"]
+atlas = ExtResource("2_nq1m3")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mkn8"]
+atlas = ExtResource("2_nq1m3")
+region = Rect2(768, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tprx"]
+atlas = ExtResource("2_nq1m3")
+region = Rect2(1024, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0sbn"]
+atlas = ExtResource("2_nq1m3")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u17tf"]
+atlas = ExtResource("2_nq1m3")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_643ho"]
+atlas = ExtResource("2_nq1m3")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xm8m"]
+atlas = ExtResource("2_nq1m3")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lxiv5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykccm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bymbk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8w8dp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mkn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tprx")
+}],
+"loop": false,
+"name": &"Die",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0sbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u17tf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_643ho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xm8m")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v21og"]
+
+[node name="Enemy" type="CharacterBody3D" groups=["enemies"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_5bris")
+
+[node name="Sprite" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.132359, 0)
+billboard = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_lxiv5")
+animation = &"Move"
+
+[node name="BulletSpawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.5484, 0, 0, 0, 1, 0, 0.190278, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_v21og")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+collision_mask = 2
+
+[node name="AttackTimeout" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="SnowStep" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_xf74o")
+volume_db = -8.0
+
+[node name="MineStep" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_qq4ku")
+volume_db = -2.0
+
+[node name="damaged" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_k27na")
+volume_db = -8.0
+pitch_scale = 0.9
+
+[node name="death" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_0viyr")
+volume_db = -8.0
+pitch_scale = 0.7
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.45
+
+[node name="Reload" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="AttackTimeout" to="." method="_on_attack_timeout_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Reload" to="." method="_on_reload_timeout"]

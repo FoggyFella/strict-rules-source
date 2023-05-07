@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b004y6yytu05o"
+path="res://.godot/imported/lightbulb explosion.ogg-3456a6e0907dbeb812e3a424c915461e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SFX/lightbulb explosion.ogg"
+dest_files=["res://.godot/imported/lightbulb explosion.ogg-3456a6e0907dbeb812e3a424c915461e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

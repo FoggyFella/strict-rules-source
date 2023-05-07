@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4kxqvytbt3aw"]
+
+[ext_resource type="Texture2D" uid="uid://c8gpgmtpqs0se" path="res://Assets/HonorWarrior/bullethole.png" id="1_8j1cf"]
+[ext_resource type="Script" path="res://Scripts/HonorWarrior/BulletDecal.gd" id="2_i08ow"]
+
+[node name="BulletHole" type="Node3D"]
+script = ExtResource("2_i08ow")
+
+[node name="BulletDecal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+size = Vector3(0.25, 0.25, 0.25)
+texture_albedo = ExtResource("1_8j1cf")
+
+[node name="Timer" type="Timer" parent="BulletDecal"]
+wait_time = 6.0
+autostart = true
+
+[connection signal="timeout" from="BulletDecal/Timer" to="." method="_on_timer_timeout"]

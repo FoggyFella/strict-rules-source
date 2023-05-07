@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://doaul35xwsrbu"]
+
+[ext_resource type="Script" path="res://Scripts/HonorWarrior/Trigger.gd" id="1_2xqfp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xcysn"]
+
+[node name="Trigger" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_2xqfp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_xcysn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

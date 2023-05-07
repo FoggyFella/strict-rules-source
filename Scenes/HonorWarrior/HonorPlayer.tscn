@@ -1,0 +1,351 @@
+[gd_scene load_steps=26 format=3 uid="uid://igvcpnu2a6ak"]
+
+[ext_resource type="Texture2D" uid="uid://bxew8q53m5dj" path="res://Assets/HonorWarrior/crosshair.png" id="1_4wrr6"]
+[ext_resource type="Script" path="res://Scripts/HonorWarrior/HonorPlayer.gd" id="1_gw6n4"]
+[ext_resource type="Texture2D" uid="uid://d1ymdco3e3fpa" path="res://Assets/HonorWarrior/NOW THIS IS A LOGO.png" id="2_eiujd"]
+[ext_resource type="Texture2D" uid="uid://u4f5ocf4gqan" path="res://Assets/HonorWarrior/Player/hands.png" id="2_u4b0n"]
+[ext_resource type="Shader" path="res://Assets/Shaders/node_3d2.gdshader" id="4_by5le"]
+[ext_resource type="Texture2D" uid="uid://bee1lomrfcb2e" path="res://Assets/HonorWarrior/what the actual fuck.png" id="4_qdwww"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qmgv4"]
+
+[sub_resource type="Animation" id="Animation_vscmq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/GunAnchor/GunSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUD/GunAnchor/GunSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(252, -255)]
+}
+
+[sub_resource type="Animation" id="Animation_kxp3h"]
+resource_name = "gun_walking"
+length = 1.2
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/GunAnchor/GunSprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(252, -255), Vector2(252, -231)]
+}
+
+[sub_resource type="Animation" id="Animation_x2xjm"]
+resource_name = "shoot"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/GunAnchor/GunSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wo1ij"]
+_data = {
+"RESET": SubResource("Animation_vscmq"),
+"gun_walking": SubResource("Animation_kxp3h"),
+"shoot": SubResource("Animation_x2xjm")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wff1a"]
+animation = &"shoot"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0rveq"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qicub"]
+animation = &"gun_walking"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_allp1"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_75ydc"]
+filters = ["HUD/GunAnchor/GunSprite:frame"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_gvhpe"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_qicub")
+nodes/Animation/position = Vector2(-140, 100)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_wff1a")
+"nodes/Animation 2/position" = Vector2(-380, 240)
+"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_0rveq")
+"nodes/Animation 3/position" = Vector2(-420, 360)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_allp1")
+nodes/Blend2/position = Vector2(60, 120)
+nodes/OneShot/node = SubResource("AnimationNodeOneShot_75ydc")
+nodes/OneShot/position = Vector2(-140, 260)
+node_connections = [&"output", 0, &"Blend2", &"Blend2", 0, &"Animation", &"Blend2", 1, &"OneShot", &"OneShot", 0, &"Animation 3", &"OneShot", 1, &"Animation 2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yaeh"]
+atlas = ExtResource("2_u4b0n")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bafpn"]
+atlas = ExtResource("2_u4b0n")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_op4ji"]
+atlas = ExtResource("2_u4b0n")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvk8g"]
+atlas = ExtResource("2_u4b0n")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7y73b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yaeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bafpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_op4ji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvk8g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xiwpf"]
+shader = ExtResource("4_by5le")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.074
+shader_parameter/scanlines_width = 0.024
+shader_parameter/grille_opacity = 0.037
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 0.1
+shader_parameter/roll_size = 0.1
+shader_parameter/roll_variation = 0.1
+shader_parameter/distort_intensity = 0.017
+shader_parameter/noise_opacity = 0.0
+shader_parameter/noise_speed = 0.1
+shader_parameter/static_noise_intensity = 0.066
+shader_parameter/aberration = 0.00700005
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.048
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.455
+shader_parameter/vignette_opacity = 0.363
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3lf6k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_afpv4"]
+albedo_color = Color(0.784314, 0.0784314, 0.360784, 1)
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_gw6n4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_qmgv4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wo1ij")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_gvhpe")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/Blend2/blend_amount = 1.0
+parameters/OneShot/active = false
+parameters/OneShot/request = 0
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.604375, 0)
+target_position = Vector3(0, 0, -2000)
+collision_mask = 4
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.604375, 0)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 557.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+
+[node name="ColorRect" type="ColorRect" parent="HUD/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.133333, 0.105882, 0.156863, 1)
+
+[node name="Label" type="Label" parent="HUD/Control"]
+visible = false
+layout_mode = 0
+offset_left = 11.0
+offset_top = -7.0
+offset_right = 1142.0
+offset_bottom = 78.0
+text = "WRITE STUFF HERE OR SOMETHING WRITE STUFF HERE OR SOMETHING  WRITE STUFF HERE OR SOMETHING  WRITE STUFF HERE OR SOMETHING WRITE STUFF HERE OR SOMETHING WRITE STUFF HERE OR SOMETHING  WRITE STUFF HERE OR SOMETHING  WRITE STUFF HERE OR SOMETHING WRITE STUFF HERE OR SOMETHING WRITE STUFF HERE OR SOMETHING  WRITE STUFF HERE OR SOMETHING  WRITE STUFF HERE OR SOMETHING "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="HUD/Control"]
+texture_filter = 1
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+offset_left = 10.0
+offset_top = -41.0
+offset_right = 190.0
+offset_bottom = 139.0
+texture = ExtResource("2_eiujd")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="HUD/Control"]
+texture_filter = 1
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+offset_left = 213.0
+offset_top = -41.0
+offset_right = 393.0
+offset_bottom = 139.0
+texture = ExtResource("2_eiujd")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="HUD/Control"]
+texture_filter = 1
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+offset_left = 402.0
+offset_top = -41.0
+offset_right = 582.0
+offset_bottom = 139.0
+texture = ExtResource("2_eiujd")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="HUD/Control"]
+texture_filter = 1
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+offset_left = 605.0
+offset_top = -41.0
+offset_right = 785.0
+offset_bottom = 139.0
+texture = ExtResource("2_eiujd")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="HUD/Control"]
+texture_filter = 1
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+offset_left = 770.0
+offset_top = -41.0
+offset_right = 950.0
+offset_bottom = 139.0
+texture = ExtResource("2_eiujd")
+expand_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="HUD/Control"]
+texture_filter = 1
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+offset_left = 973.0
+offset_top = -41.0
+offset_right = 1153.0
+offset_bottom = 139.0
+texture = ExtResource("2_eiujd")
+expand_mode = 1
+
+[node name="GunAnchor" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GunSprite" type="AnimatedSprite2D" parent="HUD/GunAnchor"]
+texture_filter = 1
+position = Vector2(252, -255)
+sprite_frames = SubResource("SpriteFrames_7y73b")
+
+[node name="Head" type="Sprite2D" parent="HUD/GunAnchor"]
+texture_filter = 1
+position = Vector2(-482, -199)
+scale = Vector2(2.96875, 2.96875)
+texture = ExtResource("4_qdwww")
+hframes = 3
+
+[node name="Crosshair" type="TextureRect" parent="HUD"]
+modulate = Color(0.0745098, 0.0666667, 0.196078, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4wrr6")
+
+[node name="TextureRect" type="ColorRect" parent="HUD"]
+material = SubResource("ShaderMaterial_xiwpf")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_3lf6k")
+surface_material_override/0 = SubResource("StandardMaterial3D_afpv4")
+
+[node name="GroundCast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.175847, 0.546668)

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyif7klhxs7nb"]
+
+[ext_resource type="Texture2D" uid="uid://b5lqbd0yq4t33" path="res://Assets/HonorWarrior/LightPost.png" id="1_cm641"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h5grv"]
+size = Vector3(0.0630191, 0.473946, 0.041233)
+
+[node name="LightPost" type="Sprite3D"]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 0, 2.89019, 0)
+texture_filter = 0
+texture = ExtResource("1_cm641")
+
+[node name="OmniLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.111111, 0, 0, 0, -4.85682e-09, 0.111111, 0, -0.111111, -4.85682e-09, 0.121614, 0.118387, 0)
+light_color = Color(0.909804, 0.592157, 0.282353, 1)
+light_energy = 50.0
+light_volumetric_fog_energy = 2.0
+spot_range = 4.82034
+spot_angle = 29.4701
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00800175, -0.0617548, 0.00209444)
+shape = SubResource("BoxShape3D_h5grv")

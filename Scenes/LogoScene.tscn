@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://dy4suy4odwwqi"]
+
+[ext_resource type="Texture2D" uid="uid://cikrekmtrdyfj" path="res://Assets/new_logo.png" id="1_w5adx"]
+[ext_resource type="Shader" path="res://Assets/Shaders/node_3d2.gdshader" id="2_gnfvt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qmdlf"]
+shader = ExtResource("2_gnfvt")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.095
+shader_parameter/scanlines_width = 0.088
+shader_parameter/grille_opacity = 0.31
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 2.256
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[node name="LogoScene" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -354.0
+offset_top = -197.0
+offset_right = 436.0
+offset_bottom = 197.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_w5adx")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_qmdlf")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

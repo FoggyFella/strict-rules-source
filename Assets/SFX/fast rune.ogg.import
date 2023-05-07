@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cjseg28rrmytv"
+path="res://.godot/imported/fast rune.ogg-4d37034571e90b48e12eba9155f92890.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SFX/fast rune.ogg"
+dest_files=["res://.godot/imported/fast rune.ogg-4d37034571e90b48e12eba9155f92890.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

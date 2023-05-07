@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhwf1dt3sml2o"]
+
+[ext_resource type="Texture2D" uid="uid://8cr4bf5viqjx" path="res://Assets/HonorWarrior/foot-step.png" id="1_mld6s"]
+
+[node name="BloodStep" type="Sprite3D"]
+transform = Transform3D(6, 0, 0, 0, -2.62268e-07, -6, 0, 6, -2.62268e-07, 0, 0, 0)
+flip_h = true
+modulate = Color(1, 0.639216, 0.717647, 1)
+texture_filter = 0
+texture = ExtResource("1_mld6s")

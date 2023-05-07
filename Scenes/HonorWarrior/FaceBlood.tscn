@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://md6ws2c08r70"]
+
+[sub_resource type="GDScript" id="GDScript_kt7pk"]
+resource_name = "BloodSpray"
+script/source = "extends Sprite2D
+
+var bloods = [preload(\"res://Assets/HonorWarrior/FaceStuff/Blood spray 1.png\"),
+preload(\"res://Assets/HonorWarrior/FaceStuff/blood spay 2.png\"),
+preload(\"res://Assets/HonorWarrior/FaceStuff/blood spay 3.png\"),
+preload(\"res://Assets/HonorWarrior/FaceStuff/blood spay 4.png\"),
+preload(\"res://Assets/HonorWarrior/FaceStuff/blood spay 5.png\"),
+preload(\"res://Assets/HonorWarrior/FaceStuff/blood spay 6.png\"),
+preload(\"res://Assets/HonorWarrior/FaceStuff/blood spay 7.png\")
+]
+var until_gone = 7
+
+func _ready():
+	randomize()
+	texture = bloods.pick_random()
+	modulate.r = randf_range(0.5,1.0)
+	modulate.g = modulate.r
+	modulate.b = modulate.r
+	$Timer.wait_time = until_gone
+	$Timer.start()
+
+
+func _on_timer_timeout():
+	var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self,\"modulate\",Color(modulate.r,modulate.g,modulate.b,0),2)
+	await tween.finished
+	queue_free()
+"
+
+[node name="FaceBlood" type="Sprite2D"]
+texture_filter = 1
+centered = false
+script = SubResource("GDScript_kt7pk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

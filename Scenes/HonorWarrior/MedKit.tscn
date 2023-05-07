@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhnocsoscetk"]
+
+[ext_resource type="Texture2D" uid="uid://7fmbs30juv06" path="res://Assets/HonorWarrior/MedKit.png" id="1_3yd61"]
+
+[sub_resource type="GDScript" id="GDScript_y78up"]
+resource_name = "MedKit"
+script/source = "extends Area3D
+
+@export var heal:int = 50
+
+func _on_body_entered(body):
+	if body.name == \"Player\":
+		if body.health < body.max_health:
+			body.heal(heal)
+			queue_free()
+"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fc4e7"]
+radius = 0.354989
+
+[node name="MedKit" type="Area3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+collision_mask = 2
+script = SubResource("GDScript_y78up")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_fc4e7")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+modulate = Color(0.701961, 0.701961, 0.701961, 1)
+billboard = 2
+texture_filter = 0
+texture = ExtResource("1_3yd61")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(1, 0, 0, 1)
+light_energy = 5.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

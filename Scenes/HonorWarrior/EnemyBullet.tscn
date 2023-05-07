@@ -1,0 +1,129 @@
+[gd_scene load_steps=9 format=3 uid="uid://bdw2c75hxliqf"]
+
+[ext_resource type="Shader" path="res://Assets/Shaders/teste.gdshader" id="1_tge1p"]
+[ext_resource type="Texture2D" uid="uid://dklcu8m2qmq8y" path="res://Assets/HonorWarrior/enemy bullet sptire.png" id="2_hmsca"]
+
+[sub_resource type="GDScript" id="GDScript_w1ppx"]
+resource_name = "EnemyBullet"
+script/source = "extends CharacterBody3D
+
+var direction_to_player = Vector2()
+var speed = 5
+var damage = 1
+
+func _ready():
+	direction_to_player.y = 0.0
+
+func _physics_process(delta):
+	velocity = direction_to_player * speed
+	move_and_slide()
+	var collission_count = get_slide_collision_count()
+	for index in collission_count:
+		var colission = get_slide_collision(index)
+		if colission.get_collider().name == \"Player\":
+			colission.get_collider().take_damage(damage)
+			queue_free()
+		else:
+			queue_free()
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ksmib"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_tge1p")
+shader_parameter/pixel_count = Vector2(64, 64)
+shader_parameter/FILTER_GAMMA = 10.0
+shader_parameter/COLOR_GAMMA = 1.0
+shader_parameter/albedo_tex = ExtResource("2_hmsca")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pnqdo"]
+radius = 0.569473
+
+[sub_resource type="Animation" id="Animation_2ndv8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:material_override:shader_parameter/FILTER_GAMMA")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:material_override:shader_parameter/COLOR_GAMMA")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_rl4vu"]
+resource_name = "bullet-anim"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:material_override:shader_parameter/FILTER_GAMMA")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [20.0, 0.1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:material_override:shader_parameter/COLOR_GAMMA")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.246, 1.0, 0.917]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nkk38"]
+_data = {
+"RESET": SubResource("Animation_2ndv8"),
+"bullet-anim": SubResource("Animation_rl4vu")
+}
+
+[node name="EnemyBullet" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 3
+script = SubResource("GDScript_w1ppx")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.831546, 0, 0, 0, 0.831546, 0, 0, 0, 0.831546, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_ksmib")
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_hmsca")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.407445, 0, 0, 0, 0.407445, 0, 0, 0, 0.407445, 0, 0, 0)
+shape = SubResource("SphereShape3D_pnqdo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "bullet-anim"
+libraries = {
+"": SubResource("AnimationLibrary_nkk38")
+}
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.956863, 0.568627, 0.278431, 1)
+light_energy = 2.0
+omni_range = 0.786686

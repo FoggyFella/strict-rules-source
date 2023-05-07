@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx0f02o18fhyb"]
+
+[ext_resource type="Script" path="res://Scripts/Global.gd" id="1_ghuuk"]
+[ext_resource type="AudioStream" uid="uid://lgiy7we8t6yn" path="res://Assets/SFX/mouse_click.ogg" id="2_uj8ll"]
+[ext_resource type="AudioStream" uid="uid://dvjahhnfa3b8f" path="res://Assets/SFX/keyboard_click1.ogg" id="3_ufpvv"]
+[ext_resource type="AudioStream" uid="uid://dswit76q6erdb" path="res://Assets/SFX/keyboard_click2.ogg" id="4_cg8we"]
+
+[node name="Global" type="Node"]
+script = ExtResource("1_ghuuk")
+
+[node name="mouse" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_uj8ll")
+volume_db = -10.0
+
+[node name="key1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ufpvv")
+volume_db = -15.0
+
+[node name="key2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cg8we")
+volume_db = -15.0

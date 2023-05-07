@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://3nxgf4y7pume"]
+
+[ext_resource type="FontFile" uid="uid://7ynqbsp4f1vm" path="res://Assets/DOS FONT/ModernDOS8x16.ttf" id="1_7a1w2"]
+
+[resource]
+font = ExtResource("1_7a1w2")
+font_size = 20
+font_color = Color(0.917647, 0.270588, 0, 1)

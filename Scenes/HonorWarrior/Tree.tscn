@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://byr11d5s5lpjc"]
+
+[ext_resource type="Shader" path="res://Assets/Shaders/TreeSway.gdshader" id="1_31y6o"]
+[ext_resource type="Texture2D" uid="uid://l1hrsgsy4ep5" path="res://Assets/HonorWarrior/tree.png" id="2_hm42i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i7gra"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_31y6o")
+shader_parameter/modulate = Color(0.054902, 0.054902, 0.054902, 1)
+shader_parameter/scale = Vector3(30, 30, 30)
+shader_parameter/wind_strength = 0.02
+shader_parameter/wind_speed = 1.0
+shader_parameter/albedo_texture = ExtResource("2_hm42i")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cvox3"]
+radius = 0.0983651
+height = 0.24373
+
+[node name="Tree" type="Sprite3D"]
+material_override = SubResource("ShaderMaterial_i7gra")
+modulate = Color(0, 0, 0, 1)
+texture_filter = 0
+texture = ExtResource("2_hm42i")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(29.803, 0, 0, 0, 29.803, 0, 0, 0, 29.803, 0, 0.0062767, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00632488, 0)
+shape = SubResource("CapsuleShape3D_cvox3")

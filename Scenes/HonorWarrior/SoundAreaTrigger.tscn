@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://t82ken5y2nto"]
+
+[ext_resource type="Script" path="res://Scripts/HonorWarrior/SoundAreaTrigger.gd" id="1_eo6gs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1igsh"]
+
+[node name="SoundAreaTrigger" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_eo6gs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1igsh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

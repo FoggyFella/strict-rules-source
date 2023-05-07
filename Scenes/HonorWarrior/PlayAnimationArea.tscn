@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://mvg1yptixd3j"]
+
+[sub_resource type="GDScript" id="GDScript_4ypdn"]
+resource_name = "PlayAnimationOnEnter"
+script/source = "extends Area3D
+
+@export var animation_player_path: NodePath
+@export var animation: String
+
+@onready var animation_player = get_node(animation_player_path)
+
+func _on_body_entered(body):
+	if body.name == \"Player\":
+		animation_player.play(animation)
+		queue_free()
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iae78"]
+size = Vector3(1, 2.84178, 15.9905)
+
+[node name="PlayAnimationArea" type="Area3D"]
+collision_mask = 2
+script = SubResource("GDScript_4ypdn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_iae78")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

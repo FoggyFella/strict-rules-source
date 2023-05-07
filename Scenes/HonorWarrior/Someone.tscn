@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqq6eqebjdxcp"]
+
+[ext_resource type="Texture2D" uid="uid://bd6ontpa1p2ab" path="res://Assets/HonorWarrior/holy fuck that's me.png" id="1_a3k8d"]
+[ext_resource type="Script" path="res://Scripts/HonorWarrior/Someone.gd" id="2_r7r3k"]
+[ext_resource type="AudioStream" uid="uid://dyqp4r2q3g647" path="res://Assets/SFX/snow_crunch.ogg" id="3_1c487"]
+[ext_resource type="AudioStream" uid="uid://nhl17lxc0hjd" path="res://Assets/SFX/wood_step.ogg" id="4_ik2r4"]
+[ext_resource type="AudioStream" uid="uid://cxvxq765tonv5" path="res://Assets/SFX/08_Step_rock_02.wav" id="5_hm200"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_541oa"]
+size = Vector3(0.28262, 2.30669, 0.835446)
+
+[node name="Looker" type="StaticBody3D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("2_r7r3k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020662, 1.17424, -0.00428814)
+shape = SubResource("BoxShape3D_541oa")
+
+[node name="Someone" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20543, 0)
+sorting_offset = 0.168
+billboard = 2
+alpha_antialiasing_edge = 0.01
+texture = ExtResource("1_a3k8d")
+
+[node name="untilGone" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Snow" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_1c487")
+volume_db = 3.0
+pitch_scale = 0.47
+
+[node name="Wood" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_ik2r4")
+volume_db = 3.0
+pitch_scale = 0.29
+
+[node name="Mine" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_hm200")
+volume_db = 3.0
+pitch_scale = 0.64
+
+[connection signal="mouse_entered" from="." to="Someone" method="_on_looker_mouse_entered"]
+[connection signal="timeout" from="untilGone" to="." method="_on_until_gone_timeout"]

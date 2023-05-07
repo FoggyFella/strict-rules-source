@@ -1,0 +1,269 @@
+[gd_scene load_steps=24 format=3 uid="uid://deedepqsvlrvd"]
+
+[ext_resource type="Texture2D" uid="uid://b3ey5rtk72oax" path="res://Assets/terrain_tile4s.png" id="1_d4f3o"]
+[ext_resource type="Script" path="res://Octon.gd" id="2_ipl1l"]
+[ext_resource type="Texture2D" uid="uid://lqg8wpy4s56w" path="res://Assets/octon_sheet.png" id="3_gjimp"]
+[ext_resource type="Shader" path="res://Assets/Shaders/node_3d2.gdshader" id="4_x6haw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kt5xi"]
+texture = ExtResource("1_d4f3o")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+3:2/0 = 0
+3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:2/0/physics_layer_0/angular_velocity = 0.0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:3/0 = 0
+2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:3/0/physics_layer_0/angular_velocity = 0.0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+3:3/0 = 0
+3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:3/0/physics_layer_0/angular_velocity = 0.0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_052fj"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_kt5xi")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8thsv"]
+radius = 21.0
+height = 86.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gydnn"]
+atlas = ExtResource("3_gjimp")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4yjh"]
+atlas = ExtResource("3_gjimp")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jslqt"]
+atlas = ExtResource("3_gjimp")
+region = Rect2(120, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onyf5"]
+atlas = ExtResource("3_gjimp")
+region = Rect2(180, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_giufx"]
+atlas = ExtResource("3_gjimp")
+region = Rect2(240, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wl53b"]
+atlas = ExtResource("3_gjimp")
+region = Rect2(0, 60, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw8hy"]
+atlas = ExtResource("3_gjimp")
+region = Rect2(60, 60, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60mix"]
+atlas = ExtResource("3_gjimp")
+region = Rect2(120, 60, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_br24k"]
+atlas = ExtResource("3_gjimp")
+region = Rect2(180, 60, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u78pi"]
+atlas = ExtResource("3_gjimp")
+region = Rect2(240, 60, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vedcg"]
+atlas = ExtResource("3_gjimp")
+region = Rect2(0, 120, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bs517"]
+atlas = ExtResource("3_gjimp")
+region = Rect2(60, 120, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djf0g"]
+atlas = ExtResource("3_gjimp")
+region = Rect2(120, 120, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlxl6"]
+atlas = ExtResource("3_gjimp")
+region = Rect2(0, 180, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_011ey"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gydnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4yjh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jslqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onyf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_giufx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wl53b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uw8hy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60mix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_br24k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u78pi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vedcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bs517")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djf0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlxl6")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ttgf"]
+shader = ExtResource("4_x6haw")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.095
+shader_parameter/scanlines_width = 0.088
+shader_parameter/grille_opacity = 0.31
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[node name="2dScene" type="Node2D"]
+position = Vector2(0, -184)
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = SubResource("TileSet_052fj")
+format = 2
+layer_0/tile_data = PackedInt32Array(65529, 65537, 0, 65530, 65537, 0, 65531, 65537, 0, 65532, 65537, 0, 65533, 65537, 0, 65534, 65537, 0, 65535, 65537, 0, 0, 65537, 0, 1, 65537, 0, 2, 65537, 0, 65538, 65537, 1, 131074, 65537, 1, 196610, 65537, 1, 131065, 65537, 1, 196601, 65537, 1, 262137, 65537, 1, 131066, 65537, 1, 196602, 65537, 1, 262139, 65537, 1, 262140, 1, 1, 196605, 65537, 1, 131069, 65537, 0, 131068, 1, 0, 131067, 65537, 1, 196603, 65537, 1, 262138, 65537, 1, 262141, 65537, 1, 196604, 1, 1, 262142, 65537, 1, 262143, 196609, 1, 196608, 65537, 1, 131072, 65537, 1, 65536, 65537, 1, 131071, 131073, 0, 131070, 65537, 0, 196606, 65537, 1, 196607, 196609, 0, 131073, 65537, 1, 65537, 65537, 1, 196609, 65537, 1, 327679, 196609, 1, 327678, 65537, 2, 327677, 65537, 2, 327676, 1, 2, 393215, 196609, 2, -65533, 1, 0, -65532, 65537, 0, -65531, 131073, 0, 4, 65537, 1, 65540, 65537, 1, 131076, 65537, 1, 196612, 65537, 1, 3, 1, 1, 65539, 1, 1, 131075, 1, 1, 196611, 1, 1, 6, 65537, 0, 65542, 65537, 1, 131078, 65537, 1, 196614, 65537, 1, 5, 131073, 1, 65541, 131073, 1, 131077, 131073, 1, 196613, 131073, 1, 65528, 65537, 0, 65527, 65537, 0, 65526, 65537, 0, 65525, 65537, 0, 65524, 65537, 0, 65523, 65537, 0, 65522, 1, 0, 131058, 1, 1, 196594, 1, 1, 262130, 1, 1, 131059, 65537, 1, 196595, 65537, 1, 262131, 65537, 1, 262132, 65537, 1, 262133, 65537, 1, 262134, 65537, 1, 196598, 65537, 1, 196599, 65537, 1, 131063, 65537, 1, 131062, 65537, 1, 131061, 65537, 1, 131060, 65537, 1, 196596, 65537, 1, 196597, 65537, 1, 262135, 65537, 1, 262136, 65537, 1, 196600, 65537, 1, 131064, 65537, 1, 7, 65537, 0, 65543, 65537, 1, 131079, 1, 0, 196615, 1, 2, 8, 65537, 0, 9, 65537, 0, 10, 131073, 0, 14, 1, 0, 15, 65537, 0, 16, 131073, 0, 196616, 131073, 2, 196617, 65537, 1, 131081, 65537, 1, 65545, 65537, 1, 65544, 65537, 1, 131080, 131073, 0, 131082, 131073, 1, 65546, 131073, 1, 131084, 196609, 1, 196618, 131073, 1, 196620, 196609, 2, 196622, 1, 1, 196623, 65537, 1, 131087, 65537, 1, 131086, 1, 1, 131088, 131073, 1, 65552, 131073, 1, 65551, 65537, 1, 65550, 1, 1, 196624, 131073, 1, 12, 196609, 0, 65548, 196609, 1, 17, 1, 1, -65519, 1, 1, 65553, 1, 1, 131089, 1, 1, 196625, 1, 2, -131055, 1, 1, -262127, 1, 1, -196591, 1, 1, 196626, 65537, 2, 131090, 65537, 1, 65554, 65537, 1, 18, 65537, 1, -65518, 65537, 1, -131054, 65537, 1, -196590, 65537, 1, -262126, 65537, 1, -262125, 65537, 1, -196589, 65537, 1, -131053, 65537, 1, -65517, 65537, 1, 19, 65537, 1, 65555, 65537, 1, 131091, 65537, 1, 196627, 65537, 2, 196628, 131073, 2, 131092, 131073, 1, 65556, 131073, 1, 20, 131073, 1, -65516, 131073, 1, -131052, 131073, 1, -196588, 131073, 1, -262124, 131073, 1, -327663, 1, 0, -327662, 65537, 0, -327661, 65537, 0, -327660, 131073, 0)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("2_ipl1l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, -43)
+shape = SubResource("CapsuleShape2D_8thsv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(-3, -49)
+scale = Vector2(1.63333, 1.63333)
+sprite_frames = SubResource("SpriteFrames_011ey")
+animation = &"new_animation"
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(0, -100)
+position_smoothing_enabled = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1152, 648)
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.462745, 0.721569, 0.92549, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+material = SubResource("ShaderMaterial_8ttgf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

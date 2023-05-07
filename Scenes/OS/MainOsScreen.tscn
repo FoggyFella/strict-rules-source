@@ -1,0 +1,4574 @@
+[gd_scene load_steps=81 format=3 uid="uid://kgtm8h62bun1"]
+
+[ext_resource type="Script" path="res://Scripts/OS/MainOsScreen.gd" id="1_ai8gq"]
+[ext_resource type="Texture2D" uid="uid://dixp4bbj8lfh5" path="res://Assets/OS/Default-bg.png" id="1_x3yug"]
+[ext_resource type="Texture2D" uid="uid://cnoup5ufqhl3r" path="res://Assets/OS/sound-cion.png" id="2_kfm6q"]
+[ext_resource type="Texture2D" uid="uid://ckn7fihj4wlhq" path="res://Assets/OS/os-logo.png" id="3_d76dr"]
+[ext_resource type="Texture2D" uid="uid://5rrx8sxsl21" path="res://Assets/OS/files-icom.png" id="4_71en7"]
+[ext_resource type="FontFile" uid="uid://cdapfu6ycvans" path="res://Assets/Roboto-Regular.ttf" id="5_a5r3p"]
+[ext_resource type="Texture2D" uid="uid://bn0o0alydxj8g" path="res://Assets/OS/browser.png" id="5_kkssd"]
+[ext_resource type="Texture2D" uid="uid://cw6dqp8h22c6w" path="res://Assets/OS/skype or something i dont know yet.png" id="6_w0ms5"]
+[ext_resource type="Texture2D" uid="uid://byahtosowk05h" path="res://Assets/OS/Painto.png" id="7_f55qh"]
+[ext_resource type="Script" path="res://Scripts/OS/A_button.gd" id="8_625sr"]
+[ext_resource type="Shader" path="res://Assets/Shaders/node_3d2.gdshader" id="8_chohg"]
+[ext_resource type="Texture2D" uid="uid://dbr0kvj1k3vnc" path="res://Assets/OS/blastin.png" id="9_g0fyk"]
+[ext_resource type="Script" path="res://Scripts/OS/A_screen.gd" id="10_fs4rd"]
+[ext_resource type="Texture2D" uid="uid://cuoo6ilxk1u1k" path="res://Assets/OS/lupa.png" id="11_ohamk"]
+[ext_resource type="Script" path="res://Scripts/OS/Messenger.gd" id="12_foebg"]
+[ext_resource type="Texture2D" uid="uid://b5cjiah2awq18" path="res://Assets/OS/folder.png" id="13_6p6fg"]
+[ext_resource type="Texture2D" uid="uid://bxjq5311u6a6m" path="res://Assets/HonorWarrior/FaceStuff/The Face.png" id="14_l3eya"]
+[ext_resource type="Texture2D" uid="uid://bu3imqbxf4mjd" path="res://Assets/OS/contacts/mom.jpg" id="14_vlia7"]
+[ext_resource type="Script" path="res://Scripts/OS/MessengerContact.gd" id="15_vi5e4"]
+[ext_resource type="Texture2D" uid="uid://gpnoptt8voiu" path="res://Assets/OS/contacts/mason.jpg" id="16_ajoi7"]
+[ext_resource type="AudioStream" uid="uid://lgiy7we8t6yn" path="res://Assets/SFX/mouse_click.ogg" id="17_jr7hq"]
+[ext_resource type="Texture2D" uid="uid://cvg0nkjcaig4u" path="res://Assets/OS/contacts/Vlas.jpg" id="17_v278p"]
+[ext_resource type="Texture2D" uid="uid://d11b2poe5gada" path="res://Assets/OS/contacts/Me.jpg" id="18_ocyj7"]
+[ext_resource type="Texture2D" uid="uid://qh1k8imsjujd" path="res://Assets/OS/IMG_20132211.jpg" id="21_2cjt8"]
+[ext_resource type="Texture2D" uid="uid://dg2u0kfhrn2kc" path="res://Assets/OS/fucking art thing.png" id="22_m36c7"]
+[ext_resource type="Texture2D" uid="uid://pd2ysc1i0mo7" path="res://Assets/OS/sniw.png" id="23_d3cjy"]
+[ext_resource type="Texture2D" uid="uid://d1ymdco3e3fpa" path="res://Assets/HonorWarrior/NOW THIS IS A LOGO.png" id="24_kwvgo"]
+[ext_resource type="FontFile" uid="uid://drvdhc3yawmlj" path="res://Assets/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf" id="25_fof8x"]
+[ext_resource type="AudioStream" uid="uid://cdk3mmwa0d0j2" path="res://Assets/SFX/VoiceLines/Player/OS/computer sounds.ogg" id="28_etrkg"]
+[ext_resource type="AudioStream" uid="uid://c06ct77xre8w3" path="res://Assets/SFX/VoiceLines/Player/OS/blastin.ogg" id="29_go0or"]
+[ext_resource type="AudioStream" uid="uid://s1jh02ieucjp" path="res://Assets/SFX/VoiceLines/Player/OS/internet.ogg" id="30_lp82w"]
+[ext_resource type="AudioStream" uid="uid://bq6mgqtqg0m3b" path="res://Assets/SFX/VoiceLines/Player/OS/intro.ogg" id="31_u3kds"]
+[ext_resource type="AudioStream" uid="uid://d6mmdcnmmxsb" path="res://Assets/SFX/VoiceLines/Player/OS/painto.ogg" id="32_jb8qb"]
+[ext_resource type="AudioStream" uid="uid://c3tbqwxidppfl" path="res://Assets/SFX/VoiceLines/Player/OS/friendspeak.ogg" id="33_8ll0v"]
+[ext_resource type="AudioStream" uid="uid://cgdiwb3rt4pju" path="res://Assets/SFX/VoiceLines/Player/OS/files.ogg" id="34_7e272"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4lwfq"]
+bg_color = Color(0.243137, 0.564706, 0.317647, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 179
+border_width_bottom = 5
+border_color = Color(0.388235, 0.866667, 0.498039, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20b63"]
+bg_color = Color(0.215686, 0.741176, 0.239216, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.278431, 0.984314, 0.313726, 1)
+border_blend = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_5qj82"]
+font_size = 27
+
+[sub_resource type="LabelSettings" id="LabelSettings_n2i1k"]
+line_spacing = 0.0
+font_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3008o"]
+bg_color = Color(0.215686, 0.741176, 0.239216, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.278431, 0.984314, 0.313726, 1)
+border_blend = true
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_w00kk"]
+font = ExtResource("5_a5r3p")
+font_size = 18
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bxnif"]
+blend_mode = 3
+
+[sub_resource type="Gradient" id="Gradient_0psbw"]
+colors = PackedColorArray(0.503767, 0.732893, 0.53476, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nfi5k"]
+gradient = SubResource("Gradient_0psbw")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5wt76"]
+font = ExtResource("5_a5r3p")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_imgr5"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.796078, 0.796078, 0.796078, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkukq"]
+bg_color = Color(0.364706, 0.364706, 0.364706, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_color = Color(0.6, 0.6, 0.6, 1)
+border_blend = true
+shadow_color = Color(0.258824, 0.258824, 0.258824, 1)
+shadow_size = 1
+shadow_offset = Vector2(0.2, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2gu7t"]
+font_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_o7drw"]
+font_size = 37
+font_color = Color(0.862745, 0.054902, 0.415686, 1)
+outline_size = 10
+outline_color = Color(0.403922, 0.0745098, 0.227451, 1)
+shadow_color = Color(0, 0, 0, 0.298039)
+shadow_offset = Vector2(1, 5)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2exrw"]
+blend_mode = 3
+
+[sub_resource type="Gradient" id="Gradient_ri5y6"]
+colors = PackedColorArray(0.4646, 0.441809, 0.663607, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_04rd4"]
+gradient = SubResource("Gradient_ri5y6")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2kdop"]
+bg_color = Color(0.568627, 0.643137, 0.737255, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.713726, 0.768627, 0.839216, 1)
+border_blend = true
+shadow_color = Color(0.690196, 0.690196, 0.690196, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_t7yvl"]
+shadow_color = Color(0.137255, 0.34902, 0.301961, 1)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_585as"]
+font_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qx2p5"]
+bg_color = Color(0.854902, 0.85098, 0.933333, 1)
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.701961, 0.701961, 0.701961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fcvu"]
+bg_color = Color(0.513726, 0.556863, 0.611765, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.470588, 0.470588, 0.470588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_en27p"]
+bg_color = Color(0.529412, 0.639216, 0.882353, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.678431, 0.756863, 0.929412, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_roto7"]
+bg_color = Color(0.580392, 0.682353, 0.901961, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.760784, 0.819608, 0.94902, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xb76"]
+bg_color = Color(0.713726, 0.784314, 0.937255, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.905882, 0.929412, 0.980392, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fa7w0"]
+bg_color = Color(0.529412, 0.639216, 0.882353, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.678431, 0.756863, 0.929412, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrate"]
+bg_color = Color(0.529412, 0.639216, 0.882353, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.678431, 0.756863, 0.929412, 1)
+border_blend = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_0vlcc"]
+font_size = 13
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbfax"]
+bg_color = Color(0.427451, 0.427451, 0.427451, 1)
+expand_margin_left = 1.0
+expand_margin_right = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ncfiw"]
+bg_color = Color(0.560784, 0.603922, 0.654902, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.498039, 0.541176, 0.596078, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cltws"]
+bg_color = Color(0.560784, 0.603922, 0.654902, 1)
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.498039, 0.541176, 0.596078, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ny0b"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rutk6"]
+blend_mode = 3
+
+[sub_resource type="Gradient" id="Gradient_6xdyq"]
+offsets = PackedFloat32Array(0.010929, 1)
+colors = PackedColorArray(0.77084, 0.770839, 0.770839, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8mahl"]
+gradient = SubResource("Gradient_6xdyq")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vc028"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j2th3"]
+font_size = 10
+font_color = Color(0.215686, 0.235294, 0.301961, 1)
+
+[sub_resource type="Gradient" id="Gradient_nyxti"]
+offsets = PackedFloat32Array(0.787645, 0.915058)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hxg0l"]
+gradient = SubResource("Gradient_nyxti")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hv1he"]
+emission_shape = 3
+emission_box_extents = Vector3(350, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(-1, 10, 0)
+spread = 54.17
+gravity = Vector3(0, 98, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 165.6
+angular_velocity_min = -82.55
+angular_velocity_max = 183.44
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_max = 2.0
+color = Color(0.909804, 0.937255, 0.976471, 0.592157)
+color_ramp = SubResource("GradientTexture1D_hxg0l")
+
+[sub_resource type="LabelSettings" id="LabelSettings_8s70s"]
+font = ExtResource("25_fof8x")
+font_color = Color(0.819608, 0.337255, 0, 0.129412)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7s3dl"]
+shader = ExtResource("8_chohg")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.037
+shader_parameter/scanlines_width = 0.088
+shader_parameter/grille_opacity = 0.048
+shader_parameter/resolution = Vector2(1000, 1000)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 1.0
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.0
+shader_parameter/aberration = 4.75e-08
+shader_parameter/brightness = 1.1
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.02
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.44
+
+[sub_resource type="Animation" id="Animation_rjkdi"]
+resource_name = "Intro"
+length = 14.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlacKScreen:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.7, 5.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VoiceLines/intro:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(14.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"enable_mouse"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_v24rp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VoiceLines/intro:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f3gcw"]
+_data = {
+"Intro": SubResource("Animation_rjkdi"),
+"RESET": SubResource("Animation_v24rp")
+}
+
+[node name="MainOsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ai8gq")
+
+[node name="Background" type="TextureRect" parent="."]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_x3yug")
+expand_mode = 1
+
+[node name="TaskBar" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4lwfq")
+
+[node name="Panel2" type="Panel" parent="TaskBar"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -157.0
+offset_top = -20.5
+offset_bottom = 20.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_20b63")
+
+[node name="DateTimeSound" type="HBoxContainer" parent="TaskBar/Panel2"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -20.0
+offset_right = 73.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Time3" type="Label" parent="TaskBar/Panel2/DateTimeSound"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "^"
+label_settings = SubResource("LabelSettings_5qj82")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sound" type="TextureRect" parent="TaskBar/Panel2/DateTimeSound"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+texture = ExtResource("2_kfm6q")
+expand_mode = 1
+
+[node name="Time2" type="Label" parent="TaskBar/Panel2/DateTimeSound"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "10:22 PM
+24/11/2013"
+label_settings = SubResource("LabelSettings_n2i1k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActualStuff" type="HBoxContainer" parent="TaskBar"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.5
+offset_right = 280.0
+offset_bottom = 20.5
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="Panel" type="Panel" parent="TaskBar/ActualStuff"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3008o")
+
+[node name="OS" type="TextureRect" parent="TaskBar/ActualStuff/Panel"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -21.0
+offset_right = 40.0
+offset_bottom = 19.0
+grow_vertical = 2
+texture = ExtResource("3_d76dr")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TaskBar/ActualStuff/Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -14.5
+offset_bottom = 16.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "START"
+label_settings = SubResource("LabelSettings_w00kk")
+vertical_alignment = 1
+
+[node name="Files" type="Button" parent="TaskBar/ActualStuff"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("4_71en7")
+flat = true
+expand_icon = true
+script = ExtResource("8_625sr")
+screen_path = NodePath("../../../Screens/Files")
+voice_line_path = NodePath("../../../VoiceLines/files")
+
+[node name="Browser" type="Button" parent="TaskBar/ActualStuff"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("5_kkssd")
+flat = true
+expand_icon = true
+script = ExtResource("8_625sr")
+screen_path = NodePath("../../../Screens/Browser")
+voice_line_path = NodePath("../../../VoiceLines/internet")
+
+[node name="Messenger" type="Button" parent="TaskBar/ActualStuff"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("6_w0ms5")
+flat = true
+expand_icon = true
+script = ExtResource("8_625sr")
+screen_path = NodePath("../../../Screens/Messenger")
+voice_line_path = NodePath("../../../VoiceLines/messages")
+
+[node name="Painto" type="Button" parent="TaskBar/ActualStuff"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("7_f55qh")
+flat = true
+expand_icon = true
+script = ExtResource("8_625sr")
+screen_path = NodePath("../../../Screens/Painto")
+voice_line_path = NodePath("../../../VoiceLines/painto")
+
+[node name="TextureRect" type="TextureRect" parent="TaskBar"]
+material = SubResource("CanvasItemMaterial_bxnif")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_nfi5k")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 607.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="Files" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("4_71en7")
+flat = true
+expand_icon = true
+script = ExtResource("8_625sr")
+screen_path = NodePath("../../../Screens/Files")
+voice_line_path = NodePath("../../../VoiceLines/files")
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Files"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.5
+offset_top = -11.0
+offset_right = 23.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "File Browser"
+label_settings = SubResource("LabelSettings_5wt76")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Browser" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("5_kkssd")
+flat = true
+expand_icon = true
+script = ExtResource("8_625sr")
+screen_path = NodePath("../../../Screens/Browser")
+voice_line_path = NodePath("../../../VoiceLines/internet")
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Browser"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.5
+offset_top = -11.0
+offset_right = 23.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "SuperNet"
+label_settings = SubResource("LabelSettings_5wt76")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Messenger" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("6_w0ms5")
+flat = true
+expand_icon = true
+script = ExtResource("8_625sr")
+screen_path = NodePath("../../../Screens/Messenger")
+voice_line_path = NodePath("../../../VoiceLines/messages")
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Messenger"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.5
+offset_top = -11.0
+offset_right = 23.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "FriendSpeak"
+label_settings = SubResource("LabelSettings_5wt76")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Painto" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("7_f55qh")
+flat = true
+expand_icon = true
+script = ExtResource("8_625sr")
+screen_path = NodePath("../../../Screens/Painto")
+voice_line_path = NodePath("../../../VoiceLines/painto")
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Painto"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.5
+offset_top = -11.0
+offset_right = 23.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Painto"
+label_settings = SubResource("LabelSettings_5wt76")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Blastin" type="Button" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.5
+offset_top = -27.5
+offset_right = 27.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+icon = ExtResource("9_g0fyk")
+flat = true
+expand_icon = true
+script = ExtResource("8_625sr")
+screen_path = NodePath("../Screens/Blastin")
+voice_line_path = NodePath("../VoiceLines/blastin")
+
+[node name="Label" type="Label" parent="Blastin"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -7.0
+offset_right = 27.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Blastin Warrior"
+label_settings = SubResource("LabelSettings_5wt76")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Screens" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_right = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Painto" type="Panel" parent="Screens"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -298.0
+offset_right = 551.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_imgr5")
+script = ExtResource("10_fs4rd")
+
+[node name="TopPart" type="Panel" parent="Screens/Painto"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 14.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vkukq")
+
+[node name="Label" type="Label" parent="Screens/Painto/TopPart"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -13.0
+offset_right = 161.0
+offset_bottom = 13.0
+grow_vertical = 2
+text = "Painto"
+label_settings = SubResource("LabelSettings_2gu7t")
+vertical_alignment = 1
+
+[node name="Close" type="Button" parent="Screens/Painto/TopPart"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -12.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "X"
+flat = true
+
+[node name="Label" type="Label" parent="Screens/Painto"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.5
+offset_top = -13.0
+offset_right = 78.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PAINTO IS NOT WORKING
+yet"
+label_settings = SubResource("LabelSettings_o7drw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Browser" type="Panel" parent="Screens"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -484.0
+offset_top = -274.0
+offset_right = 216.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_imgr5")
+script = ExtResource("10_fs4rd")
+
+[node name="TopPart" type="Panel" parent="Screens/Browser"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 14.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vkukq")
+
+[node name="Label" type="Label" parent="Screens/Browser/TopPart"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -13.0
+offset_right = 161.0
+offset_bottom = 13.0
+grow_vertical = 2
+text = "SuperNet"
+label_settings = SubResource("LabelSettings_2gu7t")
+vertical_alignment = 1
+
+[node name="Close" type="Button" parent="Screens/Browser/TopPart"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -12.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "X"
+flat = true
+
+[node name="Label2" type="RichTextLabel" parent="Screens/Browser"]
+modulate = Color(0.482353, 0.482353, 0.482353, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -156.0
+offset_right = 145.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.00784314, 0.0627451, 0.0196078, 1)
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[font_size=55][center][b][color=4d7de2]SUPER[/color][color=4dd16f]NET[/color][color=021005][font_size=15] "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Label" type="RichTextLabel" parent="Screens/Browser"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -159.0
+offset_right = 150.0
+offset_bottom = -83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.00784314, 0.0627451, 0.0196078, 1)
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[font_size=55][center][b][color=4d7de2]SUPER[/color][color=4dd16f]NET[/color][color=021005][font_size=15] ™"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Browser/Label"]
+material = SubResource("CanvasItemMaterial_2exrw")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = 3.0
+offset_right = -12.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_04rd4")
+expand_mode = 1
+
+[node name="LineEdit" type="LineEdit" parent="Screens/Browser"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -245.5
+offset_top = -15.5
+offset_right = 245.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_2kdop")
+text = " Search"
+max_length = 50
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Browser/LineEdit"]
+modulate = Color(0.243137, 0.243137, 0.243137, 1)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("11_ohamk")
+expand_mode = 1
+
+[node name="BrowsingHistory" type="VBoxContainer" parent="Screens/Browser"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = 34.0
+offset_right = 246.0
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Screens/Browser/BrowsingHistory"]
+modulate = Color(0.172549, 0.431373, 0.368627, 1)
+layout_mode = 2
+text = "Your browsing history:"
+label_settings = SubResource("LabelSettings_t7yvl")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Screens/Browser/BrowsingHistory"]
+modulate = Color(0.101961, 0.117647, 0.254902, 1)
+layout_mode = 2
+text = "blastinwarrior.ezyro.com"
+label_settings = SubResource("LabelSettings_585as")
+
+[node name="Label5" type="Label" parent="Screens/Browser/BrowsingHistory"]
+modulate = Color(0.101961, 0.117647, 0.254902, 1)
+layout_mode = 2
+text = "fortressday.com"
+label_settings = SubResource("LabelSettings_585as")
+
+[node name="Label6" type="Label" parent="Screens/Browser/BrowsingHistory"]
+modulate = Color(0.101961, 0.117647, 0.254902, 1)
+layout_mode = 2
+text = "devilmaystrafe.com"
+label_settings = SubResource("LabelSettings_585as")
+
+[node name="Label3" type="Label" parent="Screens/Browser/BrowsingHistory"]
+modulate = Color(0.101961, 0.117647, 0.254902, 1)
+layout_mode = 2
+text = "splitosgamer.com/10-best-new-free-games"
+label_settings = SubResource("LabelSettings_585as")
+
+[node name="Label4" type="Label" parent="Screens/Browser/BrowsingHistory"]
+modulate = Color(0.101961, 0.117647, 0.254902, 1)
+layout_mode = 2
+text = "free fresh games for SplitOS"
+label_settings = SubResource("LabelSettings_585as")
+
+[node name="Messenger" type="Panel" parent="Screens"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -509.0
+offset_top = -182.0
+offset_right = 191.0
+offset_bottom = 218.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qx2p5")
+script = ExtResource("12_foebg")
+
+[node name="Panel" type="Panel" parent="Screens/Messenger"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -143.0
+offset_right = 155.0
+offset_bottom = 200.0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6fcvu")
+
+[node name="Contacts" type="ScrollContainer" parent="Screens/Messenger/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.5
+offset_top = -135.5
+offset_right = 73.5
+offset_bottom = 166.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screens/Messenger/Panel/Contacts"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="Screens/Messenger/Panel/Contacts/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_en27p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_roto7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3xb76")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_fa7w0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mrate")
+text = "Mom"
+icon = ExtResource("14_vlia7")
+alignment = 0
+expand_icon = true
+script = ExtResource("15_vi5e4")
+
+[node name="Button2" type="Button" parent="Screens/Messenger/Panel/Contacts/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_en27p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_roto7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3xb76")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_fa7w0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mrate")
+text = "Mason"
+icon = ExtResource("16_ajoi7")
+alignment = 0
+expand_icon = true
+script = ExtResource("15_vi5e4")
+
+[node name="Button3" type="Button" parent="Screens/Messenger/Panel/Contacts/VBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_en27p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_roto7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3xb76")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_fa7w0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mrate")
+text = "Vlas"
+icon = ExtResource("17_v278p")
+alignment = 0
+expand_icon = true
+script = ExtResource("15_vi5e4")
+
+[node name="History" type="ScrollContainer" parent="Screens/Messenger/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.5
+offset_top = -135.5
+offset_right = 73.5
+offset_bottom = 166.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screens/Messenger/Panel/History"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Screens/Messenger/Panel/History/VBoxContainer"]
+layout_mode = 2
+text = "Call with Mom for
+3 minutes
+23/11/2013
+3:55 PM
+
+"
+label_settings = SubResource("LabelSettings_0vlcc")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label6" type="Label" parent="Screens/Messenger/Panel/History/VBoxContainer"]
+layout_mode = 2
+text = "Missed call from Mom
+23/11/2013
+3:45 PM
+
+"
+label_settings = SubResource("LabelSettings_0vlcc")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Screens/Messenger/Panel/History/VBoxContainer"]
+layout_mode = 2
+text = "Call with Mom for
+10 minutes
+15/11/2013
+4:33 PM
+
+"
+label_settings = SubResource("LabelSettings_0vlcc")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="Screens/Messenger/Panel/History/VBoxContainer"]
+layout_mode = 2
+text = "Call with Vlas for 
+10 minutes
+10/11/2013
+1:35 AM
+
+"
+label_settings = SubResource("LabelSettings_0vlcc")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="Screens/Messenger/Panel/History/VBoxContainer"]
+layout_mode = 2
+text = "Call with Mom for
+5 minutes
+9/11/2013
+2:30 PM"
+label_settings = SubResource("LabelSettings_0vlcc")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="Screens/Messenger/Panel/History/VBoxContainer"]
+layout_mode = 2
+text = "Missed call from Mom
+9/11/2013
+2:21 PM"
+label_settings = SubResource("LabelSettings_0vlcc")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Stuffs" type="Panel" parent="Screens/Messenger/Panel"]
+layout_mode = 0
+offset_right = 155.0
+offset_bottom = 34.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6fcvu")
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Messenger/Panel/Stuffs"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.0
+offset_top = -14.0
+offset_right = 7.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxFlat_cbfax")
+
+[node name="Contacts" type="Button" parent="Screens/Messenger/Panel/Stuffs"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -13.0
+offset_right = 78.0
+offset_bottom = 13.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 13
+text = "CONTACTS"
+flat = true
+
+[node name="History" type="Button" parent="Screens/Messenger/Panel/Stuffs"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 77.0
+offset_top = -13.0
+offset_right = 153.0
+offset_bottom = 13.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 13
+text = "HISTORY"
+flat = true
+
+[node name="Panel2" type="Panel" parent="Screens/Messenger"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 13.0
+offset_right = -545.0
+offset_bottom = 57.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ncfiw")
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Panel2"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -19.0
+offset_right = 42.0
+offset_bottom = 23.0
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Panel2/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -18.0
+offset_right = 15.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ocyj7")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Screens/Messenger/Panel2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -19.0
+offset_right = -3.0
+offset_bottom = 19.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Scott"
+vertical_alignment = 1
+
+[node name="Panel3" type="Panel" parent="Screens/Messenger"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 155.0
+offset_top = 13.0
+offset_bottom = 57.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cltws")
+
+[node name="Messages" type="Control" parent="Screens/Messenger"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -143.0
+offset_right = 347.0
+offset_bottom = 197.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Mom" type="Control" parent="Screens/Messenger/Messages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Messages" type="ScrollContainer" parent="Screens/Messenger/Messages/Mom"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MessagesContrainer" type="VBoxContainer" parent="Screens/Messenger/Messages/Mom/Messages"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sweetie how are you feeling?"
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_vlia7")
+expand_mode = 1
+
+[node name="Message2" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -16.0
+offset_right = -30.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "better!"
+label_settings = SubResource("LabelSettings_3ny0b")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message2/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message2"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message2/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ocyj7")
+expand_mode = 1
+
+[node name="Message3" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Great!"
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message3/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message3"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message3/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_vlia7")
+expand_mode = 1
+
+[node name="Message4" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Did you drink tea today?"
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message4/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message4"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message4/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_vlia7")
+expand_mode = 1
+
+[node name="Message5" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -16.0
+offset_right = -30.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Yeah 2 cups"
+label_settings = SubResource("LabelSettings_3ny0b")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message5/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message5"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message5/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ocyj7")
+expand_mode = 1
+
+[node name="Message6" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Well don't forget to drink one more until"
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message6/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message6"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message6/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_vlia7")
+expand_mode = 1
+
+[node name="Message7" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "I get home."
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message7/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message7"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message7/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_vlia7")
+expand_mode = 1
+
+[node name="Message8" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -16.0
+offset_right = -30.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "okie"
+label_settings = SubResource("LabelSettings_3ny0b")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message8/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message8"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message8/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ocyj7")
+expand_mode = 1
+
+[node name="Message9" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Are you back home yet?"
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message9/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message9"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message9/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_vlia7")
+expand_mode = 1
+
+[node name="Message10" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message10"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -16.0
+offset_right = -30.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "yeah"
+label_settings = SubResource("LabelSettings_3ny0b")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message10/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message10"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message10/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ocyj7")
+expand_mode = 1
+
+[node name="Message11" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message11"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "How was school, was Mason happy to see"
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message11/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message11"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message11/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_vlia7")
+expand_mode = 1
+
+[node name="Message12" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message12"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "you again?"
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message12/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message12"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message12/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_vlia7")
+expand_mode = 1
+
+[node name="Message13" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message13"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -16.0
+offset_right = -30.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Yeah Mason was really happy"
+label_settings = SubResource("LabelSettings_3ny0b")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message13/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message13"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message13/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ocyj7")
+expand_mode = 1
+
+[node name="Message14" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message14"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -16.0
+offset_right = -30.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "I missed out a lot so I'll need to catch up"
+label_settings = SubResource("LabelSettings_3ny0b")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message14/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message14"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message14/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ocyj7")
+expand_mode = 1
+
+[node name="Message15" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message15"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -16.0
+offset_right = -30.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "especially math"
+label_settings = SubResource("LabelSettings_3ny0b")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message15/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message15"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mom/Messages/MessagesContrainer/Message15/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ocyj7")
+expand_mode = 1
+
+[node name="Mason" type="Control" parent="Screens/Messenger/Messages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Messages" type="ScrollContainer" parent="Screens/Messenger/Messages/Mason"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MessagesContrainer" type="VBoxContainer" parent="Screens/Messenger/Messages/Mason/Messages"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message5" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "hey scott you there?"
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message5/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message5"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message5/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = -7.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_ajoi7")
+expand_mode = 1
+
+[node name="Message6" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Scott i'm waitin at the crossroads"
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message6/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message6"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message6/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = -7.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_ajoi7")
+expand_mode = 1
+
+[node name="Message8" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -16.0
+offset_right = -30.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "yeah sorry for not replying"
+label_settings = SubResource("LabelSettings_3ny0b")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message8/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message8"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message8/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ocyj7")
+expand_mode = 1
+
+[node name="Message9" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -16.0
+offset_right = -30.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "got pretty sick"
+label_settings = SubResource("LabelSettings_3ny0b")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message9/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message9"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message9/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ocyj7")
+expand_mode = 1
+
+[node name="Message12" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message12"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -16.0
+offset_right = -30.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "you'll have to walk alone till i get good"
+label_settings = SubResource("LabelSettings_3ny0b")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message12/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message12"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message12/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ocyj7")
+expand_mode = 1
+
+[node name="Message10" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message10"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -16.0
+offset_right = -30.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hey Mason"
+label_settings = SubResource("LabelSettings_3ny0b")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message10/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message10"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message10/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ocyj7")
+expand_mode = 1
+
+[node name="Message" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Yeah?"
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = -7.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_ajoi7")
+expand_mode = 1
+
+[node name="Message2" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -16.0
+offset_right = -30.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Guess who's not sick anymore!!"
+label_settings = SubResource("LabelSettings_3ny0b")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message2/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message2"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message2/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ocyj7")
+expand_mode = 1
+
+[node name="Message4" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Me"
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message4/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message4"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message4/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = -7.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_ajoi7")
+expand_mode = 1
+
+[node name="Message3" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -16.0
+offset_right = -30.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "no it's me actually you idiot"
+label_settings = SubResource("LabelSettings_3ny0b")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message3/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message3"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message3/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ocyj7")
+expand_mode = 1
+
+[node name="Message11" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message11"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "S-sarcasm"
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message11/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message11"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message11/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = -7.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_ajoi7")
+expand_mode = 1
+
+[node name="Message7" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -16.0
+offset_right = -30.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "whatever man i'll be seeing you tomorrow"
+label_settings = SubResource("LabelSettings_3ny0b")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message7/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message7"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message7/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ocyj7")
+expand_mode = 1
+
+[node name="Message13" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message13"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "gonna kick your ass"
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message13/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message13"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message13/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = -7.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_ajoi7")
+expand_mode = 1
+
+[node name="Message14" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message14"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -16.0
+offset_right = -30.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "t"
+label_settings = SubResource("LabelSettings_3ny0b")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message14/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message14"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message14/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ocyj7")
+expand_mode = 1
+
+[node name="Message15" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message15"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "t?"
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message15/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message15"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message15/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = -7.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_ajoi7")
+expand_mode = 1
+
+[node name="Message16" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message16"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -16.0
+offset_right = -30.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "t."
+label_settings = SubResource("LabelSettings_3ny0b")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message16/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message16"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Mason/Messages/MessagesContrainer/Message16/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ocyj7")
+expand_mode = 1
+
+[node name="Vlas" type="Control" parent="Screens/Messenger/Messages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Messages" type="ScrollContainer" parent="Screens/Messenger/Messages/Vlas"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MessagesContrainer" type="VBoxContainer" parent="Screens/Messenger/Messages/Vlas/Messages"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message5" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "hey scoot"
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message5/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message5"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message5/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = -7.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_v278p")
+expand_mode = 1
+
+[node name="Message6" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "scott"
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message6/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message6"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message6/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = -7.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_v278p")
+expand_mode = 1
+
+[node name="Message8" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -16.0
+offset_right = -30.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "need something?"
+label_settings = SubResource("LabelSettings_3ny0b")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message8/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message8"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message8/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ocyj7")
+expand_mode = 1
+
+[node name="Message7" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "no just checkin if you're still alive"
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message7/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message7"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message7/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = -7.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_v278p")
+expand_mode = 1
+
+[node name="Message9" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "looks like you are"
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message9/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message9"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message9/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = -7.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_v278p")
+expand_mode = 1
+
+[node name="Message10" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message10"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "or are you a secret government agent?"
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message10/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message10"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message10/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = -7.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_v278p")
+expand_mode = 1
+
+[node name="Message11" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message11"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -16.0
+offset_right = -30.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "are you crazy"
+label_settings = SubResource("LabelSettings_3ny0b")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message11/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message11"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message11/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ocyj7")
+expand_mode = 1
+
+[node name="Message12" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message12"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "are you?"
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message12/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message12"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message12/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = -7.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_v278p")
+expand_mode = 1
+
+[node name="Message13" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message13"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -16.0
+offset_right = -30.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "no"
+label_settings = SubResource("LabelSettings_3ny0b")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message13/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message13"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message13/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ocyj7")
+expand_mode = 1
+
+[node name="Message14" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message14"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ok whatever"
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message14/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message14"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message14/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = -7.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_v278p")
+expand_mode = 1
+
+[node name="Message15" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message15"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "get well man, hope to see you soon!"
+label_settings = SubResource("LabelSettings_3ny0b")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message15/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message15"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message15/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = -7.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_v278p")
+expand_mode = 1
+
+[node name="Message16" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("14_l3eya")
+
+[node name="Label" type="Label" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message16"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -16.0
+offset_right = -30.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "thanks"
+label_settings = SubResource("LabelSettings_3ny0b")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message16/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.831373, 0.870588, 0.184314)
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message16"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_l3eya")
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Messenger/Messages/Vlas/Messages/MessagesContrainer/Message16/TextureRect"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ocyj7")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Messenger/Messages"]
+material = SubResource("CanvasItemMaterial_rutk6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_8mahl")
+expand_mode = 1
+
+[node name="TopPart" type="Panel" parent="Screens/Messenger"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 14.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vkukq")
+
+[node name="Label" type="Label" parent="Screens/Messenger/TopPart"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -13.0
+offset_right = 161.0
+offset_bottom = 13.0
+grow_vertical = 2
+text = "FriendSpeak"
+label_settings = SubResource("LabelSettings_2gu7t")
+vertical_alignment = 1
+
+[node name="Close" type="Button" parent="Screens/Messenger/TopPart"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -12.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "X"
+flat = true
+
+[node name="Files" type="Panel" parent="Screens"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.0
+offset_top = -180.0
+offset_right = 493.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_imgr5")
+script = ExtResource("10_fs4rd")
+
+[node name="Panel" type="Panel" parent="Screens/Files"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -186.0
+offset_right = 113.0
+offset_bottom = 195.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vc028")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screens/Files/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 4.0
+offset_bottom = 385.0
+grow_horizontal = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label" type="Label" parent="Screens/Files/Panel/VBoxContainer"]
+modulate = Color(0.92549, 0.529412, 0.65098, 1)
+layout_mode = 2
+text = "-RECENT FILES-"
+label_settings = SubResource("LabelSettings_j2th3")
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Screens/Files/Panel/VBoxContainer"]
+layout_mode = 2
+text = "blastinwarrior.zip"
+label_settings = SubResource("LabelSettings_j2th3")
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Screens/Files/Panel/VBoxContainer"]
+layout_mode = 2
+text = "IMG_20132211.jpg"
+label_settings = SubResource("LabelSettings_j2th3")
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Screens/Files/Panel/VBoxContainer"]
+layout_mode = 2
+text = "school_thing.html"
+label_settings = SubResource("LabelSettings_j2th3")
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="Screens/Files/Panel/VBoxContainer"]
+layout_mode = 2
+text = "PLEASE_WORK.gd"
+label_settings = SubResource("LabelSettings_j2th3")
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="Screens/Files/Panel/VBoxContainer"]
+modulate = Color(0.92549, 0.529412, 0.65098, 1)
+layout_mode = 2
+text = "Downloads"
+label_settings = SubResource("LabelSettings_j2th3")
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="Screens/Files/Panel/VBoxContainer"]
+modulate = Color(0.92549, 0.529412, 0.65098, 1)
+layout_mode = 2
+text = "Documents"
+label_settings = SubResource("LabelSettings_j2th3")
+vertical_alignment = 1
+
+[node name="Label9" type="Label" parent="Screens/Files/Panel/VBoxContainer"]
+modulate = Color(0.92549, 0.529412, 0.65098, 1)
+layout_mode = 2
+text = "Images"
+label_settings = SubResource("LabelSettings_j2th3")
+vertical_alignment = 1
+
+[node name="Label10" type="Label" parent="Screens/Files/Panel/VBoxContainer"]
+modulate = Color(0.92549, 0.529412, 0.65098, 1)
+layout_mode = 2
+text = "Videos"
+label_settings = SubResource("LabelSettings_j2th3")
+vertical_alignment = 1
+
+[node name="Label11" type="Label" parent="Screens/Files/Panel/VBoxContainer"]
+modulate = Color(0.92549, 0.529412, 0.65098, 1)
+layout_mode = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_j2th3")
+vertical_alignment = 1
+
+[node name="Label12" type="Label" parent="Screens/Files/Panel/VBoxContainer"]
+modulate = Color(0.92549, 0.529412, 0.65098, 1)
+layout_mode = 2
+text = "Network"
+label_settings = SubResource("LabelSettings_j2th3")
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Files/Panel"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_right = -12.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VSeparator2" type="HSeparator" parent="Screens/Files"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 101.0
+offset_top = -61.0
+offset_right = -4.0
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screens/Files"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -249.0
+offset_top = 36.0
+offset_right = 347.0
+offset_bottom = 116.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Screens/Files/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 28
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("13_6p6fg")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("13_6p6fg")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("13_6p6fg")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("13_6p6fg")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("13_6p6fg")
+expand_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("13_6p6fg")
+expand_mode = 1
+
+[node name="TextureRect7" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("13_6p6fg")
+expand_mode = 1
+
+[node name="TextureRect8" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("13_6p6fg")
+expand_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Screens/Files/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 28
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("13_6p6fg")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("13_6p6fg")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("13_6p6fg")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("13_6p6fg")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Files"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -245.0
+offset_top = 11.0
+offset_right = 4.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.486275, 0.898039, 0.941176, 0.290196)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Screens/Files"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -244.0
+offset_top = -55.0
+offset_right = 43.0
+offset_bottom = 194.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Screens/Files/VBoxContainer2"]
+modulate = Color(0.92549, 0.529412, 0.65098, 1)
+layout_mode = 2
+text = "-RECENT FILES-"
+label_settings = SubResource("LabelSettings_j2th3")
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Screens/Files/VBoxContainer2"]
+layout_mode = 2
+text = "blastinwarrior.zip"
+label_settings = SubResource("LabelSettings_j2th3")
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Screens/Files/VBoxContainer2"]
+layout_mode = 2
+text = "IMG_20132211.jpg"
+label_settings = SubResource("LabelSettings_j2th3")
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Screens/Files/VBoxContainer2"]
+layout_mode = 2
+text = "school thing.html"
+label_settings = SubResource("LabelSettings_j2th3")
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="Screens/Files/VBoxContainer2"]
+layout_mode = 2
+text = "PLEASE_WORK.gd"
+label_settings = SubResource("LabelSettings_j2th3")
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="Screens/Files/VBoxContainer2"]
+layout_mode = 2
+text = "dancing_cat.gif"
+label_settings = SubResource("LabelSettings_j2th3")
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="Screens/Files/VBoxContainer2"]
+layout_mode = 2
+text = "sound556.mp3"
+label_settings = SubResource("LabelSettings_j2th3")
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="Screens/Files/VBoxContainer2"]
+layout_mode = 2
+text = "sound555.mp3"
+label_settings = SubResource("LabelSettings_j2th3")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Files"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -38.0
+offset_right = 162.0
+offset_bottom = 102.0
+grow_horizontal = 0
+grow_vertical = 2
+rotation = 1.5708
+texture = ExtResource("21_2cjt8")
+expand_mode = 1
+
+[node name="TopPart" type="Panel" parent="Screens/Files"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 14.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vkukq")
+
+[node name="Label" type="Label" parent="Screens/Files/TopPart"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -13.0
+offset_right = 161.0
+offset_bottom = 13.0
+grow_vertical = 2
+text = "Files"
+label_settings = SubResource("LabelSettings_2gu7t")
+vertical_alignment = 1
+
+[node name="Close" type="Button" parent="Screens/Files/TopPart"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -12.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "X"
+flat = true
+
+[node name="Blastin" type="Panel" parent="Screens"]
+visible = false
+clip_children = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -200.0
+offset_right = 350.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_imgr5")
+script = ExtResource("10_fs4rd")
+
+[node name="Cover" type="TextureRect" parent="Screens/Blastin"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 400.0
+texture = ExtResource("22_m36c7")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Screens/Blastin"]
+texture_filter = 1
+position = Vector2(340, 21)
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_hv1he")
+texture = ExtResource("23_d3cjy")
+lifetime = 3.0
+
+[node name="Border" type="ColorRect" parent="Screens/Blastin"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 2.0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.356863, 0.509804, 0.905882, 0.478431)
+
+[node name="Border2" type="ColorRect" parent="Screens/Blastin"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -2.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0.356863, 0.509804, 0.905882, 0.478431)
+
+[node name="Border3" type="ColorRect" parent="Screens/Blastin"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.356863, 0.509804, 0.905882, 0.478431)
+
+[node name="Border4" type="ColorRect" parent="Screens/Blastin"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 2.0
+offset_right = -2.0
+offset_bottom = 16.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0.356863, 0.509804, 0.905882, 0.478431)
+
+[node name="TopPart" type="Panel" parent="Screens/Blastin"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 14.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vkukq")
+
+[node name="Label" type="Label" parent="Screens/Blastin/TopPart"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -13.0
+offset_right = 161.0
+offset_bottom = 13.0
+grow_vertical = 2
+text = "Blastin Warrior Launcher"
+label_settings = SubResource("LabelSettings_2gu7t")
+vertical_alignment = 1
+
+[node name="Close" type="Button" parent="Screens/Blastin/TopPart"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -12.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "X"
+flat = true
+
+[node name="Button" type="Button" parent="Screens/Blastin"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = 69.5
+offset_right = -14.0
+offset_bottom = 120.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("25_fof8x")
+theme_override_font_sizes/font_size = 28
+text = "PLAY"
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Blastin"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -173.0
+offset_right = 276.0
+offset_bottom = 103.0
+grow_vertical = 0
+texture = ExtResource("24_kwvgo")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Screens/Blastin"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -285.0
+offset_top = -69.0
+offset_right = -13.0
+offset_bottom = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "By pressing \"PLAY\" you agree to Corsac Team's Terms Of Service
+"
+label_settings = SubResource("LabelSettings_8s70s")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="THIS HAS TO BE ON TOP OF EVERYTHING" type="ColorRect" parent="."]
+z_index = 3
+material = SubResource("ShaderMaterial_7s3dl")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_jr7hq")
+volume_db = -10.0
+
+[node name="ComputerSounds" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-387, 295)
+stream = ExtResource("28_etrkg")
+volume_db = -7.0
+autoplay = true
+
+[node name="VoiceLines" type="Node" parent="."]
+
+[node name="blastin" type="AudioStreamPlayer" parent="VoiceLines"]
+stream = ExtResource("29_go0or")
+volume_db = 1.0
+
+[node name="internet" type="AudioStreamPlayer" parent="VoiceLines"]
+stream = ExtResource("30_lp82w")
+volume_db = 1.0
+
+[node name="intro" type="AudioStreamPlayer" parent="VoiceLines"]
+stream = ExtResource("31_u3kds")
+volume_db = 1.0
+
+[node name="painto" type="AudioStreamPlayer" parent="VoiceLines"]
+stream = ExtResource("32_jb8qb")
+volume_db = 1.0
+
+[node name="messages" type="AudioStreamPlayer" parent="VoiceLines"]
+stream = ExtResource("33_8ll0v")
+volume_db = 1.0
+
+[node name="files" type="AudioStreamPlayer" parent="VoiceLines"]
+stream = ExtResource("34_7e272")
+volume_db = 1.0
+
+[node name="BlacKScreen" type="ColorRect" parent="."]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationTree" type="AnimationPlayer" parent="."]
+autoplay = "Intro"
+libraries = {
+"": SubResource("AnimationLibrary_f3gcw")
+}
+
+[connection signal="pressed" from="Screens/Messenger/Panel/Stuffs/Contacts" to="Screens/Messenger" method="_on_contacts_pressed"]
+[connection signal="pressed" from="Screens/Messenger/Panel/Stuffs/History" to="Screens/Messenger" method="_on_history_pressed"]

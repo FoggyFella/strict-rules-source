@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bribw2m5iopc0"
+path="res://.godot/imported/blood mine.mp3-8712723b2f722710248a13d3b046d0ec.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/blood mine.mp3"
+dest_files=["res://.godot/imported/blood mine.mp3-8712723b2f722710248a13d3b046d0ec.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

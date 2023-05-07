@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://jsnks7w20pvk"]
+
+[ext_resource type="FontFile" uid="uid://drvdhc3yawmlj" path="res://Assets/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf" id="1_quqdi"]
+
+[sub_resource type="GDScript" id="GDScript_xgwk8"]
+resource_name = "TextMessage"
+script/source = "extends Label
+
+func _on_timer_timeout():
+	var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self,\"modulate\",Color(modulate.r,modulate.g,modulate.b,0.0),2)
+	await tween.finished
+	queue_free()
+"
+
+[node name="ChatMessage" type="Label"]
+texture_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("1_quqdi")
+theme_override_font_sizes/font_size = 31
+text = "HEY HEY HEY"
+script = SubResource("GDScript_xgwk8")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
