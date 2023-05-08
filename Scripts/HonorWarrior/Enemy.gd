@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 var bullet = preload("res://Scenes/HonorWarrior/EnemyBullet.tscn")
+var blood = preload("res://Scenes/HonorWarrior/EnemyBlood.tscn")
 
 @export var health: int = 100
 @export var damage: int = 10
@@ -49,10 +50,11 @@ func _physics_process(delta):
 				collider.take_damage(damage)
 				$AttackTimeout.start()
 
-func take_damage(amount):
+func take_damage(amount,hit_point=self.global_positon):
 	if player == null:
 		return
 	health -= amount
+	instance_blood(hit_point)
 	$damaged.pitch_scale = randf_range(0.7,0.9)
 	$damaged.play()
 	if health <= 0:
@@ -93,3 +95,10 @@ func _on_reload_timeout():
 		return
 	shoot()
 	$Reload.start(randf_range(3,5))
+
+func instance_blood(hit_point):
+	var blood_inst = blood.instantiate()
+	add_child(blood_inst)
+	blood_inst.global_position = hit_point
+	blood_inst.look_at(Global.player.global_position)
+	blood_inst.emitting = true

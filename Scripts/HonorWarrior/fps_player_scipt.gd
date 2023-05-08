@@ -8,7 +8,6 @@ var max_health = 100
 var damage = 100
 var gravity = 20.0
 var gun_rest_pos = Vector2(252,-255)
-var _old_mouse = Vector2.ZERO
 
 @export var eyes_texture:Texture
 @export var level:String = "Snowlands"
@@ -29,11 +28,9 @@ var _old_mouse = Vector2.ZERO
 @onready var animation_player = $AnimationPlayer
 @onready var eyes = $HUD/GunAnchor/Outline/Eyes
 @onready var animation_tree = $AnimationTree
-@onready var ray_cast_3d = $Head/RayCast3D
+@onready var bullet_ray = $Head/BulletRay
 @onready var head := $Head
 @onready var camera = $Head/Camera3d
-@onready var head_2 = $SubViewportContainer/SubViewport/Head2
-@onready var camera_2 = $SubViewportContainer/SubViewport/Head2/Camera3d
 
 func _ready():
 	if Global.player_checkpoint_pos == Vector3.ZERO:
@@ -42,18 +39,15 @@ func _ready():
 	else:
 		self.global_position = Global.player_checkpoint_pos
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	head_2.global_position = head.global_position
-	head_2.rotation = head.rotation
 	Global.player = self
 	$HUD/Control/Panel/Stuff/Health/ProgressBar.max_value = max_health
 	$HUD/Control/Panel/Stuff/Health/ProgressBar.value = health
 	$HUD/Control/Panel/Stuff/Level/Label2.text = level
 	$HUD/Control/Panel/Task/Label2.text = task
 	eyes.texture = eyes_texture
-	await get_tree().create_timer(0.1).timeout
-	$Tv.queue_free()
 	health = starting_health
 	update_health()
+	$MeshInstance3d.hide()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("show_mouse"):
@@ -65,7 +59,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event is InputEventMouseMotion:
 			if can_rotate:
 				head.rotate_y(-event.relative.x * sensetivity)
-				head_2.rotate_y(-event.relative.x * sensetivity)
 			if event.relative.x < 0:
 				eyes.frame = 2
 			else:
@@ -73,15 +66,12 @@ func _unhandled_input(event: InputEvent) -> void:
 			$Timer.start()
 	
 func _physics_process(delta):
-	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-	head_2.global_position = head.global_position
-	head_2.rotation = head.global_rotation
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back") if can_move else Vector2.ZERO
-	var direction = (head_2.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
 	if direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
@@ -92,30 +82,32 @@ func _physics_process(delta):
 		gun_sprite.position = gun_rest_pos
 		animation_tree.set("parameters/Blend2/blend_amount",1.0)
 	move_and_slide()
+	
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
+	
 	var collider = $Head/LookingRay.get_collider()
 	if $Head/LookingRay.is_colliding():
 		collider.on_entered(self)
 
 func shoot():
 	if !animation_player.is_playing() and can_shoot:
-		camera_2.add_trauma(0.45)
+		camera.add_trauma(0.45)
 		animation_player.play("shoot")
 		get_node("SFX/"+gun_sound).pitch_scale = randf_range(0.9,1.1)
 		get_node("SFX/"+gun_sound).play()
-		var collission = ray_cast_3d.get_collider()
-		if ray_cast_3d.is_colliding():
+		var collission = bullet_ray.get_collider()
+		if bullet_ray.is_colliding():
 			if collission.has_method("take_damage"):
-				collission.take_damage(damage)
+				collission.take_damage(damage,bullet_ray.get_collision_point())
 			else:
-				instance_bullet_hole(ray_cast_3d.get_collision_point(),ray_cast_3d.get_collision_normal())
+				instance_bullet_hole(bullet_ray.get_collision_point(),bullet_ray.get_collision_normal())
 
 func take_damage(amount):
 	print("ouchie")
 	health -= amount
 	instance_blood()
-	camera_2.add_trauma(0.7)
+	camera.add_trauma(0.7)
 	update_health()
 	$SFX/damage.pitch_scale = randf_range(0.75,0.9)
 	$SFX/damage.play()
@@ -130,6 +122,13 @@ func instance_blood(until_gone = 7):
 	var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 	tween.tween_interval(2)
 	tween.tween_property(blood_texture,"modulate",Color(1,1,1,0),1)
+
+func instance_bullet_hole(the_position,normal):
+	var bul_inst = bullet_decal.instantiate()
+	get_tree().current_scene.add_child(bul_inst)
+	bul_inst.global_transform.origin = the_position
+	bul_inst.look_at(the_position + normal,Vector3.UP)
+	bul_inst.global_rotation.z = randf_range(-6.28319,6.28319)
 
 func play_step_sound():
 	if is_on_floor():
@@ -152,7 +151,6 @@ func update_health():
 
 func rotate_camera_to_default():
 	head.rotation = Vector3.ZERO
-	head_2.rotation = Vector3.ZERO
 
 func disable_movement():
 	can_rotate = !can_rotate
@@ -197,10 +195,4 @@ func hide_ui():
 		$HUD/GunAnchor.show()
 
 func cause_shake(amount):
-	camera_2.add_trauma(amount)
-
-func instance_bullet_hole(the_position,normal):
-	var bul_inst = bullet_decal.instantiate()
-	get_tree().current_scene.add_child(bul_inst)
-	bul_inst.global_transform.origin = the_position
-	bul_inst.look_at(the_position + normal,Vector3.UP)
+	camera.add_trauma(amount)

@@ -1,5 +1,6 @@
 shader_type spatial;
 render_mode unshaded;
+render_mode cull_disabled;
 
 uniform int pixel_size = 4; //resolution must be divisible by pixel_size
 uniform sampler2D SCREEN_TEXTURE:hint_screen_texture;

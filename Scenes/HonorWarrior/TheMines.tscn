@@ -697,17 +697,17 @@ foot_steps = "MineStep"
 
 [node name="Enemy3" parent="EnemyRooms/Room4" instance=ExtResource("3_2h46b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147.576, 1.10249, -91.2139)
-health = 200
+health = 300
 foot_steps = "MineStep"
 
 [node name="Enemy4" parent="EnemyRooms/Room4" instance=ExtResource("3_2h46b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 163.39, 1.10249, -89.7609)
-health = 200
+health = 300
 foot_steps = "MineStep"
 
 [node name="Enemy5" parent="EnemyRooms/Room4" instance=ExtResource("3_2h46b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 167.55, 1.10249, -89.7609)
-health = 200
+health = 300
 foot_steps = "MineStep"
 
 [node name="Room5" type="Node3D" parent="EnemyRooms"]
@@ -938,6 +938,7 @@ transform = Transform3D(-3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, 92.193
 
 [node name="Sprite3D" type="Sprite3D" parent="Props"]
 transform = Transform3D(1.11844, 0, -0.501802, 0, 1.22585, 0, 0.501802, 0, 1.11844, 4.2797, 1.38858, -41.0226)
+sorting_offset = 0.3
 texture_filter = 0
 texture = ExtResource("5_q1ayj")
 hframes = 5

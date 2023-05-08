@@ -2,6 +2,7 @@ extends Node3D
 
 var chat_message = preload("res://Scenes/HonorWarrior/ChatMessage.tscn")
 var screen_message = preload("res://Scenes/HonorWarrior/ScreenMessage.tscn")
+var pixel_effect = preload("res://Scenes/HonorWarrior/PixelEffect.tscn")
 
 @export var level_name: String = "SnowLands"
 @onready var enemy_rooms = $EnemyRooms
@@ -26,8 +27,8 @@ func _ready():
 			$Video/Panel.scale = Vector2(1,1)
 			$Video/Panel/Camera1.play()
 			$Video/Panel/Camera1/Timer.start()
-
 	load_doors()
+	create_camera_pixelization(Global.player.camera)
 
 func on_room_entered(room):
 	var the_room = enemy_rooms.get_node("Room"+str(room))
@@ -126,3 +127,11 @@ func saw_camera():
 
 func _on_timer_timeout():
 	$Video/Panel/Camera1.play()
+
+func create_camera_pixelization(camera_to_affect):
+	if typeof(camera_to_affect) == TYPE_NODE_PATH:
+		camera_to_affect = get_node(camera_to_affect)
+	var effect_inst = pixel_effect.instantiate()
+	camera_to_affect.add_child(effect_inst)
+	effect_inst.position = Vector3(0,0,-0.1)
+	#effect_inst.global_rotation = camera_to_affect.global_rotation
