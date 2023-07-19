@@ -25,7 +25,7 @@ func _process(delta):
 	camera.rotation_degrees.z = initial_rotation.z + max_z * get_shake_intensity() * get_noise_from_seed(2)
 
 func add_trauma(trauma_amount : float):
-	trauma = clamp(trauma + trauma_amount, 0.0, 10.0)
+	trauma = clamp(trauma + trauma_amount, 0.0, 1.5)
 
 func get_shake_intensity() -> float:
 	return trauma * trauma

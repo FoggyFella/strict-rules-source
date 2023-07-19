@@ -1,0 +1,484 @@
+[gd_scene load_steps=40 format=3 uid="uid://cqw0j6cf78jlk"]
+
+[ext_resource type="Script" path="res://Scripts/EyeBoss.gd" id="1_cwbi7"]
+[ext_resource type="Texture2D" uid="uid://cqm7gy1ls32pc" path="res://Assets/HonorWarrior/Enemies/eye-1.png" id="1_v58ct"]
+[ext_resource type="Texture2D" uid="uid://vdapmtjiwguw" path="res://Assets/HonorWarrior/Enemies/eye-2.png" id="2_45lya"]
+[ext_resource type="Texture2D" uid="uid://3rxutvd06ukv" path="res://Assets/HonorWarrior/Enemies/eye-3.png" id="4_4kcqh"]
+[ext_resource type="Texture2D" uid="uid://c8upqneh8e7s7" path="res://Assets/HonorWarrior/Enemies/eye-closed.png" id="5_idlnx"]
+[ext_resource type="Texture2D" uid="uid://je7jda3wkshs" path="res://Assets/HonorWarrior/Enemies/eye-blood-2.png" id="5_puhuy"]
+[ext_resource type="Texture2D" uid="uid://bgud54usduws5" path="res://Assets/HonorWarrior/Enemies/eye-blood-3.png" id="6_yiuhl"]
+[ext_resource type="Texture2D" uid="uid://bh67hec2v5fa3" path="res://Assets/HonorWarrior/Enemies/eye-blood.png" id="7_w2ju1"]
+[ext_resource type="Texture2D" uid="uid://dtnxsw140nuaa" path="res://Assets/HonorWarrior/Enemies/eye thing 1.png" id="8_qvhkx"]
+[ext_resource type="Texture2D" uid="uid://b42i2e5h84xw2" path="res://Assets/HonorWarrior/Enemies/eye thing 2.png" id="9_xam5o"]
+[ext_resource type="Texture2D" uid="uid://c7y6fpjoiegsv" path="res://Assets/HonorWarrior/Enemies/eye thing 3.png" id="10_j756f"]
+[ext_resource type="AudioStream" uid="uid://bxrpreq2lypyw" path="res://Assets/SFX/boss-fire.ogg" id="11_tsjbe"]
+[ext_resource type="AudioStream" uid="uid://bpak1gnb3m8cs" path="res://Assets/SFX/boss-sounds.ogg" id="12_yjdct"]
+[ext_resource type="AudioStream" uid="uid://cxjq3af64c6ip" path="res://Assets/SFX/boss-scream.ogg" id="14_le4gb"]
+[ext_resource type="AudioStream" uid="uid://cukmpbrexxb42" path="res://Assets/SFX/boss_expolsion.ogg" id="15_p4kwg"]
+[ext_resource type="Texture2D" uid="uid://c2wqimanst0cs" path="res://Assets/HonorWarrior/boss-thingy.png" id="16_oro3b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rlku"]
+atlas = ExtResource("1_v58ct")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rm01c"]
+atlas = ExtResource("2_45lya")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjb8i"]
+atlas = ExtResource("4_4kcqh")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0r7xk"]
+atlas = ExtResource("5_idlnx")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nde2b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rlku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rm01c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjb8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0r7xk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk2kt"]
+atlas = ExtResource("5_puhuy")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fgd2"]
+atlas = ExtResource("6_yiuhl")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otf3y"]
+atlas = ExtResource("7_w2ju1")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_22ty8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sk2kt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fgd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otf3y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_mj34l"]
+resource_name = "Float"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Front:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.2, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ymoxj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Front:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Front/Thing:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Front/Thing2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Front/Thing3:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Front/Thing4:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Front/Thing5:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Front/Thing6:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ybs66"]
+resource_name = "thingies move"
+length = 4.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Front/Thing:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.95),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(-1.45946e-08, 1.5708, 0.111527), Vector3(9.70673e-09, 1.5708, -0.0739531)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Front/Thing2:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.45, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(1.24821e-08, 1.5708, -0.0953299), Vector3(-1.15156e-08, 1.5708, 0.0878405)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Front/Thing3:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.55, 3.05),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(7.42065e-09, 1.5708, -0.0566185), Vector3(-9.20884e-09, 1.5708, 0.070257)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Front/Thing4:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.45, 2.95),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(4.39124e-09, 1.5708, -0.0334929), Vector3(1.74665e-08, 1.5708, -0.133588)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Front/Thing5:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(2.21556e-08, 1.5708, -0.169768), Vector3(2.03598e-08, 1.5708, -0.155974)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Front/Thing6:rotation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.55, 2.95),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(-1.88847e-08, 1.5708, 0.144513), Vector3(3.1054e-09, 1.5708, -0.0226038)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yakb8"]
+_data = {
+"Float": SubResource("Animation_mj34l"),
+"RESET": SubResource("Animation_ymoxj"),
+"thingies move": SubResource("Animation_ybs66")
+}
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_jlms1"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v1uft"]
+animation = &"thingies move"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ywe88"]
+animation = &"Float"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_sbobe"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_x23jo"]
+nodes/Add2/node = SubResource("AnimationNodeAdd2_jlms1")
+nodes/Add2/position = Vector2(82.187, 127.572)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_ywe88")
+nodes/Animation/position = Vector2(-160, 120)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_v1uft")
+"nodes/Animation 2/position" = Vector2(-360, 280)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_sbobe")
+nodes/TimeScale/position = Vector2(-120, 240)
+node_connections = [&"output", 0, &"Add2", &"Add2", 0, &"Animation", &"Add2", 1, &"TimeScale", &"TimeScale", 0, &"Animation 2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ho5kk"]
+radius = 1.654
+height = 6.62785
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a8pqj"]
+particle_flag_align_y = true
+direction = Vector3(0, 0.1, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 10.0
+linear_accel_max = 1.0
+angle_min = -720.0
+angle_max = 720.0
+scale_min = 0.1
+scale_max = 1.1
+color = Color(1, 0.0470588, 0.313726, 1)
+hue_variation_max = 0.1
+
+[sub_resource type="Curve" id="Curve_yvrh4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ubos"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.807843, 0.321569, 0.192157, 1)
+use_particle_trails = true
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_a72kc"]
+material = SubResource("StandardMaterial3D_6ubos")
+radius = 0.1
+curve = SubResource("Curve_yvrh4")
+
+[node name="EyeBoss" type="CharacterBody3D"]
+transform = Transform3D(-1, 4.162e-08, -1.45147e-07, 0, 0.961262, 0.275637, 1.50996e-07, 0.275637, -0.961262, 0, 0, 0)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_cwbi7")
+
+[node name="Front" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, -9.74933e-08, -1.02489e-07, -8.3144e-08, -0.991287, 0.13172, -1.14438e-07, -0.13172, -0.991287, 0, 0, 0)
+cast_shadow = 0
+modulate = Color(0.619608, 0.6, 0.592157, 1)
+double_sided = false
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_nde2b")
+
+[node name="Back" type="Sprite3D" parent="Front"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.00759624, 0, -0.104122)
+cast_shadow = 0
+modulate = Color(0, 0, 0, 1)
+double_sided = false
+texture_filter = 1
+texture = ExtResource("1_v58ct")
+
+[node name="Blood" type="AnimatedSprite3D" parent="Front"]
+transform = Transform3D(2.63285, 0, 0, 0, 2.93832, 0, 0, 0, 2.63285, -0.00759626, 0, 0.0016321)
+visible = false
+sorting_offset = 0.1
+cast_shadow = 0
+modulate = Color(0.780392, 0.780392, 0.780392, 1)
+double_sided = false
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_22ty8")
+
+[node name="Thing" type="Sprite3D" parent="Front"]
+transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 0.417289, -0.127307, 0.071868)
+sorting_offset = -0.1
+offset = Vector2(200, 0)
+modulate = Color(0.490196, 0.490196, 0.490196, 1)
+texture_filter = 1
+texture = ExtResource("8_qvhkx")
+
+[node name="Thing2" type="Sprite3D" parent="Front"]
+transform = Transform3D(-3.5551e-06, 0, 1, 0, 0.732583, 0, -0.982074, 0, -3.61999e-06, 0.057432, -0.00724615, 0.123738)
+sorting_offset = -0.1
+offset = Vector2(200, 0)
+modulate = Color(0.490196, 0.490196, 0.490196, 1)
+texture_filter = 1
+texture = ExtResource("9_xam5o")
+
+[node name="Thing3" type="Sprite3D" parent="Front"]
+transform = Transform3D(-3.17738e-06, 0, 1.20476, 0, 1.00644, 0, -0.877732, 0, -4.36122e-06, 0.057432, -0.372206, 0.123738)
+sorting_offset = -0.1
+offset = Vector2(200, 0)
+modulate = Color(0.466667, 0.466667, 0.466667, 1)
+texture_filter = 1
+texture = ExtResource("10_j756f")
+
+[node name="Thing4" type="Sprite3D" parent="Front"]
+transform = Transform3D(-3.59622e-06, 0, 1, 0, 1.00419, 0, -0.993433, 0, -3.61999e-06, -0.2107, 0.0862468, 0.123738)
+sorting_offset = -0.1
+offset = Vector2(200, 0)
+modulate = Color(0.584314, 0.584314, 0.584314, 1)
+texture_filter = 1
+texture = ExtResource("8_qvhkx")
+
+[node name="Thing5" type="Sprite3D" parent="Front"]
+transform = Transform3D(-3.28754e-06, 0, 1, 0, 1.02594, 0, -0.908164, 0, -3.61999e-06, 0.307001, 0.274713, 0.186107)
+sorting_offset = -0.1
+offset = Vector2(200, 0)
+modulate = Color(0.384314, 0.384314, 0.384314, 1)
+texture_filter = 1
+texture = ExtResource("9_xam5o")
+
+[node name="Thing6" type="Sprite3D" parent="Front"]
+transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 0.182247, 0.0540243, 0.123738)
+sorting_offset = -0.1
+offset = Vector2(200, 0)
+modulate = Color(0.490196, 0.490196, 0.490196, 1)
+texture_filter = 1
+texture = ExtResource("10_j756f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yakb8")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_x23jo")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/Add2/add_amount = 1.0
+parameters/TimeScale/scale = 0.5
+
+[node name="Light" type="OmniLight3D" parent="."]
+light_color = Color(0.756863, 0, 0.27451, 1)
+light_energy = 1.285
+omni_range = 3.33697
+omni_attenuation = 0.258816
+
+[node name="fired" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("11_tsjbe")
+bus = &"SoundReverb2"
+
+[node name="sounds" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("12_yjdct")
+unit_size = 4.0
+pitch_scale = 0.8
+autoplay = true
+bus = &"SoundReverb1"
+
+[node name="death" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, -8.17124e-14, -2.70006e-13, 3.55271e-15, 1, 0, 0, 0, 1, 0, 0, 0)
+stream = ExtResource("14_le4gb")
+volume_db = 1.0
+unit_size = 20.0
+bus = &"NormalSound"
+
+[node name="explosion" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, -8.17124e-14, -2.70006e-13, 3.55271e-15, 1, 0, 0, 0, 1, 0, 0, 0)
+stream = ExtResource("15_p4kwg")
+volume_db = 10.0
+unit_size = 20.0
+max_db = -5.0
+bus = &"NormalSound"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 5.32907e-15, 1, 0, 0, 0, 1, -2.14624e-14, -0.493271, -0.141443)
+shape = SubResource("CapsuleShape3D_ho5kk")
+
+[node name="HurtTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BeforeAttacks" type="Timer" parent="."]
+one_shot = true
+
+[node name="DeathParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 7.10543e-15, 1, 0, 0, 0, 1, 8.88178e-16, 0.0556945, 0)
+cast_shadow = 0
+emitting = false
+amount = 50
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+visibility_aabb = AABB(-1.56513, -1.71766, -1.8654, 3.13027, 3.43532, 3.7308)
+trail_enabled = true
+trail_lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_a8pqj")
+draw_pass_1 = SubResource("TubeTrailMesh_a72kc")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(5.61447, 4.26326e-14, 5.68434e-13, 2.98428e-13, 5.61447, -1.54972e-06, -8.52651e-13, 1.54972e-06, 5.61447, 0, 0, 0)
+visible = false
+billboard = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("16_oro3b")
+
+[connection signal="timeout" from="HurtTimer" to="." method="_on_hurt_timer_timeout"]
+[connection signal="timeout" from="BeforeAttacks" to="." method="_on_before_attacks_timeout"]

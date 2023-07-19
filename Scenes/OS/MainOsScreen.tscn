@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://kgtm8h62bun1"]
+[gd_scene load_steps=110 format=3 uid="uid://kgtm8h62bun1"]
 
 [ext_resource type="Script" path="res://Scripts/OS/MainOsScreen.gd" id="1_ai8gq"]
 [ext_resource type="Texture2D" uid="uid://dixp4bbj8lfh5" path="res://Assets/OS/Default-bg.png" id="1_x3yug"]
@@ -13,20 +13,33 @@
 [ext_resource type="Shader" path="res://Assets/Shaders/node_3d2.gdshader" id="8_chohg"]
 [ext_resource type="Texture2D" uid="uid://dbr0kvj1k3vnc" path="res://Assets/OS/blastin.png" id="9_g0fyk"]
 [ext_resource type="Script" path="res://Scripts/OS/A_screen.gd" id="10_fs4rd"]
+[ext_resource type="Texture2D" uid="uid://clq52rbkf56rt" path="res://Assets/OS/vineel icon.png" id="11_a54vo"]
 [ext_resource type="Texture2D" uid="uid://cuoo6ilxk1u1k" path="res://Assets/OS/lupa.png" id="11_ohamk"]
 [ext_resource type="Script" path="res://Scripts/OS/Messenger.gd" id="12_foebg"]
 [ext_resource type="Texture2D" uid="uid://b5cjiah2awq18" path="res://Assets/OS/folder.png" id="13_6p6fg"]
+[ext_resource type="Script" path="res://Scripts/OS/ActualPaintStuff.gd" id="13_sm51n"]
 [ext_resource type="Texture2D" uid="uid://bxjq5311u6a6m" path="res://Assets/HonorWarrior/FaceStuff/The Face.png" id="14_l3eya"]
+[ext_resource type="Script" path="res://Scripts/OS/ColorButton.gd" id="14_ndo62"]
 [ext_resource type="Texture2D" uid="uid://bu3imqbxf4mjd" path="res://Assets/OS/contacts/mom.jpg" id="14_vlia7"]
+[ext_resource type="Texture2D" uid="uid://cfpwv6j81iwkr" path="res://Assets/OS/circle brush.png" id="15_q2r2a"]
 [ext_resource type="Script" path="res://Scripts/OS/MessengerContact.gd" id="15_vi5e4"]
+[ext_resource type="Script" path="res://Scripts/OS/ToolButton.gd" id="16_5ckqx"]
 [ext_resource type="Texture2D" uid="uid://gpnoptt8voiu" path="res://Assets/OS/contacts/mason.jpg" id="16_ajoi7"]
+[ext_resource type="Texture2D" uid="uid://q60dls6vvrbu" path="res://Assets/OS/cube brush.png" id="16_d6ld2"]
+[ext_resource type="PackedScene" path="res://Scenes/OS/Painto shit/SphereLine.tscn" id="17_0ean1"]
 [ext_resource type="AudioStream" uid="uid://lgiy7we8t6yn" path="res://Assets/SFX/mouse_click.ogg" id="17_jr7hq"]
+[ext_resource type="Texture2D" uid="uid://bem7q4sm2owbd" path="res://Assets/OS/pen brush.png" id="17_uf5ak"]
 [ext_resource type="Texture2D" uid="uid://cvg0nkjcaig4u" path="res://Assets/OS/contacts/Vlas.jpg" id="17_v278p"]
 [ext_resource type="Texture2D" uid="uid://d11b2poe5gada" path="res://Assets/OS/contacts/Me.jpg" id="18_ocyj7"]
-[ext_resource type="Texture2D" uid="uid://qh1k8imsjujd" path="res://Assets/OS/IMG_20132211.jpg" id="21_2cjt8"]
+[ext_resource type="PackedScene" path="res://Scenes/OS/Painto shit/CubeLine.tscn" id="19_xo6r0"]
+[ext_resource type="PackedScene" uid="uid://cqvmcswyqybl4" path="res://Scenes/OS/Painto shit/LineTemplate.tscn" id="21_8qhwk"]
+[ext_resource type="Texture2D" uid="uid://etguhvagady7" path="res://Assets/OS/the past.jpg" id="22_8bmdm"]
 [ext_resource type="Texture2D" uid="uid://dg2u0kfhrn2kc" path="res://Assets/OS/fucking art thing.png" id="22_m36c7"]
 [ext_resource type="Texture2D" uid="uid://pd2ysc1i0mo7" path="res://Assets/OS/sniw.png" id="23_d3cjy"]
+[ext_resource type="Texture2D" uid="uid://c6mnii6gpeawu" path="res://Assets/OS/vineel vinyl.png" id="24_dqytw"]
 [ext_resource type="Texture2D" uid="uid://d1ymdco3e3fpa" path="res://Assets/HonorWarrior/NOW THIS IS A LOGO.png" id="24_kwvgo"]
+[ext_resource type="Script" path="res://Scripts/OS/Vineel.gd" id="24_mgr6d"]
+[ext_resource type="AudioStream" uid="uid://blete2mt3b1pp" path="res://Assets/SFX/VoiceLines/Player/OS/music/Sneaky Snitch.ogg" id="25_5naf7"]
 [ext_resource type="FontFile" uid="uid://drvdhc3yawmlj" path="res://Assets/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf" id="25_fof8x"]
 [ext_resource type="AudioStream" uid="uid://cdk3mmwa0d0j2" path="res://Assets/SFX/VoiceLines/Player/OS/computer sounds.ogg" id="28_etrkg"]
 [ext_resource type="AudioStream" uid="uid://c06ct77xre8w3" path="res://Assets/SFX/VoiceLines/Player/OS/blastin.ogg" id="29_go0or"]
@@ -35,6 +48,8 @@
 [ext_resource type="AudioStream" uid="uid://d6mmdcnmmxsb" path="res://Assets/SFX/VoiceLines/Player/OS/painto.ogg" id="32_jb8qb"]
 [ext_resource type="AudioStream" uid="uid://c3tbqwxidppfl" path="res://Assets/SFX/VoiceLines/Player/OS/friendspeak.ogg" id="33_8ll0v"]
 [ext_resource type="AudioStream" uid="uid://cgdiwb3rt4pju" path="res://Assets/SFX/VoiceLines/Player/OS/files.ogg" id="34_7e272"]
+[ext_resource type="Texture2D" uid="uid://x06no8tk6oys" path="res://Assets/OS/text file.png" id="49_2t7no"]
+[ext_resource type="Texture2D" uid="uid://iipfh6itck8g" path="res://Assets/Corsac Logo.png" id="49_6ee0j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4lwfq"]
 bg_color = Color(0.243137, 0.564706, 0.317647, 1)
@@ -118,13 +133,26 @@ shadow_offset = Vector2(0.2, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_2gu7t"]
 font_size = 10
 
-[sub_resource type="LabelSettings" id="LabelSettings_o7drw"]
-font_size = 37
-font_color = Color(0.862745, 0.054902, 0.415686, 1)
-outline_size = 10
-outline_color = Color(0.403922, 0.0745098, 0.227451, 1)
-shadow_color = Color(0, 0, 0, 0.298039)
-shadow_offset = Vector2(1, 5)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdtd4"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_co33t"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vcjan"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bf3hv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uf11a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvefb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxy2s"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2exrw"]
 blend_mode = 3
@@ -155,6 +183,56 @@ shadow_offset = Vector2(0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_585as"]
 font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_o1lc5"]
+font = ExtResource("5_a5r3p")
+font_size = 10
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivuhh"]
+bg_color = Color(0.0588235, 0.0941176, 0.188235, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_m7puj"]
+outline_size = 10
+outline_color = Color(0.0588235, 0.0901961, 0.184314, 1)
+
+[sub_resource type="Animation" id="Animation_8wy42"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vinyl:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_k7kbe"]
+resource_name = "Spin"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vinyl:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6mubf"]
+_data = {
+"RESET": SubResource("Animation_8wy42"),
+"Spin": SubResource("Animation_k7kbe")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qx2p5"]
 bg_color = Color(0.854902, 0.85098, 0.933333, 1)
@@ -284,9 +362,12 @@ scale_max = 2.0
 color = Color(0.909804, 0.937255, 0.976471, 0.592157)
 color_ramp = SubResource("GradientTexture1D_hxg0l")
 
-[sub_resource type="LabelSettings" id="LabelSettings_8s70s"]
-font = ExtResource("25_fof8x")
-font_color = Color(0.819608, 0.337255, 0, 0.129412)
+[sub_resource type="LabelSettings" id="LabelSettings_f52kk"]
+font_size = 10
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_day48"]
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7s3dl"]
 shader = ExtResource("8_chohg")
@@ -311,6 +392,34 @@ shader_parameter/warp_amount = 0.02
 shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 0.44
+
+[sub_resource type="Animation" id="Animation_v77mu"]
+resource_name = "GameTransition"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.4, 3.1, 3.7, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_rjkdi"]
 resource_name = "Intro"
@@ -368,9 +477,34 @@ tracks/0/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Transition/TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f3gcw"]
 _data = {
+"GameTransition": SubResource("Animation_v77mu"),
 "Intro": SubResource("Animation_rjkdi"),
 "RESET": SubResource("Animation_v24rp")
 }
@@ -455,8 +589,8 @@ expand_mode = 1
 [node name="Time2" type="Label" parent="TaskBar/Panel2/DateTimeSound"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "10:22 PM
-24/11/2013"
+text = "10:36 PM
+22/11/2003"
 label_settings = SubResource("LabelSettings_n2i1k")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -549,7 +683,17 @@ flat = true
 expand_icon = true
 script = ExtResource("8_625sr")
 screen_path = NodePath("../../../Screens/Painto")
-voice_line_path = NodePath("../../../VoiceLines/painto")
+
+[node name="Vibin" type="Button" parent="TaskBar/ActualStuff"]
+texture_filter = 1
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("11_a54vo")
+flat = true
+expand_icon = true
+script = ExtResource("8_625sr")
+screen_path = NodePath("../../../Screens/Vibin")
 
 [node name="TextureRect" type="TextureRect" parent="TaskBar"]
 material = SubResource("CanvasItemMaterial_bxnif")
@@ -671,7 +815,6 @@ flat = true
 expand_icon = true
 script = ExtResource("8_625sr")
 screen_path = NodePath("../../../Screens/Painto")
-voice_line_path = NodePath("../../../VoiceLines/painto")
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Painto"]
 texture_filter = 1
@@ -688,6 +831,35 @@ offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Painto"
+label_settings = SubResource("LabelSettings_5wt76")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Painto2" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("11_a54vo")
+flat = true
+expand_icon = true
+script = ExtResource("8_625sr")
+screen_path = NodePath("../../../Screens/Vibin")
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Painto2"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.5
+offset_top = -11.0
+offset_right = 23.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Vibin"
 label_settings = SubResource("LabelSettings_5wt76")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -804,24 +976,212 @@ theme_override_font_sizes/font_size = 12
 text = "X"
 flat = true
 
-[node name="Label" type="Label" parent="Screens/Painto"]
+[node name="ActualPaintStuff" type="Panel" parent="Screens/Painto"]
+clip_contents = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -78.5
-offset_top = -13.0
-offset_right = 78.5
-offset_bottom = 13.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = -3.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "PAINTO IS NOT WORKING
-yet"
-label_settings = SubResource("LabelSettings_o7drw")
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_sdtd4")
+script = ExtResource("13_sm51n")
+
+[node name="ColorPallete" type="VBoxContainer" parent="Screens/Painto/ActualPaintStuff"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -137.0
+offset_top = -39.0
+offset_right = -2.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Colors" type="HBoxContainer" parent="Screens/Painto/ActualPaintStuff/ColorPallete"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Screens/Painto/ActualPaintStuff/ColorPallete/Colors"]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/focus = SubResource("StyleBoxFlat_co33t")
+script = ExtResource("14_ndo62")
+
+[node name="Button2" type="Button" parent="Screens/Painto/ActualPaintStuff/ColorPallete/Colors"]
+modulate = Color(0, 1, 0, 1)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/focus = SubResource("StyleBoxFlat_co33t")
+script = ExtResource("14_ndo62")
+
+[node name="Button3" type="Button" parent="Screens/Painto/ActualPaintStuff/ColorPallete/Colors"]
+modulate = Color(0, 0, 1, 1)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/focus = SubResource("StyleBoxFlat_co33t")
+script = ExtResource("14_ndo62")
+
+[node name="Button4" type="Button" parent="Screens/Painto/ActualPaintStuff/ColorPallete/Colors"]
+modulate = Color(1, 1, 0, 1)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/focus = SubResource("StyleBoxFlat_co33t")
+script = ExtResource("14_ndo62")
+
+[node name="Button5" type="Button" parent="Screens/Painto/ActualPaintStuff/ColorPallete/Colors"]
+modulate = Color(1, 0, 1, 1)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/focus = SubResource("StyleBoxFlat_co33t")
+script = ExtResource("14_ndo62")
+
+[node name="Colors2" type="HBoxContainer" parent="Screens/Painto/ActualPaintStuff/ColorPallete"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Screens/Painto/ActualPaintStuff/ColorPallete/Colors2"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/focus = SubResource("StyleBoxFlat_co33t")
+script = ExtResource("14_ndo62")
+
+[node name="Button2" type="Button" parent="Screens/Painto/ActualPaintStuff/ColorPallete/Colors2"]
+modulate = Color(0.560784, 0.560784, 0.560784, 1)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/focus = SubResource("StyleBoxFlat_co33t")
+script = ExtResource("14_ndo62")
+
+[node name="Button3" type="Button" parent="Screens/Painto/ActualPaintStuff/ColorPallete/Colors2"]
+modulate = Color(0.054902, 0.054902, 0.054902, 1)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/focus = SubResource("StyleBoxFlat_co33t")
+script = ExtResource("14_ndo62")
+
+[node name="Button4" type="Button" parent="Screens/Painto/ActualPaintStuff/ColorPallete/Colors2"]
+modulate = Color(0.447059, 0.172549, 0.0823529, 1)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/focus = SubResource("StyleBoxFlat_co33t")
+script = ExtResource("14_ndo62")
+
+[node name="Button5" type="Button" parent="Screens/Painto/ActualPaintStuff/ColorPallete/Colors2"]
+modulate = Color(0.384314, 0.258824, 0.662745, 1)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_co33t")
+theme_override_styles/focus = SubResource("StyleBoxFlat_co33t")
+script = ExtResource("14_ndo62")
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Screens/Painto/ActualPaintStuff"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -39.0
+offset_top = -39.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_vcjan")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bf3hv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uf11a")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_nvefb")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jxy2s")
+edit_alpha = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screens/Painto/ActualPaintStuff"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -46.0
+offset_top = -185.0
+offset_right = -1.0
+offset_bottom = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="Screens/Painto/ActualPaintStuff/VBoxContainer"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+icon = ExtResource("15_q2r2a")
+flat = true
+expand_icon = true
+script = ExtResource("16_5ckqx")
+line = ExtResource("17_0ean1")
+
+[node name="Button2" type="Button" parent="Screens/Painto/ActualPaintStuff/VBoxContainer"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+icon = ExtResource("16_d6ld2")
+flat = true
+expand_icon = true
+script = ExtResource("16_5ckqx")
+line = ExtResource("19_xo6r0")
+
+[node name="Button3" type="Button" parent="Screens/Painto/ActualPaintStuff/VBoxContainer"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+icon = ExtResource("17_uf5ak")
+flat = true
+expand_icon = true
+script = ExtResource("16_5ckqx")
+line = ExtResource("21_8qhwk")
+
+[node name="Lines" type="Node2D" parent="Screens/Painto/ActualPaintStuff"]
 
 [node name="Browser" type="Panel" parent="Screens"]
 visible = false
@@ -1025,6 +1385,227 @@ layout_mode = 2
 text = "free fresh games for SplitOS"
 label_settings = SubResource("LabelSettings_585as")
 
+[node name="ThingsHeGottaDo" type="Panel" parent="Screens"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -524.0
+offset_top = -314.0
+offset_right = -212.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_imgr5")
+script = ExtResource("10_fs4rd")
+
+[node name="TopPart" type="Panel" parent="Screens/ThingsHeGottaDo"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 14.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vkukq")
+
+[node name="Label" type="Label" parent="Screens/ThingsHeGottaDo/TopPart"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -13.0
+offset_right = 161.0
+offset_bottom = 13.0
+grow_vertical = 2
+text = "Notepad (things i gotta do.txt)"
+label_settings = SubResource("LabelSettings_2gu7t")
+vertical_alignment = 1
+
+[node name="Close" type="Button" parent="Screens/ThingsHeGottaDo/TopPart"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -12.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "X"
+flat = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Screens/ThingsHeGottaDo"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 309.0
+offset_bottom = 397.0
+
+[node name="Label" type="Label" parent="Screens/ThingsHeGottaDo/ScrollContainer"]
+layout_mode = 2
+text = "Thigns i need to do:
+
+-finish that science project
+-find my red socks with the apple on them
+
+nvm i'm tired of writing this"
+label_settings = SubResource("LabelSettings_o1lc5")
+
+[node name="Vibin" type="Panel" parent="Screens"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = -316.0
+offset_right = -178.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_imgr5")
+script = ExtResource("10_fs4rd")
+
+[node name="TopPart" type="Panel" parent="Screens/Vibin"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 14.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vkukq")
+
+[node name="Label" type="Label" parent="Screens/Vibin/TopPart"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -13.0
+offset_right = 161.0
+offset_bottom = 13.0
+grow_vertical = 2
+text = "Vibin"
+label_settings = SubResource("LabelSettings_2gu7t")
+vertical_alignment = 1
+
+[node name="Close" type="Button" parent="Screens/Vibin/TopPart"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -12.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "X"
+flat = true
+
+[node name="VineelStuff" type="Panel" parent="Screens/Vibin"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ivuhh")
+script = ExtResource("24_mgr6d")
+
+[node name="Vinyl" type="TextureRect" parent="Screens/Vibin/VineelStuff"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -111.0
+offset_top = 17.0
+offset_right = 111.0
+offset_bottom = 239.0
+grow_horizontal = 2
+pivot_offset = Vector2(111, 111)
+texture = ExtResource("24_dqytw")
+
+[node name="Currently playing" type="Label" parent="Screens/Vibin/VineelStuff"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -69.0
+offset_top = -122.0
+offset_right = 69.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Currently playing:
+null"
+label_settings = SubResource("LabelSettings_m7puj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="Screens/Vibin/VineelStuff"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -134.0
+offset_top = -52.0
+offset_right = 134.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="previous" type="Button" parent="Screens/Vibin/VineelStuff/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_a5r3p")
+text = "PREV"
+
+[node name="pause" type="Button" parent="Screens/Vibin/VineelStuff/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_a5r3p")
+text = "PAUSE"
+
+[node name="next" type="Button" parent="Screens/Vibin/VineelStuff/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_a5r3p")
+text = "NEXT"
+
+[node name="song" type="AudioStreamPlayer" parent="Screens/Vibin/VineelStuff"]
+stream = ExtResource("25_5naf7")
+volume_db = -10.0
+bus = &"MusicNormal"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Screens/Vibin/VineelStuff"]
+libraries = {
+"": SubResource("AnimationLibrary_6mubf")
+}
+
 [node name="Messenger" type="Panel" parent="Screens"]
 visible = false
 layout_mode = 1
@@ -1144,7 +1725,7 @@ theme_override_constants/separation = 10
 layout_mode = 2
 text = "Call with Mom for
 3 minutes
-23/11/2013
+23/11/2003
 3:55 PM
 
 "
@@ -1155,7 +1736,7 @@ autowrap_mode = 2
 [node name="Label6" type="Label" parent="Screens/Messenger/Panel/History/VBoxContainer"]
 layout_mode = 2
 text = "Missed call from Mom
-23/11/2013
+23/11/2003
 3:45 PM
 
 "
@@ -1167,7 +1748,7 @@ autowrap_mode = 2
 layout_mode = 2
 text = "Call with Mom for
 10 minutes
-15/11/2013
+15/11/2003
 4:33 PM
 
 "
@@ -1179,7 +1760,7 @@ autowrap_mode = 2
 layout_mode = 2
 text = "Call with Vlas for 
 10 minutes
-10/11/2013
+10/11/2003
 1:35 AM
 
 "
@@ -1191,7 +1772,7 @@ autowrap_mode = 2
 layout_mode = 2
 text = "Call with Mom for
 5 minutes
-9/11/2013
+9/11/2003
 2:30 PM"
 label_settings = SubResource("LabelSettings_0vlcc")
 vertical_alignment = 1
@@ -1200,7 +1781,7 @@ autowrap_mode = 2
 [node name="Label4" type="Label" parent="Screens/Messenger/Panel/History/VBoxContainer"]
 layout_mode = 2
 text = "Missed call from Mom
-9/11/2013
+9/11/2003
 2:21 PM"
 label_settings = SubResource("LabelSettings_0vlcc")
 vertical_alignment = 1
@@ -3036,7 +3617,7 @@ offset_right = -30.0
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "t"
+text = "Try me"
 label_settings = SubResource("LabelSettings_3ny0b")
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -3095,7 +3676,7 @@ offset_right = 362.0
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "t?"
+text = "Oh i will."
 label_settings = SubResource("LabelSettings_3ny0b")
 vertical_alignment = 1
 
@@ -3153,7 +3734,7 @@ offset_right = -30.0
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "t."
+text = "Oh shit"
 label_settings = SubResource("LabelSettings_3ny0b")
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -4022,7 +4603,7 @@ vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="Screens/Files/Panel/VBoxContainer"]
 layout_mode = 2
-text = "IMG_20132211.jpg"
+text = "the_past.jpg"
 label_settings = SubResource("LabelSettings_j2th3")
 vertical_alignment = 1
 
@@ -4122,49 +4703,49 @@ size_flags_vertical = 3
 theme_override_constants/separation = 28
 
 [node name="TextureRect" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(42, 42)
 layout_mode = 2
 texture = ExtResource("13_6p6fg")
 expand_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(42, 42)
 layout_mode = 2
 texture = ExtResource("13_6p6fg")
 expand_mode = 1
 
 [node name="TextureRect3" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(42, 42)
 layout_mode = 2
 texture = ExtResource("13_6p6fg")
 expand_mode = 1
 
 [node name="TextureRect4" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(42, 42)
 layout_mode = 2
 texture = ExtResource("13_6p6fg")
 expand_mode = 1
 
 [node name="TextureRect5" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(42, 42)
 layout_mode = 2
 texture = ExtResource("13_6p6fg")
 expand_mode = 1
 
 [node name="TextureRect6" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(42, 42)
 layout_mode = 2
 texture = ExtResource("13_6p6fg")
 expand_mode = 1
 
 [node name="TextureRect7" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(42, 42)
 layout_mode = 2
 texture = ExtResource("13_6p6fg")
 expand_mode = 1
 
 [node name="TextureRect8" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(42, 42)
 layout_mode = 2
 texture = ExtResource("13_6p6fg")
 expand_mode = 1
@@ -4175,25 +4756,25 @@ size_flags_vertical = 3
 theme_override_constants/separation = 28
 
 [node name="TextureRect" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(42, 42)
 layout_mode = 2
 texture = ExtResource("13_6p6fg")
 expand_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(42, 42)
 layout_mode = 2
 texture = ExtResource("13_6p6fg")
 expand_mode = 1
 
 [node name="TextureRect3" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(42, 42)
 layout_mode = 2
 texture = ExtResource("13_6p6fg")
 expand_mode = 1
 
 [node name="TextureRect4" type="TextureRect" parent="Screens/Files/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(42, 42)
 layout_mode = 2
 texture = ExtResource("13_6p6fg")
 expand_mode = 1
@@ -4243,7 +4824,7 @@ vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="Screens/Files/VBoxContainer2"]
 layout_mode = 2
-text = "IMG_20132211.jpg"
+text = "the_past.jpg"
 label_settings = SubResource("LabelSettings_j2th3")
 vertical_alignment = 1
 
@@ -4267,13 +4848,13 @@ vertical_alignment = 1
 
 [node name="Label7" type="Label" parent="Screens/Files/VBoxContainer2"]
 layout_mode = 2
-text = "sound556.mp3"
+text = "desiree.mp3"
 label_settings = SubResource("LabelSettings_j2th3")
 vertical_alignment = 1
 
 [node name="Label8" type="Label" parent="Screens/Files/VBoxContainer2"]
 layout_mode = 2
-text = "sound555.mp3"
+text = "things i gotta do.txt"
 label_settings = SubResource("LabelSettings_j2th3")
 vertical_alignment = 1
 
@@ -4284,14 +4865,13 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -47.0
-offset_top = -38.0
-offset_right = 162.0
-offset_bottom = 102.0
+offset_left = -189.0
+offset_top = -31.0
+offset_right = -25.0
+offset_bottom = 165.0
 grow_horizontal = 0
 grow_vertical = 2
-rotation = 1.5708
-texture = ExtResource("21_2cjt8")
+texture = ExtResource("22_8bmdm")
 expand_mode = 1
 
 [node name="TopPart" type="Panel" parent="Screens/Files"]
@@ -4457,20 +5037,22 @@ flat = true
 
 [node name="Button" type="Button" parent="Screens/Blastin"]
 layout_mode = 1
-anchors_preset = 6
+anchors_preset = 3
 anchor_left = 1.0
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -283.0
-offset_top = 69.5
-offset_right = -14.0
-offset_bottom = 120.5
+anchor_bottom = 1.0
+offset_left = -279.0
+offset_top = -61.0
+offset_right = -10.0
+offset_bottom = -10.0
 grow_horizontal = 0
-grow_vertical = 2
+grow_vertical = 0
 theme_override_fonts/font = ExtResource("25_fof8x")
 theme_override_font_sizes/font_size = 28
 text = "PLAY"
+script = ExtResource("8_625sr")
+screen_path = NodePath("../../BlastinTerms")
 
 [node name="TextureRect" type="TextureRect" parent="Screens/Blastin"]
 texture_filter = 1
@@ -4485,26 +5067,181 @@ grow_vertical = 0
 texture = ExtResource("24_kwvgo")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="Screens/Blastin"]
-texture_filter = 1
+[node name="BlastinTerms" type="Panel" parent="Screens"]
+visible = false
+clip_children = 2
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -295.0
+offset_top = -230.0
+offset_right = 44.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_imgr5")
+script = ExtResource("10_fs4rd")
+
+[node name="Border" type="ColorRect" parent="Screens/BlastinTerms"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 2.0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.329412, 0.34902, 0.360784, 0.478431)
+
+[node name="Border2" type="ColorRect" parent="Screens/BlastinTerms"]
+layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -285.0
-offset_top = -69.0
-offset_right = -13.0
-offset_bottom = -15.0
-grow_horizontal = 0
+offset_left = 2.0
+offset_top = -2.0
+offset_right = -2.0
+grow_horizontal = 2
 grow_vertical = 0
-text = "By pressing \"PLAY\" you agree to Corsac Team's Terms Of Service
-"
-label_settings = SubResource("LabelSettings_8s70s")
-horizontal_alignment = 1
+mouse_filter = 2
+color = Color(0.329412, 0.34902, 0.360784, 0.478431)
+
+[node name="Border3" type="ColorRect" parent="Screens/BlastinTerms"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.329412, 0.34902, 0.360784, 0.478431)
+
+[node name="Border4" type="ColorRect" parent="Screens/BlastinTerms"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 2.0
+offset_right = -2.0
+offset_bottom = 16.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0.329412, 0.34902, 0.360784, 0.478431)
+
+[node name="TopPart" type="Panel" parent="Screens/BlastinTerms"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 14.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vkukq")
+
+[node name="Label" type="Label" parent="Screens/BlastinTerms/TopPart"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -13.0
+offset_right = 161.0
+offset_bottom = 13.0
+grow_vertical = 2
+text = "Terms of Service"
+label_settings = SubResource("LabelSettings_2gu7t")
 vertical_alignment = 1
-autowrap_mode = 2
+
+[node name="Close" type="Button" parent="Screens/BlastinTerms/TopPart"]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -12.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "X"
+flat = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Screens/BlastinTerms"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 18.0
+offset_right = 334.0
+offset_bottom = 334.0
+
+[node name="Label" type="Label" parent="Screens/BlastinTerms/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "This document (the “Agreement”) constitutes a legal agreement between you and Corsac Team, and its related companies and affiliates (collectively, “Corsac,” “we,” or “us”) that governs the relationship between you and Corsac with respect to your use of our games, products, services and websites accessed through internet-capable platforms, including game consoles, personal computers, mobile devices, and in-game applications and software hosted by third-parties. (collectively, the “Services”).
+
+Please read the following Agreement carefully. To play Corsac's games you need to agree to our terms.
+
+1.Rules
+
+Using our software you agree to our strict, but also simple rules, breaking them will result in punishment. The rules are as follows:
+
+-Use of software to modify the game (cheats,decompilers,injectors) is prohibited
+-No losing
+-Once you're in, you're in.
+
+2.Privacy Policy
+Corsac Team is serious about protecting the privacy of its users.
+
+What information we collect:
+(a) Information You Provide To Us Directly
+(b) Information Received From a Third Party
+(c) Technical Usage Information and Cookies
+
+How your information is used and shared:
+The information we have may be used to : Contact You, Deliver Relevant Advertising.
+Corsac promises to not share any information we may store, with any third party, unless required by law.
+
+3. Have fun
+
+Most importantly remember to have fun and enjoy the games!
+"
+label_settings = SubResource("LabelSettings_f52kk")
+autowrap_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screens/BlastinTerms"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.5
+offset_top = -66.0
+offset_right = 90.5
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Screens/BlastinTerms/VBoxContainer"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="Screens/BlastinTerms/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Screens/BlastinTerms/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "I agree to the terms"
+label_settings = SubResource("LabelSettings_day48")
+
+[node name="RealPlayButton" type="Button" parent="Screens/BlastinTerms/VBoxContainer"]
+layout_mode = 2
+text = "PLAY"
 
 [node name="THIS HAS TO BE ON TOP OF EVERYTHING" type="ColorRect" parent="."]
 z_index = 3
@@ -4520,38 +5257,46 @@ mouse_filter = 2
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_jr7hq")
 volume_db = -10.0
+bus = &"NormalSound"
 
 [node name="ComputerSounds" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-387, 295)
 stream = ExtResource("28_etrkg")
 volume_db = -7.0
 autoplay = true
+bus = &"NormalSound"
 
 [node name="VoiceLines" type="Node" parent="."]
 
 [node name="blastin" type="AudioStreamPlayer" parent="VoiceLines"]
 stream = ExtResource("29_go0or")
 volume_db = 1.0
+bus = &"NormalSound"
 
 [node name="internet" type="AudioStreamPlayer" parent="VoiceLines"]
 stream = ExtResource("30_lp82w")
 volume_db = 1.0
+bus = &"NormalSound"
 
 [node name="intro" type="AudioStreamPlayer" parent="VoiceLines"]
 stream = ExtResource("31_u3kds")
 volume_db = 1.0
+bus = &"NormalSound"
 
 [node name="painto" type="AudioStreamPlayer" parent="VoiceLines"]
 stream = ExtResource("32_jb8qb")
 volume_db = 1.0
+bus = &"NormalSound"
 
 [node name="messages" type="AudioStreamPlayer" parent="VoiceLines"]
 stream = ExtResource("33_8ll0v")
 volume_db = 1.0
+bus = &"NormalSound"
 
 [node name="files" type="AudioStreamPlayer" parent="VoiceLines"]
 stream = ExtResource("34_7e272")
 volume_db = 1.0
+bus = &"NormalSound"
 
 [node name="BlacKScreen" type="ColorRect" parent="."]
 visible = false
@@ -4564,11 +5309,80 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="Transition" type="ColorRect" parent="."]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Transition"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.5
+offset_top = -240.5
+offset_right = 240.5
+offset_bottom = 240.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("49_6ee0j")
+expand_mode = 1
+
 [node name="AnimationTree" type="AnimationPlayer" parent="."]
-autoplay = "Intro"
 libraries = {
 "": SubResource("AnimationLibrary_f3gcw")
 }
 
+[node name="Files" type="Button" parent="."]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -59.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 59.0
+grow_horizontal = 0
+focus_mode = 0
+icon = ExtResource("49_2t7no")
+flat = true
+expand_icon = true
+script = ExtResource("8_625sr")
+screen_path = NodePath("../Screens/ThingsHeGottaDo")
+
+[node name="Label" type="Label" parent="Files"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.5
+offset_top = -11.0
+offset_right = 23.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "things i got..."
+label_settings = SubResource("LabelSettings_5wt76")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="color_changed" from="Screens/Painto/ActualPaintStuff/ColorPickerButton" to="Screens/Painto/ActualPaintStuff" method="_on_color_picker_button_color_changed"]
+[connection signal="pressed" from="Screens/Vibin/VineelStuff/Buttons/previous" to="Screens/Vibin/VineelStuff" method="_on_previous_pressed"]
+[connection signal="pressed" from="Screens/Vibin/VineelStuff/Buttons/pause" to="Screens/Vibin/VineelStuff" method="_on_pause_pressed"]
+[connection signal="pressed" from="Screens/Vibin/VineelStuff/Buttons/next" to="Screens/Vibin/VineelStuff" method="_on_next_pressed"]
 [connection signal="pressed" from="Screens/Messenger/Panel/Stuffs/Contacts" to="Screens/Messenger" method="_on_contacts_pressed"]
 [connection signal="pressed" from="Screens/Messenger/Panel/Stuffs/History" to="Screens/Messenger" method="_on_history_pressed"]
+[connection signal="pressed" from="Screens/BlastinTerms/VBoxContainer/RealPlayButton" to="." method="_on_real_play_button_pressed"]

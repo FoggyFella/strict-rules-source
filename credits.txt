@@ -1,7 +1,58 @@
-Sounds:
+Strict Rules
+A game by FoggyDude
+
+Voices:
+FoggyDude as Scott
+Rexium as The Spectator
+FoggyDude as The Programmer
+The Artist had no voice lol
+
+The guy on the camera:
+My friend
+(he asked to not be named)
+
+Music:
+By FoggyDude except the boss theme
+For the boss Double Impact MIDI Pack by continuum.mid, Matzu, R0rque, Korp, and ZeMystic
+
+In the music player:
+Like the wind by unknown
+CIA by unknown
+Sneaky Snitch by Kevin Macleod
+
+With some art by Miziziziz
+With some textures from textures.com
+
+Fonts used:
+ModernDos8x16
+VCR_OSD_MONO
+
+Sound effects:
+Some were made using my mouth
 Pistol sound effects by Michel Baradari
 Snow crunch by luminadii
 computer noise by matucha
 Step (rock) by leohpaz
 Exploding lightbulb by jorickhoofd
-Most of these sounds are on freesound.org
+Laser by SamsterBirdies
+Explosion_01 by tommccann
+tv turn off by harpoyume
+Door smash by egomassive
+DoorOpen05 by qubodup
+Night village by Gombar_Bendeguz
+
+Most of these sounds I found on freesound.org or opengameart.org
+If I didn't credit some sounds it's because they're public domain
+(or I forgot, sorry)
+
+Special thanks to:
+Friends and family
+The Lads
+Godot Engine
+Schmiegs
+Xenify
+
+AND...
+
+
+YOU!

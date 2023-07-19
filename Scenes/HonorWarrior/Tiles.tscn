@@ -1,10 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://dq0ly8jrtobyu"]
+[gd_scene load_steps=35 format=3 uid="uid://dq0ly8jrtobyu"]
 
 [ext_resource type="Texture2D" uid="uid://wuip3q7qhyht" path="res://Assets/HonorWarrior/coal.png" id="1_4ithb"]
 [ext_resource type="Texture2D" uid="uid://4b7i7phww4be" path="res://Assets/HonorWarrior/Rock.png" id="1_5a6bv"]
 [ext_resource type="Texture2D" uid="uid://55xcyroo273w" path="res://Assets/HonorWarrior/woodplanks.png" id="2_4skor"]
 [ext_resource type="Texture2D" uid="uid://dk1ksgkqqoum4" path="res://Assets/HonorWarrior/Snow.png" id="2_b2tdn"]
 [ext_resource type="Texture2D" uid="uid://c8amgmcjveydk" path="res://Assets/HonorWarrior/powerblock.png" id="3_tj0qu"]
+[ext_resource type="Texture2D" uid="uid://b6f337ie5pc2w" path="res://Assets/HonorWarrior/grass.png" id="3_wpg2d"]
 [ext_resource type="Texture2D" uid="uid://rqi8gkg1ysxf" path="res://Assets/HonorWarrior/powerblock_em.png" id="4_dpvsl"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6eks7"]
@@ -36,6 +37,17 @@ material = SubResource("StandardMaterial3D_sa42j")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qqtaw"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lmfjn"]
+albedo_color = Color(0.211765, 0.196078, 0.235294, 1)
+roughness = 0.68
+
+[sub_resource type="BoxMesh" id="BoxMesh_w630k"]
+material = SubResource("StandardMaterial3D_lmfjn")
+size = Vector3(1, 0.4, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a56dj"]
+size = Vector3(1, 0.4, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47tuo"]
 albedo_color = Color(0.870588, 0.870588, 0.870588, 1)
 albedo_texture = ExtResource("2_4skor")
@@ -48,6 +60,15 @@ texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_g8uam"]
 material = SubResource("StandardMaterial3D_47tuo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2iyk7"]
+albedo_texture = ExtResource("3_wpg2d")
+uv1_scale = Vector3(1.463, 1.463, 1.463)
+uv1_offset = Vector3(0.526, 1.434, -1.189)
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_83tbd"]
+material = SubResource("StandardMaterial3D_2iyk7")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8eiwh"]
 albedo_texture = ExtResource("3_tj0qu")
@@ -66,7 +87,7 @@ material = SubResource("StandardMaterial3D_8eiwh")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ureo"]
 transparency = 1
-albedo_color = Color(0.878431, 0.0470588, 0.819608, 0)
+albedo_color = Color(0.988235, 0.45098, 0.584314, 0)
 uv1_scale = Vector3(2, 2, 2)
 uv1_offset = Vector3(-0.038, 0.642, 0)
 texture_filter = 0
@@ -158,6 +179,15 @@ mesh = SubResource("BoxMesh_yl45f")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/StaticBody3D"]
 shape = SubResource("BoxShape3D_qqtaw")
 
+[node name="MetalHalfThing" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.4, 0)
+mesh = SubResource("BoxMesh_w630k")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MetalHalfThing"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MetalHalfThing/StaticBody3D"]
+shape = SubResource("BoxShape3D_a56dj")
+
 [node name="WoodWall" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
 mesh = SubResource("BoxMesh_g8uam")
@@ -165,6 +195,15 @@ mesh = SubResource("BoxMesh_g8uam")
 [node name="StaticBody3D" type="StaticBody3D" parent="WoodWall"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WoodWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_qqtaw")
+
+[node name="Grass" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+mesh = SubResource("BoxMesh_83tbd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Grass"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grass/StaticBody3D"]
 shape = SubResource("BoxShape3D_qqtaw")
 
 [node name="PowerBlock" type="MeshInstance3D" parent="."]

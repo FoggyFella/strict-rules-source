@@ -1,0 +1,165 @@
+[gd_scene load_steps=15 format=3 uid="uid://dmcnjfaw80c05"]
+
+[ext_resource type="Shader" path="res://Assets/Shaders/teste.gdshader" id="1_1mpie"]
+[ext_resource type="Script" path="res://Scripts/HonorWarrior/BossBullets.gd" id="1_wcs26"]
+[ext_resource type="Texture2D" uid="uid://dklcu8m2qmq8y" path="res://Assets/HonorWarrior/enemy bullet sptire.png" id="2_pvnok"]
+[ext_resource type="AudioStream" uid="uid://g66nvkrttol3" path="res://Assets/SFX/bullet_fly.ogg" id="4_004fi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_quemk"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_1mpie")
+shader_parameter/pixel_count = Vector2(64, 64)
+shader_parameter/FILTER_GAMMA = 10.0
+shader_parameter/COLOR_GAMMA = 1.0
+shader_parameter/mix_amount = 0.6
+shader_parameter/modulate = Color(0.521569, 0.0666667, 0.478431, 1)
+shader_parameter/albedo_tex = ExtResource("2_pvnok")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ujrok"]
+radius = 0.785841
+
+[sub_resource type="Animation" id="Animation_2ndv8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:material_override:shader_parameter/FILTER_GAMMA")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:material_override:shader_parameter/COLOR_GAMMA")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_rl4vu"]
+resource_name = "bullet-anim"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:material_override:shader_parameter/FILTER_GAMMA")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [20.0, 0.1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:material_override:shader_parameter/COLOR_GAMMA")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.246, 1.0, 0.917]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nkk38"]
+_data = {
+"RESET": SubResource("Animation_2ndv8"),
+"bullet-anim": SubResource("Animation_rl4vu")
+}
+
+[sub_resource type="Curve" id="Curve_yr61v"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.807617, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_21cyq"]
+curve = SubResource("Curve_yr61v")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mreyf"]
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 3.0
+scale_min = 0.1
+scale_max = 0.31
+scale_curve = SubResource("CurveTexture_21cyq")
+hue_variation_max = 0.26
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2oqxr"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.807843, 0.321569, 0.192157, 1)
+use_particle_trails = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_woonf"]
+material = SubResource("StandardMaterial3D_2oqxr")
+
+[node name="BossBullets" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_wcs26")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.831546, 0, 0, 0, 0.831546, 0, 0, 0, 0.831546, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_quemk")
+pixel_size = 0.013
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_pvnok")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.407445, 0, 0, 0, 0.407445, 0, 0, 0, 0.407445, 0, 0, 0)
+shape = SubResource("SphereShape3D_ujrok")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "bullet-anim"
+libraries = {
+"": SubResource("AnimationLibrary_nkk38")
+}
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.941176, 0.439216, 0.223529, 1)
+light_energy = 2.0
+omni_range = 0.786686
+
+[node name="FollowTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.314055, 0)
+cast_shadow = 0
+emitting = false
+amount = 10
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+visibility_aabb = AABB(-1.56513, -1.71766, -1.8654, 3.13027, 3.43532, 3.7308)
+process_material = SubResource("ParticleProcessMaterial_mreyf")
+draw_pass_1 = SubResource("SphereMesh_woonf")
+
+[node name="removal" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_004fi")
+volume_db = -7.0
+autoplay = true
+bus = &"NormalSound"
+
+[connection signal="timeout" from="FollowTimer" to="." method="_on_follow_timer_timeout"]
+[connection signal="timeout" from="removal" to="." method="_on_removal_timeout"]

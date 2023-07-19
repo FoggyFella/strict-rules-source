@@ -1,57 +1,80 @@
-[gd_resource type="AudioBusLayout" load_steps=6 format=3 uid="uid://cbc47eeq3t4it"]
+[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://cbc47eeq3t4it"]
 
-[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j4u1w"]
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_57m5c"]
 resource_name = "Reverb"
 
-[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_1oucn"]
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_lbpb2"]
 resource_name = "Reverb"
 room_size = 0.2
 damping = 0.15
 spread = 0.1
 
-[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_c8ubw"]
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_hlm6i"]
 resource_name = "Reverb"
 room_size = 0.34
 spread = 0.5
 
-[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_lg10b"]
+[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_wkp5e"]
 resource_name = "Chorus"
 
-[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_l5eg1"]
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_uq11q"]
 resource_name = "LowPassFilter"
 
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_mur4d"]
+resource_name = "Reverb"
+
 [resource]
-bus/1/name = &"New Bus"
+bus/1/name = &"NormalSound"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
 bus/1/volume_db = 0.0
 bus/1/send = &"Master"
-bus/1/effect/0/effect = SubResource("AudioEffectReverb_j4u1w")
-bus/1/effect/0/enabled = true
-bus/2/name = &"New Bus 2"
+bus/2/name = &"SoundReverb1"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
 bus/2/send = &"Master"
-bus/2/effect/0/effect = SubResource("AudioEffectReverb_1oucn")
+bus/2/effect/0/effect = SubResource("AudioEffectReverb_57m5c")
 bus/2/effect/0/enabled = true
-bus/3/name = &"New Bus 3"
+bus/3/name = &"SoundReverb2"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = 0.0
 bus/3/send = &"Master"
-bus/3/effect/0/effect = SubResource("AudioEffectReverb_c8ubw")
+bus/3/effect/0/effect = SubResource("AudioEffectReverb_lbpb2")
 bus/3/effect/0/enabled = true
-bus/3/effect/1/effect = SubResource("AudioEffectChorus_lg10b")
-bus/3/effect/1/enabled = true
-bus/4/name = &"New Bus 4"
+bus/4/name = &"SoundChorus"
 bus/4/solo = false
 bus/4/mute = false
 bus/4/bypass_fx = false
 bus/4/volume_db = 0.0
 bus/4/send = &"Master"
-bus/4/effect/0/effect = SubResource("AudioEffectLowPassFilter_l5eg1")
+bus/4/effect/0/effect = SubResource("AudioEffectReverb_hlm6i")
 bus/4/effect/0/enabled = true
+bus/4/effect/1/effect = SubResource("AudioEffectChorus_wkp5e")
+bus/4/effect/1/enabled = true
+bus/5/name = &"SoundMuffled"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = 0.0
+bus/5/send = &"Master"
+bus/5/effect/0/effect = SubResource("AudioEffectLowPassFilter_uq11q")
+bus/5/effect/0/enabled = true
+bus/6/name = &"MusicNormal"
+bus/6/solo = false
+bus/6/mute = false
+bus/6/bypass_fx = false
+bus/6/volume_db = 0.0
+bus/6/send = &"Master"
+bus/7/name = &"MusicReverb"
+bus/7/solo = false
+bus/7/mute = false
+bus/7/bypass_fx = false
+bus/7/volume_db = 0.0
+bus/7/send = &"Master"
+bus/7/effect/0/effect = SubResource("AudioEffectReverb_mur4d")
+bus/7/effect/0/enabled = true

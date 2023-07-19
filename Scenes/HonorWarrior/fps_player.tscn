@@ -1,10 +1,11 @@
-[gd_scene load_steps=47 format=3 uid="uid://xd42l4o82cgh"]
+[gd_scene load_steps=68 format=3 uid="uid://xd42l4o82cgh"]
 
 [ext_resource type="Script" path="res://Scripts/HonorWarrior/fps_player_scipt.gd" id="1_j3nuh"]
 [ext_resource type="Texture2D" uid="uid://d1ymdco3e3fpa" path="res://Assets/HonorWarrior/NOW THIS IS A LOGO.png" id="2_crobs"]
 [ext_resource type="Script" path="res://Scripts/Shake.gd" id="3_onmg1"]
 [ext_resource type="FontFile" uid="uid://drvdhc3yawmlj" path="res://Assets/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf" id="3_qtlan"]
 [ext_resource type="Texture2D" uid="uid://u4f5ocf4gqan" path="res://Assets/HonorWarrior/Player/hands.png" id="3_r0bcw"]
+[ext_resource type="PackedScene" uid="uid://b411ak5cw5gy" path="res://Scenes/HonorWarrior/BossLaser.tscn" id="4_8uqqm"]
 [ext_resource type="Texture2D" uid="uid://dxxqklttpx4hx" path="res://Assets/HonorWarrior/under.png" id="4_ak5xe"]
 [ext_resource type="Texture2D" uid="uid://chk2sg88w2n5h" path="res://Assets/HonorWarrior/health.png" id="4_hokp2"]
 [ext_resource type="Texture2D" uid="uid://y1s1msv8bem4" path="res://Assets/HonorWarrior/FaceStuff/Outline.png" id="4_l4uta"]
@@ -21,11 +22,93 @@
 [ext_resource type="AudioStream" uid="uid://nhl17lxc0hjd" path="res://Assets/SFX/wood_step.ogg" id="15_3ml7s"]
 [ext_resource type="AudioStream" uid="uid://dqrht2e0dyncg" path="res://Assets/SFX/you_damaged.ogg" id="15_ycapp"]
 [ext_resource type="AudioStream" uid="uid://ddn0sb1sc7hl7" path="res://Assets/SFX/you_healed.ogg" id="16_kx272"]
+[ext_resource type="FontFile" uid="uid://7ynqbsp4f1vm" path="res://Assets/DOS FONT/ModernDOS8x16.ttf" id="17_2yvup"]
+[ext_resource type="AudioStream" uid="uid://clmvdyn3ldqq7" path="res://Assets/SFX/low_hp.ogg" id="22_iqhln"]
+[ext_resource type="AudioStream" uid="uid://r0ac3lg6smpc" path="res://Assets/SFX/feed_off.ogg" id="24_bq6tu"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_22lb8"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vlg8h"]
 points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
+
+[sub_resource type="Animation" id="Animation_lc3tq"]
+resource_name = "DiskIdle"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/GunAnchor/DiskSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(117, -233), Vector2(117, -233)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUD/GunAnchor/GunSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qbn2k"]
+resource_name = "DiskWalk"
+length = 1.2
+loop_mode = 1
+step = 0.01
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.6, 0.61, 0.62),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"play_step_sound"
+}, {
+"args": [],
+"method": &"spawn_snow_steps"
+}, {
+"args": [],
+"method": &"spawn_blood_steps"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUD/GunAnchor/DiskSprite:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(117, -233), Vector2(117, -218)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HUD/GunAnchor/GunSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_vscmq"]
 length = 0.001
@@ -65,12 +148,63 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HUD/GunAnchor/DiskSprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(117, 300)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HUD/GunAnchor/GunSprite:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_elrna"]
+resource_name = "SwitchToDisk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/GunAnchor/GunSprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(252, -255), Vector2(252, 300)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUD/GunAnchor/DiskSprite:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(117, 300), Vector2(117, 300), Vector2(117, -233)]
+}
 
 [sub_resource type="Animation" id="Animation_kxp3h"]
 resource_name = "gun_walking"
 length = 1.2
 loop_mode = 1
-step = 0.05
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -90,12 +224,30 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.6),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.6, 0.61, 0.62),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],
 "method": &"play_step_sound"
+}, {
+"args": [],
+"method": &"spawn_snow_steps"
+}, {
+"args": [],
+"method": &"spawn_blood_steps"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HUD/GunAnchor/GunSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
 }
 
 [sub_resource type="Animation" id="Animation_x2xjm"]
@@ -143,10 +295,25 @@ tracks/2/keys = {
 "update": 1,
 "values": [false, true, true, false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HUD/GunAnchor/GunSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wo1ij"]
 _data = {
+"DiskIdle": SubResource("Animation_lc3tq"),
+"DiskWalk": SubResource("Animation_qbn2k"),
 "RESET": SubResource("Animation_vscmq"),
+"SwitchToDisk": SubResource("Animation_elrna"),
 "gun_walking": SubResource("Animation_kxp3h"),
 "shoot": SubResource("Animation_x2xjm")
 }
@@ -157,13 +324,32 @@ animation = &"shoot"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0rveq"]
 animation = &"RESET"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l12vn"]
+animation = &"SwitchToDisk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4psg2"]
+animation = &"DiskWalk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1lhd0"]
+animation = &"DiskIdle"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qicub"]
 animation = &"gun_walking"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ivvy1"]
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_allp1"]
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_75ydc"]
 filters = ["HUD/GunAnchor/GunSprite:frame"]
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_1ie65"]
+input_0/name = "has_gun"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "has_disk"
+input_1/auto_advance = false
+input_1/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_3wpc1"]
 nodes/Animation/node = SubResource("AnimationNodeAnimation_qicub")
@@ -172,11 +358,22 @@ nodes/Animation/position = Vector2(-140, 100)
 "nodes/Animation 2/position" = Vector2(-380, 240)
 "nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_0rveq")
 "nodes/Animation 3/position" = Vector2(-420, 360)
+"nodes/Animation 4/node" = SubResource("AnimationNodeAnimation_l12vn")
+"nodes/Animation 4/position" = Vector2(620, 440)
+"nodes/Animation 5/node" = SubResource("AnimationNodeAnimation_4psg2")
+"nodes/Animation 5/position" = Vector2(200, 300)
+"nodes/Animation 6/node" = SubResource("AnimationNodeAnimation_1lhd0")
+"nodes/Animation 6/position" = Vector2(280, 460)
 nodes/Blend2/node = SubResource("AnimationNodeBlend2_allp1")
 nodes/Blend2/position = Vector2(60, 120)
+"nodes/Blend2 2/node" = SubResource("AnimationNodeBlend2_ivvy1")
+"nodes/Blend2 2/position" = Vector2(400, 180)
 nodes/OneShot/node = SubResource("AnimationNodeOneShot_75ydc")
 nodes/OneShot/position = Vector2(-140, 260)
-node_connections = [&"output", 0, &"Blend2", &"Blend2", 0, &"Animation", &"Blend2", 1, &"OneShot", &"OneShot", 0, &"Animation 3", &"OneShot", 1, &"Animation 2"]
+nodes/Transition/node = SubResource("AnimationNodeTransition_1ie65")
+nodes/Transition/position = Vector2(580, -20)
+nodes/output/position = Vector2(780, 80)
+node_connections = [&"output", 0, &"Transition", &"Blend2", 0, &"Animation", &"Blend2", 1, &"OneShot", &"Blend2 2", 0, &"Animation 5", &"Blend2 2", 1, &"Animation 6", &"OneShot", 0, &"Animation 3", &"OneShot", 1, &"Animation 2", &"Transition", 0, &"Blend2", &"Transition", 1, &"Blend2 2"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_7ytc1"]
 
@@ -258,19 +455,102 @@ shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.455
 shader_parameter/vignette_opacity = 0.316
 
-[sub_resource type="LabelSettings" id="LabelSettings_oj2n8"]
-font_color = Color(0.831373, 0.219608, 0.117647, 1)
-
 [sub_resource type="LabelSettings" id="LabelSettings_mo8mr"]
+font = ExtResource("17_2yvup")
 font_color = Color(0.831373, 0.219608, 0.117647, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_ukcyw"]
+[sub_resource type="LabelSettings" id="LabelSettings_hmt7t"]
+font = ExtResource("17_2yvup")
+font_size = 75
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ialjc"]
+shader = ExtResource("6_e3wb0")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.048
+shader_parameter/scanlines_width = 0.121
+shader_parameter/grille_opacity = 0.043
+shader_parameter/resolution = Vector2(1000, 1000)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 2.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 0.1
+shader_parameter/distort_intensity = 0.009
+shader_parameter/noise_opacity = 0.371
+shader_parameter/noise_speed = 0.142
+shader_parameter/static_noise_intensity = 0.0
+shader_parameter/aberration = 4.75e-08
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.048
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.455
+shader_parameter/vignette_opacity = 0.316
+
+[sub_resource type="LabelSettings" id="LabelSettings_gf5dv"]
+font = ExtResource("17_2yvup")
+font_size = 81
 font_color = Color(0.831373, 0.219608, 0.117647, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_86f4y"]
+font = ExtResource("3_qtlan")
+font_size = 30
+font_color = Color(0.847059, 0.317647, 0.109804, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rsp3r"]
+font = ExtResource("3_qtlan")
+font_color = Color(0.847059, 0.317647, 0.109804, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_owlhe"]
+font = ExtResource("3_qtlan")
+font_size = 81
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vyyd"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.552941, 0.129412, 0.0235294, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o8jlr"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.552941, 0.129412, 0.0235294, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eucwi"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.552941, 0.129412, 0.0235294, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q4lft"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.552941, 0.129412, 0.0235294, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w62yk"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.552941, 0.129412, 0.0235294, 1)
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 21
 script = ExtResource("1_j3nuh")
+logo_texture = ExtResource("2_crobs")
 eyes_texture = ExtResource("7_gq4n3")
 level = "SNOWLANDS"
 
@@ -293,8 +573,13 @@ tree_root = SubResource("AnimationNodeBlendTree_3wpc1")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/Blend2/blend_amount = 1.0
+"parameters/Blend2 2/blend_amount" = 1.0
 parameters/OneShot/active = false
+parameters/OneShot/internal_active = false
 parameters/OneShot/request = 0
+parameters/Transition/current_state = "has_gun"
+parameters/Transition/transition_request = ""
+parameters/Transition/current_index = 0
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.478361, -0.163748)
@@ -304,6 +589,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0121272, 0.00621888)
 current = true
 script = ExtResource("3_onmg1")
 noise = SubResource("FastNoiseLite_7ytc1")
+
+[node name="BossLaser" parent="Head/Camera3d" instance=ExtResource("4_8uqqm")]
+transform = Transform3D(2, 0, 0, 0, -4.37114e-08, 2, 0, -1, -8.74228e-08, 0, -8.9407e-08, -1.77783)
+visible = false
 
 [node name="BulletRay" type="RayCast3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0672503, 0)
@@ -502,6 +791,7 @@ offset_left = 2.0
 offset_right = 2.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
 
 [node name="Light" type="Sprite2D" parent="HUD/GunAnchor"]
 visible = false
@@ -519,8 +809,7 @@ position = Vector2(252, -255)
 sprite_frames = SubResource("SpriteFrames_fwq8s")
 
 [node name="DiskSprite" type="Sprite2D" parent="HUD/GunAnchor"]
-visible = false
-position = Vector2(117, -234)
+position = Vector2(117, 300)
 rotation = -0.0837758
 texture = ExtResource("11_ut86q")
 
@@ -575,12 +864,13 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 11.0
 offset_top = -629.0
-offset_right = 379.0
+offset_right = 444.0
 offset_bottom = -111.0
 grow_vertical = 0
+mouse_filter = 2
 alignment = 2
 
-[node name="TextureRect" type="ColorRect" parent="HUD"]
+[node name="FeedActiveEffect" type="ColorRect" parent="HUD"]
 z_index = 1
 material = SubResource("ShaderMaterial_nsga2")
 anchors_preset = 15
@@ -590,7 +880,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="HUD/TextureRect"]
+[node name="Label" type="Label" parent="HUD/FeedActiveEffect"]
 modulate = Color(1, 1, 1, 0.6)
 layout_mode = 1
 anchors_preset = 1
@@ -600,11 +890,13 @@ offset_left = -182.0
 offset_top = 1.0
 offset_bottom = 27.0
 grow_horizontal = 0
-text = "Player-12 PC VIDEO FEED"
-label_settings = SubResource("LabelSettings_oj2n8")
+text = "Player-12 VIDEO FEED"
+label_settings = SubResource("LabelSettings_mo8mr")
+horizontal_alignment = 2
+vertical_alignment = 1
 uppercase = true
 
-[node name="Label2" type="Label" parent="HUD/TextureRect"]
+[node name="Label2" type="Label" parent="HUD/FeedActiveEffect"]
 modulate = Color(1, 1, 1, 0.6)
 layout_mode = 1
 anchors_preset = 1
@@ -617,8 +909,10 @@ grow_horizontal = 0
 text = "MICROPHONE AUDIO: 100%"
 label_settings = SubResource("LabelSettings_mo8mr")
 horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
 
-[node name="Label4" type="Label" parent="HUD/TextureRect"]
+[node name="Label4" type="Label" parent="HUD/FeedActiveEffect"]
 modulate = Color(1, 1, 1, 0.6)
 layout_mode = 1
 anchors_preset = 1
@@ -631,8 +925,10 @@ grow_horizontal = 0
 text = "SYSTEM AUDIO: 100%"
 label_settings = SubResource("LabelSettings_mo8mr")
 horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
 
-[node name="Label3" type="Label" parent="HUD/TextureRect"]
+[node name="Label3" type="Label" parent="HUD/FeedActiveEffect"]
 modulate = Color(1, 1, 1, 0.6)
 layout_mode = 1
 anchors_preset = 1
@@ -643,8 +939,333 @@ offset_top = 57.0
 offset_bottom = 83.0
 grow_horizontal = 0
 text = "DELAY: 1 sec"
-label_settings = SubResource("LabelSettings_ukcyw")
+label_settings = SubResource("LabelSettings_mo8mr")
 horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
+[node name="itsoff" type="ColorRect" parent="HUD/FeedActiveEffect"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label3" type="Label" parent="HUD/FeedActiveEffect/itsoff"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.5
+offset_top = -53.0
+offset_right = 122.5
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "<< VIDEO FEED ERROR >>"
+label_settings = SubResource("LabelSettings_hmt7t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FeedNotActive" type="ColorRect" parent="HUD"]
+visible = false
+z_index = 1
+material = SubResource("ShaderMaterial_ialjc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PauseMenu" type="Control" parent="HUD"]
+process_mode = 3
+visible = false
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="bg" type="ColorRect" parent="HUD/PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0666667, 0.0705882, 0.101961, 0.807843)
+
+[node name="Label" type="Label" parent="HUD/PauseMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -123.0
+offset_top = 41.0
+offset_right = 123.0
+offset_bottom = 126.0
+grow_horizontal = 2
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_gf5dv")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Buttoins" type="VBoxContainer" parent="HUD/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -191.5
+offset_top = -107.5
+offset_right = 191.5
+offset_bottom = 107.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Resume" type="Button" parent="HUD/PauseMenu/Buttoins"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.917647, 0.301961, 0.0901961, 1)
+theme_override_colors/font_pressed_color = Color(0.917647, 0.301961, 0.0901961, 1)
+theme_override_colors/font_hover_color = Color(0.917647, 0.301961, 0.0901961, 1)
+theme_override_colors/font_focus_color = Color(0.917647, 0.301961, 0.0901961, 1)
+theme_override_fonts/font = ExtResource("17_2yvup")
+theme_override_font_sizes/font_size = 30
+text = "RESUME"
+
+[node name="Settings" type="Button" parent="HUD/PauseMenu/Buttoins"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.917647, 0.301961, 0.0901961, 1)
+theme_override_colors/font_pressed_color = Color(0.917647, 0.301961, 0.0901961, 1)
+theme_override_colors/font_hover_color = Color(0.917647, 0.301961, 0.0901961, 1)
+theme_override_colors/font_focus_color = Color(0.917647, 0.301961, 0.0901961, 1)
+theme_override_fonts/font = ExtResource("17_2yvup")
+theme_override_font_sizes/font_size = 30
+text = "SETTINGS"
+
+[node name="Exit" type="Button" parent="HUD/PauseMenu/Buttoins"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.917647, 0.301961, 0.0901961, 1)
+theme_override_colors/font_pressed_color = Color(0.917647, 0.301961, 0.0901961, 1)
+theme_override_colors/font_hover_color = Color(0.917647, 0.301961, 0.0901961, 1)
+theme_override_colors/font_focus_color = Color(0.917647, 0.301961, 0.0901961, 1)
+theme_override_fonts/font = ExtResource("17_2yvup")
+theme_override_font_sizes/font_size = 30
+text = "EXIT"
+
+[node name="Settings" type="ColorRect" parent="HUD/PauseMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(576, 324)
+color = Color(0.0313726, 0.0509804, 0.12549, 0.407843)
+
+[node name="SettingsContainer" type="VBoxContainer" parent="HUD/PauseMenu/Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.5
+offset_top = -110.0
+offset_right = 250.5
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Window" type="HBoxContainer" parent="HUD/PauseMenu/Settings/SettingsContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HUD/PauseMenu/Settings/SettingsContainer/Window"]
+texture_filter = 1
+layout_mode = 2
+text = "WINDOW MODE:"
+label_settings = SubResource("LabelSettings_86f4y")
+
+[node name="WindowOptions" type="OptionButton" parent="HUD/PauseMenu/Settings/SettingsContainer/Window"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 3
+selected = 2
+popup/item_0/text = "FULLSCREEN"
+popup/item_0/id = 0
+popup/item_1/text = "WINDOWED"
+popup/item_1/id = 1
+popup/item_2/text = "EX. FULLSCREEN"
+popup/item_2/id = 2
+
+[node name="Pixelation" type="HBoxContainer" parent="HUD/PauseMenu/Settings/SettingsContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HUD/PauseMenu/Settings/SettingsContainer/Pixelation"]
+texture_filter = 1
+layout_mode = 2
+text = "PIXELATION:"
+label_settings = SubResource("LabelSettings_86f4y")
+
+[node name="PixelationBox" type="SpinBox" parent="HUD/PauseMenu/Settings/SettingsContainer/Pixelation"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 16.0
+value = 4.0
+alignment = 1
+
+[node name="Label" type="Label" parent="HUD/PauseMenu/Settings/SettingsContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "(if the pixels look weird try changing the number)"
+label_settings = SubResource("LabelSettings_rsp3r")
+
+[node name="Sfx" type="HBoxContainer" parent="HUD/PauseMenu/Settings/SettingsContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HUD/PauseMenu/Settings/SettingsContainer/Sfx"]
+texture_filter = 1
+layout_mode = 2
+text = "SFX VOLUME:"
+label_settings = SubResource("LabelSettings_86f4y")
+
+[node name="SfxSlider" type="HSlider" parent="HUD/PauseMenu/Settings/SettingsContainer/Sfx"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -30.0
+max_value = 30.0
+
+[node name="Music" type="HBoxContainer" parent="HUD/PauseMenu/Settings/SettingsContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HUD/PauseMenu/Settings/SettingsContainer/Music"]
+texture_filter = 1
+layout_mode = 2
+text = "MUSIC VOLUME:"
+label_settings = SubResource("LabelSettings_86f4y")
+
+[node name="MusicSlider" type="HSlider" parent="HUD/PauseMenu/Settings/SettingsContainer/Music"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -30.0
+max_value = 30.0
+
+[node name="CloseSettings" type="Button" parent="HUD/PauseMenu/Settings"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.0
+offset_top = -53.0
+offset_right = 29.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "CLOSE"
+
+[node name="CoinChoice" type="Control" parent="HUD"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="HUD/CoinChoice"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.65098, 0.498039, 0.164706, 0.262745)
+
+[node name="Label" type="Label" parent="HUD/CoinChoice"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -305.5
+offset_top = 41.0
+offset_right = 305.5
+offset_bottom = 116.0
+grow_horizontal = 2
+text = "PICK THE SIDE"
+label_settings = SubResource("LabelSettings_owlhe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/CoinChoice"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -201.5
+offset_top = -78.0
+offset_right = 201.5
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 40
+
+[node name="Heads" type="Button" parent="HUD/CoinChoice/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_qtlan")
+theme_override_font_sizes/font_size = 71
+theme_override_styles/normal = SubResource("StyleBoxFlat_4vyyd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o8jlr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eucwi")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_q4lft")
+theme_override_styles/focus = SubResource("StyleBoxFlat_w62yk")
+text = "HEADS"
+
+[node name="Tails" type="Button" parent="HUD/CoinChoice/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_qtlan")
+theme_override_font_sizes/font_size = 71
+theme_override_styles/normal = SubResource("StyleBoxFlat_4vyyd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o8jlr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eucwi")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_q4lft")
+theme_override_styles/focus = SubResource("StyleBoxFlat_w62yk")
+text = "TAILS"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
@@ -655,33 +1276,48 @@ one_shot = true
 [node name="SnowStep" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("10_cne58")
 volume_db = -8.0
+bus = &"NormalSound"
 
 [node name="RockStep" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("14_urmmc")
 volume_db = -3.0
-bus = &"New Bus 2"
+bus = &"SoundReverb2"
 
 [node name="WoodStep" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("15_3ml7s")
 volume_db = -3.0
-bus = &"New Bus 2"
+bus = &"SoundReverb2"
 
 [node name="Gun" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("11_jq1yl")
 volume_db = -7.0
+bus = &"NormalSound"
 
 [node name="GunReverb" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("11_jq1yl")
 volume_db = -7.0
-bus = &"New Bus 2"
+bus = &"SoundReverb2"
 
 [node name="damage" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("15_ycapp")
 volume_db = -5.0
+bus = &"NormalSound"
 
 [node name="heal" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("16_kx272")
 volume_db = -6.0
+bus = &"NormalSound"
+
+[node name="low_hp" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("22_iqhln")
+volume_db = 3.0
+pitch_scale = 0.81
+bus = &"NormalSound"
+
+[node name="feedturnoff" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("24_bq6tu")
+volume_db = 5.0
+bus = &"NormalSound"
 
 [node name="ShotLight" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525649, -1.23437)
@@ -698,6 +1334,22 @@ autostart = true
 [node name="UntilDelayChangeAgain" type="Timer" parent="."]
 one_shot = true
 
+[node name="StepSpawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.741904, 0)
+
+[node name="FloorRay" type="RayCast3D" parent="."]
+target_position = Vector3(0, -2, 0)
+
+[connection signal="pressed" from="HUD/PauseMenu/Buttoins/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="HUD/PauseMenu/Buttoins/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="HUD/PauseMenu/Buttoins/Exit" to="." method="_on_exit_pressed"]
+[connection signal="item_selected" from="HUD/PauseMenu/Settings/SettingsContainer/Window/WindowOptions" to="." method="_on_window_options_item_selected"]
+[connection signal="value_changed" from="HUD/PauseMenu/Settings/SettingsContainer/Pixelation/PixelationBox" to="." method="_on_pixelation_box_value_changed"]
+[connection signal="value_changed" from="HUD/PauseMenu/Settings/SettingsContainer/Sfx/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="HUD/PauseMenu/Settings/SettingsContainer/Music/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="HUD/PauseMenu/Settings/CloseSettings" to="." method="_on_close_settings_pressed"]
+[connection signal="pressed" from="HUD/CoinChoice/VBoxContainer/Heads" to="." method="_on_heads_pressed"]
+[connection signal="pressed" from="HUD/CoinChoice/VBoxContainer/Tails" to="." method="_on_tails_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="UntilDelayChange" to="." method="_on_until_delay_change_timeout"]
 [connection signal="timeout" from="UntilDelayChangeAgain" to="." method="_on_until_delay_change_again_timeout"]

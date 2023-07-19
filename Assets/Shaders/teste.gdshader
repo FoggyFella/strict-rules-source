@@ -11,6 +11,9 @@ uniform vec2 pixel_count = vec2(64);
 uniform float FILTER_GAMMA = 1.0;
 uniform float COLOR_GAMMA = 1.0;
 
+uniform float mix_amount = 0.0;
+uniform vec3 modulate: source_color; 
+
 
 vec2 snap_UV1(vec2 uv, vec2 steps) {
 	return (floor(uv / steps) + 0.5) * steps;
@@ -80,6 +83,6 @@ void fragment() {
 	}
 	
 	color = pow(color, vec4(COLOR_GAMMA/FILTER_GAMMA));
-	ALBEDO = color.rgb;
+	ALBEDO = mix(color.rgb,modulate.rgb,mix_amount);
 	ALPHA = color.a;
 }

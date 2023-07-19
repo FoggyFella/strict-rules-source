@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_aogau"]
 size = Vector3(2, 4, 0.1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hf4yj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7cquh"]
 albedo_texture = ExtResource("1_y7080")
 roughness = 0.8
 uv1_scale = Vector3(2, 2, 2)
@@ -13,7 +13,7 @@ uv1_offset = Vector3(-0.089, 0, 0)
 texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_r3p7n"]
-material = SubResource("StandardMaterial3D_hf4yj")
+material = SubResource("StandardMaterial3D_7cquh")
 size = Vector3(2, 4, 0.1)
 
 [node name="Door" type="StaticBody3D"]

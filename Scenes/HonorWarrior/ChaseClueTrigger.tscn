@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dboi47livs2ux"]
+
+[ext_resource type="Script" path="res://Scripts/HonorWarrior/ChaseClueTrigger.gd" id="1_ejrhe"]
+
+[node name="ChaseClueTrigger" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_ejrhe")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

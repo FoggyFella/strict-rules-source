@@ -1,15 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bj5o43rgccve8"]
+[gd_scene load_steps=5 format=3 uid="uid://bj5o43rgccve8"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/3dpixelation.gdshader" id="1_1sy5l"]
+[ext_resource type="Script" path="res://Scripts/HonorWarrior/PixelEffect.gd" id="2_hwnas"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_a8rs4"]
-size = Vector2(10, 10)
+[sub_resource type="QuadMesh" id="QuadMesh_32tl0"]
+size = Vector2(7.359, 6.284)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qnesl"]
 render_priority = -1
 shader = ExtResource("1_1sy5l")
-shader_parameter/pixel_size = 6
+shader_parameter/pixel_size = 4
 
 [node name="PixelEffect" type="MeshInstance3D"]
-mesh = SubResource("QuadMesh_a8rs4")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_32tl0")
 surface_material_override/0 = SubResource("ShaderMaterial_qnesl")
+script = ExtResource("2_hwnas")

@@ -25,7 +25,7 @@ func _ready():
 		$Reload.start()
 	
 func set_player(p):
-	await get_tree().create_timer(randf_range(0.0,0.8)).timeout
+	await get_tree().create_timer(randf_range(0.0,0.8),false).timeout
 	player = p
 	if !dead:
 		$Timer.start()
@@ -83,6 +83,8 @@ func shoot():
 	var bullet_inst = bullet.instantiate()
 	bullet_inst.direction_to_player = $BulletSpawn.global_position.direction_to(player.global_position)
 	bullet_inst.damage = bullet_damage
+	$fired.pitch_scale = randf_range(0.95,1.05)
+	$fired.play()
 	get_tree().current_scene.add_child(bullet_inst)
 	bullet_inst.global_position = $BulletSpawn.global_position
 

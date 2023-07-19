@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/HonorWarrior/EnemyBlood.gd" id="1_clgvc"]
 
 [sub_resource type="Curve" id="Curve_pn5a5"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.65455, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.17343, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_v4yb3"]
@@ -13,11 +13,9 @@ curve = SubResource("Curve_pn5a5")
 particle_flag_align_y = true
 direction = Vector3(0, 0, -1)
 spread = 30.0
-gravity = Vector3(0, -8, 0)
+gravity = Vector3(0, -10, 0)
 initial_velocity_min = 5.0
-initial_velocity_max = 12.0
-damping_min = 13.62
-damping_max = 13.62
+initial_velocity_max = 6.0
 scale_min = 0.1
 scale_max = 0.2
 scale_curve = SubResource("CurveTexture_v4yb3")
@@ -42,8 +40,11 @@ curve = SubResource("Curve_esmev")
 
 [node name="EnemyBlood" type="GPUParticles3D"]
 cast_shadow = 0
+emitting = false
 amount = 5
-explosiveness = 0.8
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.9
 trail_enabled = true
 trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_ow8gh")
@@ -51,6 +52,7 @@ draw_pass_1 = SubResource("TubeTrailMesh_n3iqs")
 script = ExtResource("1_clgvc")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.1
 one_shot = true
 autostart = true
 

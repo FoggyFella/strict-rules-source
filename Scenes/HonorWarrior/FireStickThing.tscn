@@ -28,3 +28,4 @@ omni_range = 4.83518
 stream = ExtResource("2_l5n71")
 volume_db = -10.0
 autoplay = true
+bus = &"NormalSound"

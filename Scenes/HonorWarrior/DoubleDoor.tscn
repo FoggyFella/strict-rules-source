@@ -1,0 +1,190 @@
+[gd_scene load_steps=12 format=3 uid="uid://ydeleugivyne"]
+
+[ext_resource type="Script" path="res://Scripts/HonorWarrior/ChaseDoor.gd" id="1_ljtdi"]
+[ext_resource type="Texture2D" uid="uid://cn0axma23prpc" path="res://Assets/HonorWarrior/Wood.png" id="1_mjj4w"]
+[ext_resource type="AudioStream" uid="uid://bjb8whwqcdebj" path="res://Assets/SFX/door_smash.ogg" id="3_3twpv"]
+[ext_resource type="AudioStream" uid="uid://cp0fkledfspv1" path="res://Assets/SFX/qubodup-DoorOpen05.ogg" id="4_tpkyp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vc3go"]
+size = Vector3(2, 4, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hf4yj"]
+albedo_texture = ExtResource("1_mjj4w")
+roughness = 0.8
+uv1_scale = Vector3(2, 2, 2)
+uv1_offset = Vector3(-0.089, 0, 0)
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_00a8b"]
+material = SubResource("StandardMaterial3D_hf4yj")
+size = Vector3(2, 4, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6jhji"]
+size = Vector3(3.80426, 2.15115, 8.20045)
+
+[sub_resource type="Animation" id="Animation_7yqc8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.14159, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.50996e-07, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Door2/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Door1/CollisionShape3D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_mfbg8"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door1:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-3.14159, 0, 0), Vector3(-3.14159, -1.39626, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door2:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.50996e-07, 0, 0), Vector3(1.50996e-07, 1.46337, -5.72786e-15)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Door2/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Door1/CollisionShape3D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_31nes"]
+_data = {
+"RESET": SubResource("Animation_7yqc8"),
+"open": SubResource("Animation_mfbg8")
+}
+
+[node name="DoubleDoor" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1.1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_ljtdi")
+
+[node name="Door1" type="StaticBody3D" parent="."]
+transform = Transform3D(-1, 0, 0, 0, 1, -2.53518e-06, 0, 2.53518e-06, 1, -2, -1.73617, 0)
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.969119, -0.271479, -1.4981e-07)
+shape = SubResource("BoxShape3D_vc3go")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Door1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.969119, -0.271479, -1.4981e-07)
+mesh = SubResource("BoxMesh_00a8b")
+skeleton = NodePath("../..")
+
+[node name="Door2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, -1.50996e-07, 0, 1.50996e-07, 1, 1.91065, -1.73617, 0)
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.969119, -0.271479, -1.4981e-07)
+shape = SubResource("BoxShape3D_vc3go")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Door2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.969119, -0.271479, -1.4981e-07)
+mesh = SubResource("BoxMesh_00a8b")
+skeleton = NodePath("../..")
+
+[node name="DetectionArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.96177, 0.745388)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+shape = SubResource("BoxShape3D_6jhji")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 4.0
+libraries = {
+"": SubResource("AnimationLibrary_31nes")
+}
+
+[node name="BreakOpen" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.909091, 0, 0, 0, 1, 0, -3.8985, 0)
+stream = ExtResource("3_3twpv")
+volume_db = 2.0
+bus = &"NormalSound"
+
+[node name="NormalOpen" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.909091, 0, 0, 0, 1, 0, -3.8985, 0)
+stream = ExtResource("4_tpkyp")
+volume_db = -3.0
+max_db = 0.0
+pitch_scale = 0.69
+bus = &"NormalSound"
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://dc4c3ofw7o4ud"]
+
+[ext_resource type="Script" path="res://Scripts/HonorWarrior/InteractablePc.gd" id="1_8ik7b"]
+[ext_resource type="FontFile" uid="uid://drvdhc3yawmlj" path="res://Assets/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf" id="2_4icvt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w27pf"]
+font = ExtResource("2_4icvt")
+font_size = 30
+font_color = Color(0.607843, 0.305882, 0.866667, 1)
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[node name="InteractablePc" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_8ik7b")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -171.0
+offset_top = -149.0
+offset_right = 171.0
+offset_bottom = -119.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "PRESS E TO INTERACT"
+label_settings = SubResource("LabelSettings_w27pf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

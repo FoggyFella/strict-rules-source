@@ -11,11 +11,14 @@ script = ExtResource("1_ghuuk")
 [node name="mouse" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_uj8ll")
 volume_db = -10.0
+bus = &"NormalSound"
 
 [node name="key1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ufpvv")
 volume_db = -15.0
+bus = &"NormalSound"
 
 [node name="key2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_cg8we")
 volume_db = -15.0
+bus = &"NormalSound"

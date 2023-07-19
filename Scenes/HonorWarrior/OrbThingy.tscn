@@ -1,0 +1,195 @@
+[gd_scene load_steps=15 format=3 uid="uid://r4g0sn52hbe2"]
+
+[ext_resource type="Script" path="res://Scripts/HonorWarrior/OrbThingy.gd" id="1_ibgro"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ecdn3"]
+radius = 0.861953
+
+[sub_resource type="Gradient" id="Gradient_ysiuu"]
+offsets = PackedFloat32Array(0, 0.0873786, 0.543689, 0.572816)
+colors = PackedColorArray(0, 0, 0, 0, 0.128205, 0.128205, 0.128205, 0.128205, 1, 1, 1, 0.153846, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_x76d0"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ut1w2"]
+width = 256
+height = 256
+seamless = true
+color_ramp = SubResource("Gradient_ysiuu")
+noise = SubResource("FastNoiseLite_x76d0")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mshig"]
+width = 256
+height = 256
+seamless = true
+color_ramp = SubResource("Gradient_ysiuu")
+noise = SubResource("FastNoiseLite_x76d0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xwb7j"]
+transparency = 1
+albedo_color = Color(0.415686, 0.886275, 0.337255, 1)
+albedo_texture = SubResource("NoiseTexture2D_ut1w2")
+emission_enabled = true
+emission = Color(0.6, 0.678431, 0.227451, 1)
+emission_energy_multiplier = 0.8
+emission_texture = SubResource("NoiseTexture2D_mshig")
+uv1_scale = Vector3(0.942, 0.942, 0.942)
+uv1_offset = Vector3(0.393, 0, 0)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_a3kh4"]
+material = SubResource("StandardMaterial3D_xwb7j")
+radial_segments = 10
+rings = 6
+
+[sub_resource type="Animation" id="Animation_wkwie"]
+resource_name = "Dissapear"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:transparency")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D2:transparency")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_rm8lb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:mesh:material:uv1_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.942, 0.942, 0.942)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:transparency")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance3D2:transparency")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jgnsx"]
+resource_name = "spin"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(6.28319, 6.28319, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:mesh:material:uv1_scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.942, 0.942, 0.942), Vector3(2.754, 2.754, 2.754)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_be4yy"]
+_data = {
+"Dissapear": SubResource("Animation_wkwie"),
+"RESET": SubResource("Animation_rm8lb"),
+"spin": SubResource("Animation_jgnsx")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isq7r"]
+transparency = 1
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_4we1p"]
+material = SubResource("StandardMaterial3D_isq7r")
+radial_segments = 10
+rings = 5
+
+[node name="OrbThingy" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_ibgro")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ecdn3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+sorting_offset = 0.1
+mesh = SubResource("SphereMesh_a3kh4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.509804, 0.788235, 0.431373, 1)
+light_energy = 3.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "spin"
+libraries = {
+"": SubResource("AnimationLibrary_be4yy")
+}
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.567811, 0, 0, 0, 0.567811, 0, 0, 0, 0.567811, 0, 0, 0)
+mesh = SubResource("SphereMesh_4we1p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,20 +1,44 @@
 extends Node
 
+## SIGNALS ##
 signal passed_room
 signal entered_room
+signal settings_changed
 
+## GLOBAL STATS FOR SOMETHING IDK ##
 var player = null
-
 var current_room = 0
 var enemies_killed = 0
 
-var camera_on = false
-var should_play_input_sound = true
-var disk_collected = false
-var saw_the_mine_intro = true
+## THINGS THAT CHANGE THROUGH THE GAME ##
 
+# DEFAULT IS TRUE #
+var should_play_input_sound = true
+var feed_active = true
+var force_into_ex_fullscreen = true
+# DEFAULT IS FALSE #
+var camera_on = false
+var turned_camera_off = false
+var disk_collected = false
+var saw_the_mine_intro = false
+var saw_chase_intro = false
+var saw_os_intro = false
+var saw_boss_intro = false
+var saw_corrupted_intro = false
+var saw_snowlands_intro = false
+var saw_coin_flip = false
+
+var did_win = false
+
+## SAVE STUFF ##
 var player_checkpoint_pos = Vector3.ZERO
 var doors_info = {}
+
+## SETTINGS ##
+
+#I don't really need anything other than pixelization here
+#unless i want settings to save but I'm not coding save shit
+var pixelization = 4
 
 func _ready():
 	randomize()

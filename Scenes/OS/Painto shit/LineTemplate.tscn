@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqvmcswyqybl4"]
+
+[sub_resource type="Curve" id="Curve_8wuxs"]
+_data = [Vector2(0.0104167, 0.154545), 0.0, 7.51888, 0, 0, Vector2(0.151042, 1), 0.0, 0.0, 0, 0, Vector2(0.799479, 0.990909), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_pypyn"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.12012, 0.927928, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wydnt"]
+gradient = SubResource("Gradient_pypyn")
+fill_from = Vector2(1, 0.5)
+fill_to = Vector2(0, 0.5)
+
+[node name="LineTemplate" type="Line2D"]
+width_curve = SubResource("Curve_8wuxs")
+texture = SubResource("GradientTexture2D_wydnt")
+texture_mode = 2
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2

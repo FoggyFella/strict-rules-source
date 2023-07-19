@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://blete2mt3b1pp"
+path="res://.godot/imported/Sneaky Snitch.ogg-55918f4944ec56acff683035063a5bbf.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SFX/VoiceLines/Player/OS/music/Sneaky Snitch.ogg"
+dest_files=["res://.godot/imported/Sneaky Snitch.ogg-55918f4944ec56acff683035063a5bbf.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

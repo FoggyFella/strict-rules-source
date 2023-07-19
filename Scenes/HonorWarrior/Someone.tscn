@@ -33,16 +33,19 @@ one_shot = true
 stream = ExtResource("3_1c487")
 volume_db = 3.0
 pitch_scale = 0.47
+bus = &"NormalSound"
 
 [node name="Wood" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_ik2r4")
 volume_db = 3.0
 pitch_scale = 0.29
+bus = &"NormalSound"
 
 [node name="Mine" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_hm200")
 volume_db = 3.0
 pitch_scale = 0.64
+bus = &"NormalSound"
 
 [connection signal="mouse_entered" from="." to="Someone" method="_on_looker_mouse_entered"]
 [connection signal="timeout" from="untilGone" to="." method="_on_until_gone_timeout"]

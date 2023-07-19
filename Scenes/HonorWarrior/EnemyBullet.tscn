@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bdw2c75hxliqf"]
+[gd_scene load_steps=10 format=3 uid="uid://bdw2c75hxliqf"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/teste.gdshader" id="1_tge1p"]
 [ext_resource type="Texture2D" uid="uid://dklcu8m2qmq8y" path="res://Assets/HonorWarrior/enemy bullet sptire.png" id="2_hmsca"]
+[ext_resource type="AudioStream" uid="uid://g66nvkrttol3" path="res://Assets/SFX/bullet_fly.ogg" id="3_8r4ps"]
 
 [sub_resource type="GDScript" id="GDScript_w1ppx"]
 resource_name = "EnemyBullet"
@@ -34,6 +35,8 @@ shader = ExtResource("1_tge1p")
 shader_parameter/pixel_count = Vector2(64, 64)
 shader_parameter/FILTER_GAMMA = 10.0
 shader_parameter/COLOR_GAMMA = 1.0
+shader_parameter/mix_amount = 0.0
+shader_parameter/modulate = null
 shader_parameter/albedo_tex = ExtResource("2_hmsca")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pnqdo"]
@@ -124,6 +127,12 @@ libraries = {
 }
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-light_color = Color(0.956863, 0.568627, 0.278431, 1)
+light_color = Color(0.941176, 0.439216, 0.223529, 1)
 light_energy = 2.0
 omni_range = 0.786686
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_8r4ps")
+volume_db = -7.0
+autoplay = true
+bus = &"NormalSound"

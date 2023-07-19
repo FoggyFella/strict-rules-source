@@ -1,0 +1,151 @@
+[gd_scene load_steps=9 format=3 uid="uid://37y1rrqtp7xo"]
+
+[ext_resource type="Script" path="res://Scripts/Terminal/TerminalMenu.gd" id="1_m2tfg"]
+[ext_resource type="LabelSettings" uid="uid://3nxgf4y7pume" path="res://Scenes/Terminal/TerminalLabelSettings.tres" id="2_6ughn"]
+[ext_resource type="FontFile" uid="uid://7ynqbsp4f1vm" path="res://Assets/DOS FONT/ModernDOS8x16.ttf" id="3_xq4gl"]
+[ext_resource type="Shader" path="res://Assets/Shaders/node_3d2.gdshader" id="4_11hiy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m313f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k5jmj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lndk5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_86amq"]
+shader = ExtResource("4_11hiy")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.549
+shader_parameter/scanlines_width = 0.158
+shader_parameter/grille_opacity = 0.238
+shader_parameter/resolution = Vector2(512, 512)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 5.0
+shader_parameter/roll_size = 21.528
+shader_parameter/roll_variation = 1.65
+shader_parameter/distort_intensity = 0.01
+shader_parameter/noise_opacity = 0.01
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.01
+shader_parameter/aberration = 4.75e-08
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.5
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[node name="TerminalMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_m2tfg")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MainScreen" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -324.0
+offset_top = -324.0
+offset_right = 324.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 10.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0470588, 0.0509804, 0.0745098, 1)
+
+[node name="CommandBar" type="VBoxContainer" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -288.0
+offset_top = -624.0
+offset_right = 276.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="MainScreen/CommandBar"]
+layout_mode = 2
+text = "GAME CONTROL TERMINAL [VERSION 13.3.7]"
+label_settings = ExtResource("2_6ughn")
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="MainScreen/CommandBar"]
+layout_mode = 2
+text = "© 2003 CORSAC TEAM. ALL RIGHTS RESERVED
+
+Type 'help' for list of available commands"
+label_settings = ExtResource("2_6ughn")
+autowrap_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MainScreen/CommandBar"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="InputBar" type="LineEdit" parent="MainScreen/CommandBar"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.917647, 0.270588, 0, 1)
+theme_override_fonts/font = ExtResource("3_xq4gl")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m313f")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k5jmj")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_lndk5")
+max_length = 40
+caret_blink = true
+
+[node name="blocker" type="ColorRect" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="PUT ABOVE EVERYTHING" type="ColorRect" parent="MainScreen"]
+material = SubResource("ShaderMaterial_86amq")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="text_submitted" from="MainScreen/CommandBar/InputBar" to="." method="_on_input_bar_text_submitted"]

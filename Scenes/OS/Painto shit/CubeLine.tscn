@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://c53uikawbhrsp"]
+
+[node name="CubeLine" type="Line2D"]
+begin_cap_mode = 1
+end_cap_mode = 1

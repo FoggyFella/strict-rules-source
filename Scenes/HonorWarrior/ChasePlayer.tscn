@@ -1,0 +1,339 @@
+[gd_scene load_steps=18 format=3 uid="uid://cobsrg8x3i4dh"]
+
+[ext_resource type="Script" path="res://Scripts/Shake.gd" id="1_74di4"]
+[ext_resource type="Script" path="res://Scripts/HonorWarrior/ChasePlayer.gd" id="1_k1vc6"]
+[ext_resource type="Texture2D" uid="uid://0e2a8qvxw3bo" path="res://Assets/HonorWarrior/Player/hand-chase-blur.png" id="3_wkem7"]
+[ext_resource type="Texture2D" uid="uid://bhj4xis65vurl" path="res://Assets/HonorWarrior/Player/ar,.png" id="4_3o7wq"]
+[ext_resource type="Shader" path="res://Assets/Shaders/cartridge.gdshader" id="5_lw4wk"]
+[ext_resource type="AudioStream" uid="uid://cxvxq765tonv5" path="res://Assets/SFX/08_Step_rock_02.wav" id="5_vrq4g"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oq1mt"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cflta"]
+points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rqpdv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0xo16"]
+shader = ExtResource("5_lw4wk")
+shader_parameter/tape_wave_amount = -0.00499995
+shader_parameter/tape_crease_amount = 0.0
+shader_parameter/color_displacement = 2.143
+shader_parameter/lines_velocity = 0.0
+
+[sub_resource type="Animation" id="Animation_qgjw3"]
+resource_name = "HandsAnimation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/Control/HandLeft:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-319, 191), Vector2(-225, -92)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUD/Control/HandRight:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(305, -104), Vector2(451, 213)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HUD/Control/HandLeft:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1.68179, 1),
+"update": 0,
+"values": [0.174533, 0.261799]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HUD/Control/HandRight:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.174533, -0.261799]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_sfx"
+}, {
+"args": [],
+"method": &"play_sfx"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_13pmo"]
+resource_name = "HandsAnimationTry2"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/Control/HandRight:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 0.840897),
+"update": 0,
+"values": [Vector2(249, -160), Vector2(682, 213)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUD/Control/HandRight:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.29087, -0.541197]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HUD/Control/HandLeft:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 0.894),
+"update": 0,
+"values": [Vector2(-319, 191), Vector2(-63, -132)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HUD/Control/HandLeft:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.174533, 0.405031]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_sfx"
+}, {
+"args": [],
+"method": &"play_sfx"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_k78ns"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/Control/HandLeft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-225, 195)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUD/Control/HandRight:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(305, -104)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HUD/Control/HandLeft:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.261068]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HUD/Control/HandRight:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.174533]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xovji"]
+_data = {
+"HandsAnimation": SubResource("Animation_qgjw3"),
+"HandsAnimationTry2": SubResource("Animation_13pmo"),
+"RESET": SubResource("Animation_k78ns")
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_06me2"]
+emission_shape = 1
+emission_sphere_radius = 13.0
+particle_flag_align_y = true
+gravity = Vector3(0, -3, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 10.0
+scale_min = 0.1
+scale_max = 0.3
+color = Color(0.00784314, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fek0g"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ckjm8"]
+material = SubResource("StandardMaterial3D_fek0g")
+radius = 0.1
+height = 1.0
+
+[node name="ChasePlayer" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 21
+script = ExtResource("1_k1vc6")
+speed = 12.0
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195135, 0)
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_oq1mt")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195135, 0)
+shape = SubResource("ConvexPolygonShape3D_cflta")
+
+[node name="FloorDetection" type="RayCast3D" parent="."]
+target_position = Vector3(0, -2, 0)
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.478361, -0.163748)
+
+[node name="Camera3d" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0121272, 0.00621888)
+script = ExtResource("1_74di4")
+noise = SubResource("FastNoiseLite_rqpdv")
+
+[node name="WallDetection" type="RayCast3D" parent="Head"]
+target_position = Vector3(0, 0, -0.8)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HandLeft" type="Sprite2D" parent="HUD/Control"]
+position = Vector2(-225, 195)
+rotation = 0.261068
+scale = Vector2(0.787109, 0.787109)
+texture = ExtResource("3_wkem7")
+flip_h = true
+
+[node name="ArmLeft" type="Sprite2D" parent="HUD/Control/HandLeft"]
+visible = false
+use_parent_material = true
+position = Vector2(-392.839, 272.578)
+texture = ExtResource("4_3o7wq")
+flip_h = true
+
+[node name="HandRight" type="Sprite2D" parent="HUD/Control"]
+position = Vector2(305, -104)
+rotation = -0.174533
+scale = Vector2(0.787109, 0.787109)
+texture = ExtResource("3_wkem7")
+
+[node name="ArmRight" type="Sprite2D" parent="HUD/Control/HandRight"]
+visible = false
+position = Vector2(379.132, 264.232)
+rotation = 0.00872665
+texture = ExtResource("4_3o7wq")
+
+[node name="ChaseEfect" type="ColorRect" parent="HUD"]
+process_mode = 3
+material = SubResource("ShaderMaterial_0xo16")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 1.2
+libraries = {
+"": SubResource("AnimationLibrary_xovji")
+}
+
+[node name="RockStep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_vrq4g")
+volume_db = 2.0
+bus = &"NormalSound"
+
+[node name="Particles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98557, -3.49022)
+emitting = false
+amount = 150
+visibility_aabb = AABB(-5.11252, -5.09035, -4, 10.225, 10.1807, 8)
+process_material = SubResource("ParticleProcessMaterial_06me2")
+draw_pass_1 = SubResource("CapsuleMesh_ckjm8")

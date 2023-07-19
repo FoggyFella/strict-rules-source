@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://4idu6bku4cgc"]
+[gd_scene load_steps=80 format=3 uid="uid://4idu6bku4cgc"]
 
 [ext_resource type="Script" path="res://Scripts/HonorWarrior/WorldController.gd" id="1_rf74b"]
 [ext_resource type="Shader" path="res://Assets/Shaders/sky.gdshader" id="2_2qmui"]
@@ -17,19 +17,27 @@
 [ext_resource type="Texture2D" uid="uid://bn6uqychbai62" path="res://Assets/HonorWarrior/sign.png" id="14_ob1x6"]
 [ext_resource type="Texture2D" uid="uid://87uimp7r8imu" path="res://Assets/HonorWarrior/mines.png" id="15_2wkwd"]
 [ext_resource type="AudioStream" uid="uid://40via8we6pvs" path="res://Assets/SFX/VoiceLines/Player/BlastinWarrior/test.ogg" id="17_rmjl1"]
+[ext_resource type="Texture2D" uid="uid://cptr6a67sey47" path="res://googie.jpg" id="18_1qln7"]
 [ext_resource type="AudioStream" uid="uid://dls8ixuen4al2" path="res://Assets/SFX/wind1.wav" id="18_6nxoj"]
 [ext_resource type="PackedScene" uid="uid://byr11d5s5lpjc" path="res://Scenes/HonorWarrior/Tree.tscn" id="18_d30tp"]
 [ext_resource type="PackedScene" uid="uid://bue8grdu32j00" path="res://Scenes/HonorWarrior/Checkpoint.tscn" id="18_v3t8n"]
 [ext_resource type="AudioStream" uid="uid://bfj6sofa2lykh" path="res://Assets/SFX/VoiceLines/Player/BlastinWarrior/i_didnt_know.ogg" id="19_htkfo"]
 [ext_resource type="FontFile" uid="uid://drvdhc3yawmlj" path="res://Assets/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf" id="21_wd17l"]
-[ext_resource type="AudioStream" uid="uid://cgwcfu3v75axm" path="res://Assets/SFX/VoiceLines/Them/AudioStream2.ogg" id="22_2ek28"]
 [ext_resource type="PackedScene" uid="uid://cqq6eqebjdxcp" path="res://Scenes/HonorWarrior/Someone.tscn" id="22_ddmqf"]
+[ext_resource type="AudioStream" uid="uid://dkgmvu3fq2iy4" path="res://Assets/SFX/VoiceLines/Player/BlastinWarrior/room1.ogg" id="23_85xnh"]
 [ext_resource type="PackedScene" uid="uid://mvg1yptixd3j" path="res://Scenes/HonorWarrior/PlayAnimationArea.tscn" id="23_kq80p"]
+[ext_resource type="AudioStream" uid="uid://bp2q2ba573b4v" path="res://Assets/SFX/VoiceLines/Player/BlastinWarrior/room2.ogg" id="24_chhui"]
 [ext_resource type="AudioStream" uid="uid://cjseg28rrmytv" path="res://Assets/SFX/fast rune.ogg" id="24_ec3ct"]
 [ext_resource type="Texture2D" uid="uid://cbg025jpiq6g2" path="res://Assets/HonorWarrior/not yert.png" id="24_j17ss"]
 [ext_resource type="Shader" path="res://Assets/Shaders/cartridge.gdshader" id="25_2jhxu"]
+[ext_resource type="AudioStream" uid="uid://bxs8qetmthw7f" path="res://Assets/SFX/VoiceLines/Them/AudioStream3.ogg" id="25_c5jal"]
 [ext_resource type="AudioStream" uid="uid://rdcx1ldj7hwb" path="res://Assets/SFX/DEFECT_Noise_Hum_Buzz_21.ogg" id="26_wygtl"]
+[ext_resource type="Shader" path="res://Assets/Shaders/sliceandfade.gdshader" id="28_reqk6"]
 [ext_resource type="Texture2D" uid="uid://bd6ontpa1p2ab" path="res://Assets/HonorWarrior/holy fuck that's me.png" id="28_uhoj8"]
+[ext_resource type="Texture2D" uid="uid://dg2u0kfhrn2kc" path="res://Assets/OS/fucking art thing.png" id="29_iw4yj"]
+[ext_resource type="Texture2D" uid="uid://d1ymdco3e3fpa" path="res://Assets/HonorWarrior/NOW THIS IS A LOGO.png" id="30_ask50"]
+[ext_resource type="AudioStream" uid="uid://bwxb34uc40sfa" path="res://Assets/SFX/music/blastin jingle.mp3" id="31_ubtlt"]
+[ext_resource type="FontFile" uid="uid://7ynqbsp4f1vm" path="res://Assets/DOS FONT/ModernDOS8x16.ttf" id="31_w8st8"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ar6rw"]
 
@@ -152,7 +160,7 @@ void fragment(){
 	ALPHA = texture(albedo_texture, UV).a;
 }"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_calu1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c3rgw"]
 resource_local_to_scene = true
 render_priority = 0
 shader = SubResource("Shader_mvwio")
@@ -162,7 +170,7 @@ shader_parameter/wind_strength = 0.02
 shader_parameter/wind_speed = 1.0
 shader_parameter/albedo_texture = ExtResource("11_0bsdf")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ncooe"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cjgsi"]
 resource_local_to_scene = true
 render_priority = 0
 shader = SubResource("Shader_mvwio")
@@ -172,7 +180,7 @@ shader_parameter/wind_strength = 0.02
 shader_parameter/wind_speed = 1.0
 shader_parameter/albedo_texture = ExtResource("11_0bsdf")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ch74"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sjuga"]
 resource_local_to_scene = true
 render_priority = 0
 shader = SubResource("Shader_mvwio")
@@ -182,7 +190,7 @@ shader_parameter/wind_strength = 0.02
 shader_parameter/wind_speed = 1.0
 shader_parameter/albedo_texture = ExtResource("11_0bsdf")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7qbos"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ccvbf"]
 resource_local_to_scene = true
 render_priority = 0
 shader = SubResource("Shader_mvwio")
@@ -192,7 +200,7 @@ shader_parameter/wind_strength = 0.02
 shader_parameter/wind_speed = 1.0
 shader_parameter/albedo_texture = ExtResource("11_0bsdf")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mpcps"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sotfu"]
 resource_local_to_scene = true
 render_priority = 0
 shader = SubResource("Shader_mvwio")
@@ -202,7 +210,7 @@ shader_parameter/wind_strength = 0.02
 shader_parameter/wind_speed = 1.0
 shader_parameter/albedo_texture = ExtResource("11_0bsdf")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_btl5b"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x6g1m"]
 resource_local_to_scene = true
 render_priority = 0
 shader = SubResource("Shader_mvwio")
@@ -212,7 +220,7 @@ shader_parameter/wind_strength = 0.02
 shader_parameter/wind_speed = 1.0
 shader_parameter/albedo_texture = ExtResource("11_0bsdf")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_amchc"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6s38"]
 resource_local_to_scene = true
 render_priority = 0
 shader = SubResource("Shader_mvwio")
@@ -222,7 +230,7 @@ shader_parameter/wind_strength = 0.02
 shader_parameter/wind_speed = 1.0
 shader_parameter/albedo_texture = ExtResource("11_0bsdf")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_a5sib"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_81e1o"]
 resource_local_to_scene = true
 render_priority = 0
 shader = SubResource("Shader_mvwio")
@@ -289,6 +297,17 @@ shader_parameter/tape_crease_amount = 3.932
 shader_parameter/color_displacement = 5.0
 shader_parameter/lines_velocity = 1.117
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_orso6"]
+shader = ExtResource("28_reqk6")
+shader_parameter/direction = Vector2(0, 0.5)
+shader_parameter/offset = 0.0
+shader_parameter/fade = 1.0
+shader_parameter/strip = 4.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_rwuqw"]
+font = ExtResource("31_w8st8")
+font_color = Color(0.831373, 0.219608, 0.117647, 1)
+
 [sub_resource type="Animation" id="Animation_m7x2t"]
 resource_name = "Cutscene"
 length = 10.5
@@ -311,11 +330,14 @@ tracks/1/path = NodePath("Player")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.2, 2.11, 3.32, 8.41, 10),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 1.2, 2.11, 3.32, 8.41, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [],
 "method": &"disable_movement"
+}, {
+"args": [false],
+"method": &"change_pause"
 }, {
 "args": [],
 "method": &"play_step_sound"
@@ -508,11 +530,81 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector3(-39.8671, -8.72882, 88.5911)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ScreenMessages/Art/AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ScreenMessages/Art:material:shader_parameter/offset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_gdtsk"]
+resource_name = "SnowIntro"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScreenMessages/Art/AudioStreamPlayer:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScreenMessages/Art:material:shader_parameter/offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 3.9, 5.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 1.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.8, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"connection_status_snowlands"
+}, {
+"args": [],
+"method": &"saw_snowlands_intro"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_60qiv"]
 _data = {
 "Cutscene": SubResource("Animation_m7x2t"),
-"RESET": SubResource("Animation_xc6fw")
+"RESET": SubResource("Animation_xc6fw"),
+"SnowIntro": SubResource("Animation_gdtsk")
 }
 
 [node name="TestingGrounds" type="Node3D"]
@@ -534,7 +626,8 @@ data = {
 metadata/_editor_floor_ = Vector3(0, -5, 0)
 
 [node name="Player" parent="." instance=ExtResource("3_lvpnn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.2785, -9.17129, 89.078)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -44.2785, -9.17129, 89.078)
+should_leave_steps = true
 metadata/_edit_group_ = true
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Player"]
@@ -589,7 +682,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0006, -8.72625, -83.1571)
 [node name="Enemy" parent="EnemyRooms/Room3" instance=ExtResource("4_8ecuf")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -89.6998, -8.13038, -77.7424)
 health = 500
-damage = 15
+damage = 25
 speed = 3.0
 
 [node name="Room4" type="Node3D" parent="EnemyRooms"]
@@ -698,9 +791,6 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -124.9
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -121.011, -7.29251, 40.1558)
 
 [node name="Heals" type="Node3D" parent="."]
-
-[node name="MedKit" parent="Heals" instance=ExtResource("7_urgxt")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -28.731, -8.82495, -69.6328)
 
 [node name="MedKit2" parent="Heals" instance=ExtResource("7_urgxt")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -46.8444, -8.70408, -83.0016)
@@ -1750,7 +1840,7 @@ texture = ExtResource("12_m8nf4")
 
 [node name="DeadBody15" type="Sprite3D" parent="Props"]
 transform = Transform3D(6.21537, 0, 0, 0, 6.21537, 0, 0, 0, 6.21537, -128.959, -7.51007, 89.9454)
-modulate = Color(0.701961, 0.701961, 0.701961, 1)
+modulate = Color(0, 0, 0, 1)
 texture_filter = 0
 texture = ExtResource("14_ob1x6")
 
@@ -1864,35 +1954,35 @@ texture = ExtResource("9_moguq")
 
 [node name="Tree" parent="Props" instance=ExtResource("18_d30tp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.69465, 2.76541, -26.4972)
-material_override = SubResource("ShaderMaterial_calu1")
+material_override = SubResource("ShaderMaterial_c3rgw")
 
 [node name="Tree2" parent="Props" instance=ExtResource("18_d30tp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.30978, 3.19533, -28.4435)
-material_override = SubResource("ShaderMaterial_ncooe")
+material_override = SubResource("ShaderMaterial_cjgsi")
 
 [node name="Tree8" parent="Props" instance=ExtResource("18_d30tp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.48035, 3.19533, -23.4435)
-material_override = SubResource("ShaderMaterial_8ch74")
+material_override = SubResource("ShaderMaterial_sjuga")
 
 [node name="Tree3" parent="Props" instance=ExtResource("18_d30tp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8869, 3.19533, -28.4435)
-material_override = SubResource("ShaderMaterial_7qbos")
+material_override = SubResource("ShaderMaterial_ccvbf")
 
 [node name="Tree4" parent="Props" instance=ExtResource("18_d30tp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8531, 3.19533, -15.4435)
-material_override = SubResource("ShaderMaterial_mpcps")
+material_override = SubResource("ShaderMaterial_sotfu")
 
 [node name="Tree5" parent="Props" instance=ExtResource("18_d30tp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0828, 3.19533, 0.996443)
-material_override = SubResource("ShaderMaterial_btl5b")
+material_override = SubResource("ShaderMaterial_x6g1m")
 
 [node name="Tree6" parent="Props" instance=ExtResource("18_d30tp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.35835, 3.19533, 20.9907)
-material_override = SubResource("ShaderMaterial_amchc")
+material_override = SubResource("ShaderMaterial_g6s38")
 
 [node name="Tree7" parent="Props" instance=ExtResource("18_d30tp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7942, 3.21783, 10.354)
-material_override = SubResource("ShaderMaterial_a5sib")
+material_override = SubResource("ShaderMaterial_81e1o")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Props"]
 transform = Transform3D(0.168989, 0, -2.1957, 0, 2.2022, 0, 2.1957, 0, 0.168989, -128.559, -9.88077, 70.8663)
@@ -1908,6 +1998,11 @@ skeleton = NodePath("../..")
 transform = Transform3D(-2.73077, 0, -0.183205, 0, 2.2022, 0, 0.227968, 0, -2.19456, -34.8007, -9.88077, 88.9959)
 mesh = SubResource("PlaneMesh_mi1po")
 skeleton = NodePath("../..")
+
+[node name="Sprite3D" type="Sprite3D" parent="Props"]
+transform = Transform3D(-2.21982e-08, 0, 0.507835, 0, 0.507835, 0, -0.507835, 0, -2.21982e-08, -148.858, -7.07189, 71.094)
+modulate = Color(0.454902, 0.584314, 0.827451, 0.0392157)
+texture = ExtResource("18_1qln7")
 
 [node name="Checkpoints" type="Node3D" parent="."]
 
@@ -1937,25 +2032,35 @@ stream = ExtResource("17_rmjl1")
 volume_db = -25.0
 pitch_scale = 0.1
 autoplay = true
-bus = &"New Bus"
+bus = &"SoundReverb1"
 
 [node name="Wind" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_6nxoj")
 volume_db = -20.0
 autoplay = true
-bus = &"New Bus"
+bus = &"SoundReverb1"
 
 [node name="VoiceLines" type="Node" parent="."]
 
 [node name="I_didnt_know" type="AudioStreamPlayer" parent="VoiceLines"]
 stream = ExtResource("19_htkfo")
+volume_db = -5.0
+bus = &"NormalSound"
+
+[node name="Room1" type="AudioStreamPlayer" parent="VoiceLines"]
+stream = ExtResource("23_85xnh")
 volume_db = -7.0
-pitch_scale = 0.95
+bus = &"NormalSound"
+
+[node name="Room2" type="AudioStreamPlayer" parent="VoiceLines"]
+stream = ExtResource("24_chhui")
+volume_db = -7.0
+bus = &"NormalSound"
 
 [node name="AudioCutOff" type="AudioStreamPlayer" parent="VoiceLines"]
-stream = ExtResource("22_2ek28")
+stream = ExtResource("25_c5jal")
 volume_db = -1.0
-bus = &"New Bus 4"
+bus = &"SoundMuffled"
 
 [node name="ScreenMessages" type="CanvasLayer" parent="."]
 
@@ -2135,17 +2240,119 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="Art" type="TextureRect" parent="ScreenMessages"]
+visible = false
+z_index = 10
+texture_filter = 1
+material = SubResource("ShaderMaterial_orso6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("29_iw4yj")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="ScreenMessages/Art"]
+texture_filter = 1
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -415.0
+offset_top = -175.0
+offset_right = -65.0
+offset_bottom = 175.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("30_ask50")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ScreenMessages/Art"]
+stream = ExtResource("31_ubtlt")
+volume_db = -5.0
+bus = &"NormalSound"
+
+[node name="Status" type="VBoxContainer" parent="ScreenMessages/Art"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="ScreenMessages/Art/Status"]
+visible = false
+layout_mode = 2
+text = "Establishing connection to player"
+label_settings = SubResource("LabelSettings_rwuqw")
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
+[node name="Label2" type="Label" parent="ScreenMessages/Art/Status"]
+visible = false
+layout_mode = 2
+text = "CONNECTION ESTABLISHED"
+label_settings = SubResource("LabelSettings_rwuqw")
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
+[node name="Label3" type="Label" parent="ScreenMessages/Art/Status"]
+visible = false
+layout_mode = 2
+text = "PLAYER INDEX IS 12"
+label_settings = SubResource("LabelSettings_rwuqw")
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
+[node name="Label4" type="Label" parent="ScreenMessages/Art/Status"]
+visible = false
+layout_mode = 2
+text = "COLLECTING DATA"
+label_settings = SubResource("LabelSettings_rwuqw")
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
+[node name="Label5" type="Label" parent="ScreenMessages/Art/Status"]
+visible = false
+layout_mode = 2
+text = "DATA SENT TO STORAGE SERVER"
+label_settings = SubResource("LabelSettings_rwuqw")
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
+[node name="Label6" type="Label" parent="ScreenMessages/Art/Status"]
+visible = false
+layout_mode = 2
+text = "STREAMING VIDEO FEED"
+label_settings = SubResource("LabelSettings_rwuqw")
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
 [node name="Glitch" type="AudioStreamPlayer" parent="ScreenMessages"]
 process_mode = 3
 stream = ExtResource("26_wygtl")
 volume_db = -5.0
 pitch_scale = 0.8
+bus = &"NormalSound"
 
 [node name="Someone" parent="." instance=ExtResource("22_ddmqf")]
 transform = Transform3D(2.27848, 0, -2.02158, 0, 3.04602, 0, 2.02158, 0, 2.27848, -131.377, -10.3594, -21.9729)
 dissapear_distance = 9.0
 
-[node name="PlayerSpawn1" type="Node3D" parent="."]
+[node name="PlayerSpawn" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.4955, 11.4187, -6.05934)
 
 [node name="PlayerSpawn5" type="Node3D" parent="."]
@@ -2167,6 +2374,7 @@ animation = "Cutscene"
 [node name="fast" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.2784, -7.77183, 89.2668)
 stream = ExtResource("24_ec3ct")
+bus = &"NormalSound"
 
 [node name="Someone4" type="Sprite3D" parent="."]
 transform = Transform3D(-0.0529634, 0.444479, 0.894222, 0, 0.895479, -0.445104, -0.998596, -0.0235742, -0.0474276, -32.48, -8.81771, 88.9962)
@@ -2176,7 +2384,7 @@ alpha_antialiasing_edge = 0.01
 texture = ExtResource("28_uhoj8")
 
 [node name="CutsceneCam" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -39.8671, -8.72882, 88.5911)
+transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, -39.8671, -8.72882, 88.5911)
 fov = 77.0861
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

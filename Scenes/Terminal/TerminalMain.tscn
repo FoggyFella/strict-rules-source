@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b4rmjajuaqpgh"]
+[gd_scene load_steps=15 format=3 uid="uid://ipxgey6eefw8"]
 
 [ext_resource type="FontFile" uid="uid://7ynqbsp4f1vm" path="res://Assets/DOS FONT/ModernDOS8x16.ttf" id="1_0osm5"]
 [ext_resource type="Script" path="res://Scripts/Terminal/TerminalMain.gd" id="1_vhgmm"]
@@ -29,19 +29,19 @@ font_color = Color(0.917647, 0.270588, 0, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_86amq"]
 shader = ExtResource("1_wr2pp")
 shader_parameter/overlay = true
-shader_parameter/scanlines_opacity = 0.5
+shader_parameter/scanlines_opacity = 0.549
 shader_parameter/scanlines_width = 0.158
-shader_parameter/grille_opacity = 0.3
-shader_parameter/resolution = Vector2(648, 648)
-shader_parameter/pixelate = true
-shader_parameter/roll = false
+shader_parameter/grille_opacity = 0.238
+shader_parameter/resolution = Vector2(512, 512)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
 shader_parameter/roll_speed = 5.0
-shader_parameter/roll_size = 0.0
-shader_parameter/roll_variation = 0.1
-shader_parameter/distort_intensity = 0.003
-shader_parameter/noise_opacity = 0.4
+shader_parameter/roll_size = 21.528
+shader_parameter/roll_variation = 1.65
+shader_parameter/distort_intensity = 0.01
+shader_parameter/noise_opacity = 0.01
 shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.06
+shader_parameter/static_noise_intensity = 0.01
 shader_parameter/aberration = 4.75e-08
 shader_parameter/brightness = 1.4
 shader_parameter/discolor = true
@@ -49,16 +49,6 @@ shader_parameter/warp_amount = 0.5
 shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 0.5
-
-[sub_resource type="Environment" id="Environment_8e3lg"]
-background_mode = 3
-background_canvas_max_layer = 1
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 1.17
-glow_strength = 0.94
-glow_bloom = 0.62
-glow_blend_mode = 1
 
 [sub_resource type="Animation" id="Animation_u8cwy"]
 resource_name = "BootUp"
@@ -130,7 +120,7 @@ tracks/5/path = NodePath("MainScreen/CommandBar/InputBar:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 3.4),
+"times": PackedFloat32Array(0, 3.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -142,7 +132,7 @@ tracks/6/path = NodePath("MainScreen/CommandBar/InputBar")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(3.4),
+"times": PackedFloat32Array(3.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -238,6 +228,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_vhgmm")
 
 [node name="Background" type="ColorRect" parent="."]
@@ -289,7 +280,7 @@ anchor_bottom = 1.0
 offset_left = -288.0
 offset_top = -624.0
 offset_right = 276.0
-offset_bottom = -23.0
+offset_bottom = -47.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
@@ -299,20 +290,26 @@ visible = false
 layout_mode = 2
 text = "A.R.C. REMOTE ACCESS TERMINAL [VERSION 13.3.7]"
 label_settings = ExtResource("2_4j7iy")
+autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="MainScreen/CommandBar"]
 visible = false
 layout_mode = 2
-text = "© 2013 CORSAC TEAM. ALL RIGHTS RESERVED
+text = "© 2003 CORSAC TEAM. ALL RIGHTS RESERVED
 
-[P]: IMPORTANT! THIS TERMINAL IS FOR DEBUG PURPOSES
-ONLY. PLEASE REMOVE IT IN THE FINAL BUILD!"
+[P]: IMPORTANT! THIS TERMINAL IS FOR DEBUG PURPOSES ONLY. PLEASE REMOVE IT IN THE FINAL BUILD!"
 label_settings = ExtResource("2_4j7iy")
+autowrap_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MainScreen/CommandBar"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 16
 
 [node name="Label3" type="Label" parent="MainScreen/CommandBar"]
 visible = false
 layout_mode = 2
-text = ">Remote access disk not found. Please insert a valid
+text = "> Remote access disk not found. Please insert a valid
 disk or contact [NULL] for further assistance."
 label_settings = ExtResource("2_4j7iy")
 
@@ -325,6 +322,7 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxEmpty_m313f")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_k5jmj")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_lndk5")
+max_length = 40
 caret_blink = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainScreen"]
@@ -381,7 +379,7 @@ uppercase = true
 
 [node name="Label6" type="Label" parent="MainScreen/VBoxContainer"]
 layout_mode = 2
-text = "© 2013 CORSAC TEAM. ALL RIGHTS RESERVED"
+text = "© 2003 CORSAC TEAM. ALL RIGHTS RESERVED"
 label_settings = SubResource("LabelSettings_d6q3w")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -401,7 +399,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(0, 376)
 mouse_filter = 2
-color = Color(0.0470588, 0.0509804, 0.0745098, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="PUT ABOVE EVERYTHING" type="ColorRect" parent="MainScreen"]
 material = SubResource("ShaderMaterial_86amq")
@@ -413,13 +411,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_8e3lg")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "BootUp"
 libraries = {
 "": SubResource("AnimationLibrary_r7lct")
 }
 
+[connection signal="text_submitted" from="MainScreen/CommandBar/InputBar" to="." method="_on_input_bar_text_submitted"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

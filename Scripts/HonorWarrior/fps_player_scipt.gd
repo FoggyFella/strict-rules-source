@@ -2,19 +2,26 @@ extends CharacterBody3D
 
 var blood_spray = preload("res://Scenes/HonorWarrior/FaceBlood.tscn")
 var bullet_decal = preload("res://Scenes/HonorWarrior/BulletDecal.tscn")
+var step = preload("res://Scenes/HonorWarrior/BloodStep.tscn")
 
 var health = 100
 var max_health = 100
 var damage = 100
 var gravity = 20.0
 var gun_rest_pos = Vector2(252,-255)
+var amount_of_steps = 0
+var flip = false
 
+var direction = Vector3()
+
+@export var logo_texture:Texture
 @export var eyes_texture:Texture
 @export var level:String = "Snowlands"
 @export var task:String = "KILL"
 @export var speed : float = 5.0
 @export var sensetivity : float = 0.004
 @export var can_move = true
+@export var should_leave_steps = false
 @export var can_rotate = true
 @export var can_shoot = true
 @export var step_sound = "SnowStep"
@@ -32,6 +39,18 @@ var gun_rest_pos = Vector2(252,-255)
 @onready var head := $Head
 @onready var camera = $Head/Camera3d
 
+var can_pause = true
+
+var window_modes = [
+	DisplayServer.WINDOW_MODE_FULLSCREEN,
+	DisplayServer.WINDOW_MODE_WINDOWED,
+	DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
+]
+
+var sfx_buses = [1,2,3,4,5]
+
+var music_buses = [6,7]
+
 func _ready():
 	if Global.player_checkpoint_pos == Vector3.ZERO:
 		if get_tree().current_scene.get_node_or_null("PlayerSpawn") != null:
@@ -44,10 +63,20 @@ func _ready():
 	$HUD/Control/Panel/Stuff/Health/ProgressBar.value = health
 	$HUD/Control/Panel/Stuff/Level/Label2.text = level
 	$HUD/Control/Panel/Task/Label2.text = task
+	$HUD/Control/Panel/TextureRect.texture = logo_texture
+	$Head/Camera3d/BossLaser.show()
+	$HUD/PauseMenu.hide()
+	$HUD/PauseMenu/Settings/SettingsContainer/Pixelation/PixelationBox.value = Global.pixelization
 	eyes.texture = eyes_texture
 	health = starting_health
 	update_health()
+	load_feed_status()
 	$MeshInstance3d.hide()
+	if !Global.should_play_input_sound:
+		turn_off_sounds()
+	set_correct_setting_values()
+	await(get_tree().create_timer(0.3).timeout)
+	$Head/Camera3d/BossLaser.queue_free()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("show_mouse"):
@@ -70,21 +99,26 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back") if can_move else Vector2.ZERO
-	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	direction = Vector3(input_dir.x, 0, input_dir.y).rotated(Vector3.UP,head.global_rotation.y).normalized()#(head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 		animation_tree.set("parameters/Blend2/blend_amount",0.5)
+		animation_tree.set("parameters/Blend2 2/blend_amount",0.4)
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 		gun_sprite.position = gun_rest_pos
 		animation_tree.set("parameters/Blend2/blend_amount",1.0)
+		animation_tree.set("parameters/Blend2 2/blend_amount",1.0)
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
+		
+	if Input.is_action_just_pressed("pause") and can_pause:
+		enter_pause()
 	
 	var collider = $Head/LookingRay.get_collider()
 	if $Head/LookingRay.is_colliding():
@@ -112,7 +146,10 @@ func take_damage(amount):
 	$SFX/damage.pitch_scale = randf_range(0.75,0.9)
 	$SFX/damage.play()
 	if health <= 0:
+		$SFX/low_hp.stop()
 		get_tree().current_scene.on_player_death()
+	elif health <= 40:
+		$SFX/low_hp.play()
 
 func instance_blood(until_gone = 7):
 	var blood_inst = blood_spray.instantiate()
@@ -142,6 +179,8 @@ func heal(amount):
 	health += amount
 	if health > max_health:
 		health = max_health
+	if health > 40:
+		$SFX/low_hp.stop()
 	$SFX/heal.pitch_scale = randf_range(0.9,1.1)
 	$SFX/heal.play()
 	update_health()
@@ -155,7 +194,8 @@ func rotate_camera_to_default():
 func disable_movement():
 	can_rotate = !can_rotate
 	can_move = !can_move
-	can_shoot = !can_shoot
+	if !Global.disk_collected:
+		can_shoot = !can_shoot
 
 func glow_the_shot():
 	if should_glow_on_shot:
@@ -166,14 +206,14 @@ func glow_the_shot():
 
 func turn_off_sounds():
 	Global.should_play_input_sound = false
-	$HUD/TextureRect/Label2.text = "MICROPHONE AUDIO: ERROR"
+	$HUD/FeedActiveEffect/Label2.text = "MICROPHONE AUDIO: ERROR"
 
 func _on_until_delay_change_timeout():
-	$HUD/TextureRect/Label3.text = "DELAY: " + str(randi_range(1,4)) + " sec"
+	$HUD/FeedActiveEffect/Label3.text = "DELAY: " + str(randi_range(1,4)) + " sec"
 	$UntilDelayChangeAgain.start(randf_range(1,2))
 
 func _on_until_delay_change_again_timeout():
-	$HUD/TextureRect/Label3.text = "DELAY: " + str(randi_range(1,4)) + " sec"
+	$HUD/FeedActiveEffect/Label3.text = "DELAY: " + str(randi_range(1,4)) + " sec"
 	$UntilDelayChange.start(randf_range(4,8))
 
 func reset_checkpoint():
@@ -196,3 +236,162 @@ func hide_ui():
 
 func cause_shake(amount):
 	camera.add_trauma(amount)
+
+func give_blood_steps(amount):
+	amount_of_steps += amount
+
+func spawn_snow_steps():
+	if should_leave_steps and is_on_floor():
+		var step_inst = step.instantiate()
+		step_inst.flip_h = flip
+		flip = !flip
+		get_tree().current_scene.add_child(step_inst)
+		step_inst.global_position = $StepSpawn.global_position
+		step_inst.global_rotation.y = head.global_rotation.y
+
+func spawn_blood_steps():
+	if amount_of_steps > 0 and is_on_floor():
+		amount_of_steps -= 1
+		var step_inst = step.instantiate()
+		step_inst.flip_h = flip
+		flip = !flip
+		step_inst.modulate = Color("691313d7")
+		get_tree().current_scene.add_child(step_inst)
+		step_inst.global_position = $StepSpawn.global_position
+		step_inst.global_rotation.y = head.global_rotation.y
+
+func switch_to_disk():
+	change_task("USE THE DISK")
+	$HUD/Control/Panel/Stuff/Weapon/Label2.text = "DISK"
+	can_shoot = false
+	$HUD/Crosshair.hide()
+	$AnimationTree.set("parameters/Transition/transition_request","has_disk")
+
+func turn_off_camera():
+	can_rotate = false
+	can_shoot = false
+	can_move = false
+	camera.get_node("PixelEffect").hide()
+	$HUD/Control/Panel.hide()
+	$HUD/GunAnchor.hide()
+	$HUD/Crosshair.hide()
+
+func turn_on_camera():
+	can_rotate = true
+	can_move = true
+	if !Global.disk_collected:
+		can_shoot = true
+	camera.get_node("PixelEffect").show()
+	camera.make_current()
+	$HUD/Control/Panel.show()
+	$HUD/GunAnchor.show()
+	$HUD/Crosshair.show()
+
+func load_feed_status():
+	if !Global.feed_active:
+		$HUD/FeedActiveEffect.hide()
+		$HUD/FeedNotActive.show()
+	else:
+		$HUD/FeedActiveEffect.show()
+		$HUD/FeedNotActive.hide()
+
+func turn_feed_off():
+	Global.feed_active = false
+	$SFX/feedturnoff.play()
+	await(get_tree().create_timer(1.1,false).timeout)
+	AudioServer.set_bus_volume_db(0,-80.0)
+	$HUD/FeedActiveEffect/itsoff.show()
+	can_move = false
+	can_shoot = false
+	can_rotate = false
+	await(get_tree().create_timer(5.0,false).timeout)
+	AudioServer.set_bus_volume_db(0,0.0)
+	$HUD/FeedActiveEffect.hide()
+	$HUD/FeedNotActive.show()
+	can_move = true
+	can_rotate = true
+
+func enter_pause():
+	get_tree().paused = true
+	can_pause = false
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	$HUD/PauseMenu/Buttoins/Resume.grab_focus()
+	$HUD/PauseMenu.show()
+
+func _on_resume_pressed():
+	get_tree().paused = false
+	can_pause = true
+	$HUD/PauseMenu.hide()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func _on_settings_pressed():
+	$HUD/PauseMenu/Buttoins.hide()
+	$HUD/PauseMenu/Label.hide()
+	$HUD/PauseMenu/Settings.show()
+
+func change_pause(yeah:bool):
+	can_pause = yeah
+
+func _on_exit_pressed():
+	get_tree().quit()
+
+func _on_close_settings_pressed():
+	$HUD/PauseMenu/Buttoins.show()
+	$HUD/PauseMenu/Label.show()
+	$HUD/PauseMenu/Settings.hide()
+	
+	Global.emit_signal("settings_changed")
+
+
+func _on_window_options_item_selected(index):
+	DisplayServer.window_set_mode(window_modes[index])
+
+
+func _on_pixelation_box_value_changed(value):
+	Global.pixelization = value
+
+
+func set_correct_setting_values():
+	$HUD/PauseMenu/Settings/SettingsContainer/Music/MusicSlider.value = AudioServer.get_bus_volume_db(6)
+	$HUD/PauseMenu/Settings/SettingsContainer/Sfx/SfxSlider.value = AudioServer.get_bus_volume_db(1)
+	
+	var window_mode = DisplayServer.window_get_mode()
+	
+	if window_mode == DisplayServer.WINDOW_MODE_FULLSCREEN:
+		$HUD/PauseMenu/Settings/SettingsContainer/Window/WindowOptions.select(0)
+	elif window_mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
+		$HUD/PauseMenu/Settings/SettingsContainer/Window/WindowOptions.select(2)
+	elif window_mode == DisplayServer.WINDOW_MODE_WINDOWED:
+		$HUD/PauseMenu/Settings/SettingsContainer/Window/WindowOptions.select(1)
+	
+	
+func _on_sfx_slider_value_changed(value):
+	for sfx_bus in sfx_buses:
+		if value > -30.0:
+			AudioServer.set_bus_mute(sfx_bus,false)
+			AudioServer.set_bus_volume_db(sfx_bus,value)
+		else:
+			AudioServer.set_bus_mute(sfx_bus,true)
+
+
+func _on_music_slider_value_changed(value):
+	for music_bus in music_buses:
+		if value > -30.0:
+			AudioServer.set_bus_mute(music_bus,false)
+			AudioServer.set_bus_volume_db(music_bus,value)
+		else:
+			AudioServer.set_bus_mute(music_bus,true)
+
+func show_choice():
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	$HUD/CoinChoice.show()
+
+func _on_heads_pressed():
+	$HUD/CoinChoice.hide()
+	get_tree().current_scene.chosen_coin = "heads"
+	get_tree().current_scene.coin_scene()
+
+func _on_tails_pressed():
+	$HUD/CoinChoice.hide()
+	get_tree().current_scene.chosen_coin = "tails"
+	get_tree().current_scene.coin_scene()
