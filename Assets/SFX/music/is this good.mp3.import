@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cylttcdb8nfep"
+path="res://.godot/imported/is this good.mp3-2ff9ad39758d7ae07d39cb5475ce8aa9.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/music/is this good.mp3"
+dest_files=["res://.godot/imported/is this good.mp3-2ff9ad39758d7ae07d39cb5475ce8aa9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

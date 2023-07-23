@@ -20,8 +20,6 @@ var fog_enabled = false
 
 @export var fog_move_speed = 0.05
 
-var im_debugging_shit = false
-
 var chosen_coin = ""
 
 func set_start(val:bool):
@@ -49,7 +47,7 @@ func _ready():
 		$Part7.position = Vector3.ZERO
 	disable_fog()
 	
-	if im_debugging_shit:
+	if Global.im_debugging_shit:
 		$Part7.global_position = Vector3(0,0,0)
 		$ChaseDoors.global_position = Vector3(0,0,0)
 	else:
@@ -174,17 +172,19 @@ func saw_chase_intro():
 func player_died():
 	get_tree().paused = true
 	var tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS).set_parallel(true)
+	$ScreenMessages/BlackBg.modulate = Color("000000")
+	$ScreenMessages/BlackBg.color = Color("000000")
 	$ScreenMessages/BlackBg.show()
-	$ScreenMessages/soscaryface.show()
+	$ScreenMessages/ScareyText.show()
 	$ScreenMessages/notyet.show()
 	$ScreenMessages/Efect.show()
-	tween.parallel().tween_property($ScreenMessages/soscaryface,"modulate",Color("9d9d9d27"),6.35)
-	tween.parallel().tween_property($ScreenMessages/notyet,"modulate",Color("7f00783c"),6.35)
+	tween.parallel().tween_property($ScreenMessages/ScareyText,"modulate",Color("ffffff"),15.0)
+	tween.parallel().tween_property($ScreenMessages/notyet,"modulate",Color("6604a69a"),6.5)
 	$riser.play()
 	await(get_tree().create_timer(6.5).timeout)
 	tween.stop()
 	$ScreenMessages/notyet.hide()
-	$ScreenMessages/soscaryface.hide()
+	$ScreenMessages/ScareyText.hide()
 	$riser.stop()
 	await(get_tree().create_timer(1.0).timeout)
 	get_tree().reload_current_scene()
@@ -199,7 +199,7 @@ func chase_intro_dialogue():
 		await get_tree().create_timer(5.0).timeout
 		show_chase_message("RUN",0.4,true)
 		await get_tree().create_timer(0.4).timeout
-		if im_debugging_shit:
+		if Global.im_debugging_shit:
 			teleport_to_final()
 		$ChasePlayer.active = false
 		$ChasePlayer.activate()
@@ -223,6 +223,7 @@ func _on_music_switch_timeout():
 	new_environemnt.set("adjustment_contrast",1.3)
 	world_environment.environment = new_environemnt
 	$ChasePlayer.enable_particles()
+	$ChasePlayer.camera_3d.add_trauma(3.0)
 
 
 func _on_chase_scene_trigger_body_entered(body):
@@ -272,7 +273,7 @@ func _on_area_final_body_entered(body):
 		$ChasePlayer.activate()
 		$ChaseDoors/FinalDoors.close()
 		start_monologue()
-		if im_debugging_shit:
+		if Global.im_debugging_shit:
 			$ChaseMusic.stop()
 			$MusicSwitch.stop()
 			$MusicRestSwitch.stop()
@@ -332,3 +333,8 @@ func coin_check(side:String):
 	await(get_tree().create_timer(2.0).timeout)
 	$FinalSceneStuff/FinalAnimationPlayer.play("FadeOut")
 	$ScreenMessages/BlackBg.show()
+
+
+func _on_goodbye_scott_finished():
+	await(get_tree().create_timer(2.0).timeout)
+	get_tree().change_scene_to_file("res://Scenes/Reality/ScottRoom.tscn")

@@ -87,7 +87,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
 			if can_rotate:
-				head.rotate_y(-event.relative.x * sensetivity)
+				head.rotate_y(-event.relative.x * Global.sensitivity)
 			if event.relative.x < 0:
 				eyes.frame = 2
 			else:
@@ -123,6 +123,9 @@ func _physics_process(delta):
 	var collider = $Head/LookingRay.get_collider()
 	if $Head/LookingRay.is_colliding():
 		collider.on_entered(self)
+	
+	if Input.is_action_just_pressed("restart") and Global.im_debugging_shit:
+		get_tree().reload_current_scene()
 
 func shoot():
 	if !animation_player.is_playing() and can_shoot:
@@ -304,12 +307,14 @@ func turn_feed_off():
 	can_move = false
 	can_shoot = false
 	can_rotate = false
+	can_pause = false
 	await(get_tree().create_timer(5.0,false).timeout)
 	AudioServer.set_bus_volume_db(0,0.0)
 	$HUD/FeedActiveEffect.hide()
 	$HUD/FeedNotActive.show()
 	can_move = true
 	can_rotate = true
+	can_pause = true
 
 func enter_pause():
 	get_tree().paused = true
@@ -354,6 +359,8 @@ func _on_pixelation_box_value_changed(value):
 func set_correct_setting_values():
 	$HUD/PauseMenu/Settings/SettingsContainer/Music/MusicSlider.value = AudioServer.get_bus_volume_db(6)
 	$HUD/PauseMenu/Settings/SettingsContainer/Sfx/SfxSlider.value = AudioServer.get_bus_volume_db(1)
+	$HUD/PauseMenu/Settings/SettingsContainer/Sensitity/SensSlider.value = Global.sensitivity
+	$HUD/PauseMenu/Settings/SettingsContainer/Pixelation/PixelationBox.value  = Global.pixelization
 	
 	var window_mode = DisplayServer.window_get_mode()
 	
@@ -395,3 +402,12 @@ func _on_tails_pressed():
 	$HUD/CoinChoice.hide()
 	get_tree().current_scene.chosen_coin = "tails"
 	get_tree().current_scene.coin_scene()
+
+func _on_sens_slider_value_changed(value):
+	Global.sensitivity = value
+
+func allow_pause():
+	can_pause = true
+
+func disallow_pause():
+	can_pause = false

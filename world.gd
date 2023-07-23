@@ -19,6 +19,7 @@ func _ready():
 	$UI/Settings.scale = Vector2(1,0)
 	if Global.force_into_ex_fullscreen:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+	set_correct_setting_values()
 	await(get_tree().create_timer(1.0).timeout)
 	$AnimationPlayer.play("Camera")
 	await(get_tree().create_timer(4.5).timeout)
@@ -101,3 +102,21 @@ func _on_music_slider_value_changed(value):
 			AudioServer.set_bus_volume_db(music_bus,value)
 		else:
 			AudioServer.set_bus_mute(music_bus,true)
+
+func _on_sens_slider_value_changed(value):
+	Global.sensitivity = value
+
+func set_correct_setting_values():
+	$UI/Settings/SettingsContainer/Music/MusicSlider.value = AudioServer.get_bus_volume_db(6)
+	$UI/Settings/SettingsContainer/Sfx/SfxSlider.value = AudioServer.get_bus_volume_db(1)
+	$UI/Settings/SettingsContainer/Sensitity/SensSlider.value = Global.sensitivity
+	$UI/Settings/SettingsContainer/Pixelation/PixelationBox.value  = Global.pixelization
+	
+	var window_mode = DisplayServer.window_get_mode()
+	
+	if window_mode == DisplayServer.WINDOW_MODE_FULLSCREEN:
+		$UI/Settings/SettingsContainer/Window/WindowOptions.select(0)
+	elif window_mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
+		$UI/Settings/SettingsContainer/Window/WindowOptions.select(2)
+	elif window_mode == DisplayServer.WINDOW_MODE_WINDOWED:
+		$UI/Settings/SettingsContainer/Window/WindowOptions.select(1)

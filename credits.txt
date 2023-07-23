@@ -2,10 +2,9 @@ Strict Rules
 A game by FoggyDude
 
 Voices:
-FoggyDude as Scott
 Rexium as The Spectator
-FoggyDude as The Programmer
-The Artist had no voice lol
+Swervzy as The Programmer
+FoggyDude as Scott Seeker
 
 The guy on the camera:
 My friend
@@ -28,7 +27,6 @@ ModernDos8x16
 VCR_OSD_MONO
 
 Sound effects:
-Some were made using my mouth
 Pistol sound effects by Michel Baradari
 Snow crunch by luminadii
 computer noise by matucha
@@ -40,9 +38,14 @@ tv turn off by harpoyume
 Door smash by egomassive
 DoorOpen05 by qubodup
 Night village by Gombar_Bendeguz
+Carpet footsteps by scholzi982
+getting into bed by btherad2000
+fast_whoosh by alanmcki
+
+Some were made using my mouth
 
 Most of these sounds I found on freesound.org or opengameart.org
-If I didn't credit some sounds it's because they're public domain
+If I didn't credit some sounds it's because they're CC0
 (or I forgot, sorry)
 
 Special thanks to:
@@ -52,7 +55,5 @@ Godot Engine
 Schmiegs
 Xenify
 
-AND...
-
-
-YOU!
+And most importantly...
+thank YOU for playing!

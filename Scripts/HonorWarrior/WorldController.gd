@@ -20,6 +20,7 @@ func _ready():
 		Global.saw_snowlands_intro = true
 		setup_monitor_viewport()
 		if !Global.saw_the_mine_intro:
+			$Player.can_pause = false
 			$AnimationPlayer.play("Intro")
 		else:
 			get_node("Player").turn_off_sounds()

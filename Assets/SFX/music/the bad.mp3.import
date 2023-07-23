@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cwgvjbho4bcvd"
+path="res://.godot/imported/the bad.mp3-284be15b2a2fcf66e81b6b043aeb42e6.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/music/the bad.mp3"
+dest_files=["res://.godot/imported/the bad.mp3-284be15b2a2fcf66e81b6b043aeb42e6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

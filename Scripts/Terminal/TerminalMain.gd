@@ -8,6 +8,8 @@ var label_settings = preload("res://Scenes/Terminal/TerminalLabelSettings.tres")
 
 var in_start_sequence = false
 
+var turned_on = false
+
 var commands = {
 	"test":"Yeah this command works",
 	"help":"List of commands:\n
@@ -31,6 +33,9 @@ var commands = {
 }
 
 func boot_up():
+	Global.player.can_pause = false
+	turned_on = true
+	$MainScreen/CommandBar/InputBar.clear()
 	$AnimationPlayer.play("BootUp")
 
 func _ready():

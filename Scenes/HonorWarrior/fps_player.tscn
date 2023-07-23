@@ -1142,6 +1142,26 @@ layout_mode = 2
 text = "(if the pixels look weird try changing the number)"
 label_settings = SubResource("LabelSettings_rsp3r")
 
+[node name="Sensitity" type="HBoxContainer" parent="HUD/PauseMenu/Settings/SettingsContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HUD/PauseMenu/Settings/SettingsContainer/Sensitity"]
+texture_filter = 1
+layout_mode = 2
+text = "sensitivity:"
+label_settings = SubResource("LabelSettings_86f4y")
+uppercase = true
+
+[node name="SensSlider" type="HSlider" parent="HUD/PauseMenu/Settings/SettingsContainer/Sensitity"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 0.001
+max_value = 0.01
+step = 0.001
+value = 0.004
+
 [node name="Sfx" type="HBoxContainer" parent="HUD/PauseMenu/Settings/SettingsContainer"]
 layout_mode = 2
 size_flags_vertical = 4
@@ -1345,6 +1365,7 @@ target_position = Vector3(0, -2, 0)
 [connection signal="pressed" from="HUD/PauseMenu/Buttoins/Exit" to="." method="_on_exit_pressed"]
 [connection signal="item_selected" from="HUD/PauseMenu/Settings/SettingsContainer/Window/WindowOptions" to="." method="_on_window_options_item_selected"]
 [connection signal="value_changed" from="HUD/PauseMenu/Settings/SettingsContainer/Pixelation/PixelationBox" to="." method="_on_pixelation_box_value_changed"]
+[connection signal="value_changed" from="HUD/PauseMenu/Settings/SettingsContainer/Sensitity/SensSlider" to="." method="_on_sens_slider_value_changed"]
 [connection signal="value_changed" from="HUD/PauseMenu/Settings/SettingsContainer/Sfx/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="HUD/PauseMenu/Settings/SettingsContainer/Music/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="pressed" from="HUD/PauseMenu/Settings/CloseSettings" to="." method="_on_close_settings_pressed"]

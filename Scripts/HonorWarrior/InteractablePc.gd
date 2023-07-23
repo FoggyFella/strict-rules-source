@@ -35,10 +35,14 @@ func _unhandled_input(event):
 		Global.player.turn_off_camera()
 		turn_on_pc_light()
 		the_os_thing.boot_up()
-	if event.is_action_pressed("ui_cancel") and !active and can_leave:
+		Global.player.can_pause = false
+	if event.is_action_pressed("ui_cancel") and !active and can_leave and the_os_thing.turned_on:
+		the_os_thing.turned_on = false
 		Global.player.turn_on_camera()
 		turn_off_pc_light()
 		the_os_thing.clear_shit()
+		await(get_tree().create_timer(1.0).timeout)
+		Global.player.can_pause = true
 	#the_viewport.push_unhandled_input(event)
 	the_viewport.push_input(event)
 	#if event.is_action_pressed("ui_accept") and pc_itself.get_node("Light").visible:

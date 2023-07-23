@@ -36,9 +36,10 @@ var doors_info = {}
 
 ## SETTINGS ##
 
-#I don't really need anything other than pixelization here
-#unless i want settings to save but I'm not coding save shit
 var pixelization = 4
+var sensitivity = 0.004
+
+var im_debugging_shit = false
 
 func _ready():
 	randomize()

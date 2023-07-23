@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cxvqvqdoi4lmo"
+path="res://.godot/imported/carpet step.ogg-90dc0329f2fcc127ab8fd7cbe7131601.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SFX/Reality/carpet step.ogg"
+dest_files=["res://.godot/imported/carpet step.ogg-90dc0329f2fcc127ab8fd7cbe7131601.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

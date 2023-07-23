@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://p27m4274ao5v"]
+[gd_scene load_steps=55 format=3 uid="uid://p27m4274ao5v"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_56m71"]
 [ext_resource type="PackedScene" uid="uid://dy4suy4odwwqi" path="res://Scenes/LogoScene.tscn" id="2_bh3g8"]
@@ -204,6 +204,11 @@ font_color = Color(0.847059, 0.317647, 0.109804, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_q8axx"]
 font = ExtResource("7_5tko7")
+font_color = Color(0.847059, 0.317647, 0.109804, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x86lp"]
+font = ExtResource("7_5tko7")
+font_size = 30
 font_color = Color(0.847059, 0.317647, 0.109804, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_7ljqk"]
@@ -413,7 +418,6 @@ libraries = {
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Settings" type="ColorRect" parent="UI"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -482,6 +486,26 @@ texture_filter = 1
 layout_mode = 2
 text = "(if the pixels look weird try changing the number)"
 label_settings = SubResource("LabelSettings_q8axx")
+
+[node name="Sensitity" type="HBoxContainer" parent="UI/Settings/SettingsContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="UI/Settings/SettingsContainer/Sensitity"]
+texture_filter = 1
+layout_mode = 2
+text = "sensitivity:"
+label_settings = SubResource("LabelSettings_x86lp")
+uppercase = true
+
+[node name="SensSlider" type="HSlider" parent="UI/Settings/SettingsContainer/Sensitity"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 0.001
+max_value = 0.01
+step = 0.001
+value = 0.004
 
 [node name="Sfx" type="HBoxContainer" parent="UI/Settings/SettingsContainer"]
 layout_mode = 2
@@ -688,6 +712,7 @@ bus = &"MusicNormal"
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="item_selected" from="UI/Settings/SettingsContainer/Window/WindowOptions" to="." method="_on_window_options_item_selected"]
 [connection signal="value_changed" from="UI/Settings/SettingsContainer/Pixelation/PixelationBox" to="." method="_on_pixelation_box_value_changed"]
+[connection signal="value_changed" from="UI/Settings/SettingsContainer/Sensitity/SensSlider" to="." method="_on_sens_slider_value_changed"]
 [connection signal="value_changed" from="UI/Settings/SettingsContainer/Sfx/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="UI/Settings/SettingsContainer/Music/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="pressed" from="UI/Settings/CloseSettings" to="." method="_on_close_settings_pressed"]

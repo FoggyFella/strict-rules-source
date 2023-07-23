@@ -15,6 +15,7 @@ func _on_detection_area_body_entered(body):
 		if break_open:
 			$BreakOpen.pitch_scale = randf_range(0.8,1.2)
 			$BreakOpen.play()
+			get_tree().current_scene.chase_player.camera_3d.add_trauma(1.0)
 		else:
 			$NormalOpen.pitch_scale = randf_range(0.9,1.1)
 			$NormalOpen.play()
