@@ -15,7 +15,6 @@ var enemies_killed = 0
 # DEFAULT IS TRUE #
 var should_play_input_sound = true
 var feed_active = true
-var force_into_ex_fullscreen = true
 # DEFAULT IS FALSE #
 var camera_on = false
 var turned_camera_off = false
@@ -25,8 +24,10 @@ var saw_chase_intro = false
 var saw_os_intro = false
 var saw_boss_intro = false
 var saw_corrupted_intro = false
+var force_into_ex_fullscreen = false
 var saw_snowlands_intro = false
 var saw_coin_flip = false
+var start_from_flip = false
 
 var did_win = false
 

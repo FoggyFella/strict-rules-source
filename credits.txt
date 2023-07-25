@@ -21,6 +21,7 @@ Sneaky Snitch by Kevin Macleod
 
 With some art by Miziziziz
 With some textures from textures.com
+HDRI's from hdri-haven.com
 
 Fonts used:
 ModernDos8x16

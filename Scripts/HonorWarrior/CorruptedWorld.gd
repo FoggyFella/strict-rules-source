@@ -57,6 +57,20 @@ func _ready():
 	if Global.saw_chase_intro:
 		$Part7.global_position = Vector3(0,0,0)
 		$ChaseDoors.global_position = Vector3(0,0,0)
+		
+	if Global.start_from_flip:
+		$AnimationPlayer.stop()
+		$Part7.position = Vector3.ZERO
+		$ChaseDoors.global_position = Vector3(0,0,0)
+		$FinalSceneStuff/AreaFinal.queue_free()
+		$Player.can_pause = false
+		$ScreenMessages/BlackBg.hide()
+		$ScreenMessages/BlackBg.modulate = Color(0,0,0,1.0)
+		$Player.global_position = $FinalSceneStuff/AreaFinal/Marker3D.global_position
+		$Player.rotation = $FinalSceneStuff/AreaFinal/Marker3D.rotation
+		$ChaseDoors/FinalDoors.close()
+		_on_it_ends_here_finished()
+		
 
 func _physics_process(delta):
 	if fog_enabled:
@@ -200,7 +214,8 @@ func chase_intro_dialogue():
 		show_chase_message("RUN",0.4,true)
 		await get_tree().create_timer(0.4).timeout
 		if Global.im_debugging_shit:
-			teleport_to_final()
+			pass
+			#teleport_to_final()
 		$ChasePlayer.active = false
 		$ChasePlayer.activate()
 		$ChaseMusic.play()
@@ -304,7 +319,6 @@ func _on_final_animation_player_animation_finished(anim_name):
 	if anim_name == "CoinAppear":
 		$FinalSceneStuff/FinalAnimationPlayer.play("CoinFlip")
 	if anim_name == "CoinFlip":
-		randomize()
 		var side = randi_range(1,2)
 		if side == 1:
 			$FinalSceneStuff/FinalAnimationPlayer.play("CoinLandTails")

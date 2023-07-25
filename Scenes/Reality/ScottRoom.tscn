@@ -1,4 +1,4 @@
-[gd_scene load_steps=173 format=3 uid="uid://nniaujoqxxjv"]
+[gd_scene load_steps=183 format=3 uid="uid://nniaujoqxxjv"]
 
 [ext_resource type="Texture2D" uid="uid://ckxftvkfs62qy" path="res://Assets/More Realistic Stuff/Textures/Carpet/carpet_albedo.png" id="1_dkgwl"]
 [ext_resource type="Texture2D" uid="uid://cj48gyjnm0ky5" path="res://Assets/More Realistic Stuff/Textures/TexturesCom_Wood_Worn3_512_albedo.png" id="1_dw464"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ceqd3aldygag8" path="res://Assets/More Realistic Stuff/Textures/TexturesCom_Wood_Worn3_512_normal.png" id="2_4talu"]
 [ext_resource type="Texture2D" uid="uid://celot2gkv1jk3" path="res://Assets/More Realistic Stuff/Textures/Carpet/carpet_norm.png" id="2_yx03e"]
 [ext_resource type="Texture2D" uid="uid://cvhks0n8tfjpr" path="res://Assets/More Realistic Stuff/Textures/TexturesCom_Buttons0060_S.jpg" id="3_8y05h"]
+[ext_resource type="AudioStream" uid="uid://cdk3mmwa0d0j2" path="res://Assets/SFX/VoiceLines/Player/OS/computer sounds.ogg" id="7_4w5x7"]
 [ext_resource type="Texture2D" uid="uid://cleem57xsvp26" path="res://Assets/More Realistic Stuff/Textures/TexturesCom_Fabric_Blanket2_512_albedo.png" id="7_n15wo"]
 [ext_resource type="Texture2D" uid="uid://bc0aowvt2ohxy" path="res://Assets/More Realistic Stuff/Textures/TexturesCom_Fabric_Blanket_512_normal.png" id="8_dqxco"]
 [ext_resource type="Texture2D" uid="uid://wkm3nvxysfmj" path="res://Assets/More Realistic Stuff/Textures/TexturesCom_Fabric_Blanket_512_albedo.png" id="9_lekjq"]
@@ -28,6 +29,13 @@
 [ext_resource type="AudioStream" uid="uid://c72g0ndoje6mj" path="res://Assets/SFX/Reality/windowbreak.wav" id="22_yql1v"]
 [ext_resource type="AudioStream" uid="uid://crbmycdev5aq3" path="res://Assets/SFX/VoiceLines/Player/Reality/bedsounds.ogg" id="23_gpmvq"]
 [ext_resource type="AudioStream" uid="uid://b8dwe5jd1s5cr" path="res://Assets/SFX/VoiceLines/Player/Reality/he_didnt_watch_out.ogg" id="24_qj4i5"]
+[ext_resource type="AudioStream" uid="uid://cbla52584uoq4" path="res://Assets/SFX/VoiceLines/Player/Reality/woke.ogg" id="26_0y6bl"]
+[ext_resource type="AudioStream" uid="uid://p15mea1nvpub" path="res://Assets/SFX/Reality/moring.wav" id="27_dh2ru"]
+[ext_resource type="AudioStream" uid="uid://beysn5n43r535" path="res://Assets/SFX/VoiceLines/Them/IWonderWhyEcho.ogg" id="27_dv4fy"]
+[ext_resource type="AudioStream" uid="uid://cbd87a46dxpkh" path="res://Assets/SFX/VoiceLines/Player/Reality/he got it.ogg" id="28_rp327"]
+[ext_resource type="Texture2D" uid="uid://bummdupk7pqan" path="res://Assets/More Realistic Stuff/Textures/screen1.png" id="29_d6jf1"]
+[ext_resource type="AudioStream" uid="uid://cylttcdb8nfep" path="res://Assets/SFX/music/is this good.mp3" id="29_yehb4"]
+[ext_resource type="Texture2D" uid="uid://b0w7ukhsugbq2" path="res://Assets/More Realistic Stuff/Textures/screen2.png" id="30_p6lup"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g5j5f"]
 albedo_texture = ExtResource("1_dkgwl")
@@ -174,11 +182,9 @@ roughness = 0.8
 normal_scale = 0.17
 normal_texture = SubResource("NoiseTexture2D_ieecp")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ykqw7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kux1"]
 albedo_color = Color(0, 0, 0, 1)
-roughness = 0.22
-emission = Color(0.45098, 0.533333, 0.956863, 1)
-emission_energy_multiplier = 3.91
+roughness = 0.09
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3xdxp"]
 size = Vector3(138.774, 72.4878, 143.161)
@@ -1434,10 +1440,15 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ilm8q")
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_mhmik"]
+dof_blur_far_enabled = true
 dof_blur_far_distance = 20.0
 dof_blur_far_transition = 6.0
+dof_blur_near_enabled = true
 dof_blur_near_distance = 1.1
 dof_blur_amount = 0.2
+
+[sub_resource type="LabelSettings" id="LabelSettings_ofqrl"]
+font_size = 15
 
 [sub_resource type="Animation" id="Animation_jhmpa"]
 resource_name = "BedSleep"
@@ -1561,6 +1572,187 @@ tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0, 17.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ocd3v"]
+resource_name = "BedSleepGood"
+length = 50.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BedCamera")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"make_current"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RealityPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"disable_movement"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BedCamera:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.1, 3.1, 21.9, 22.9, 23.6, 24.6, 25.9, 26.7, 39),
+"transitions": PackedFloat32Array(1, 1, 0.0358969, 1.03526, 1.03526, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.541951, 2.89988, 6.2048), Vector3(-1.77366, 2.41716, 7.04949), Vector3(-1.76275, 2.42642, 7.52121), Vector3(-1.76275, 2.42642, 7.52121), Vector3(-1.76275, 2.42642, 7.52121), Vector3(-0.31563, 2.20066, 5.63531), Vector3(-0.506832, 2.50072, 3.81885), Vector3(-0.40622, 2.51545, 1.81758), Vector3(-0.40622, 2.51545, 1.81758), Vector3(4.47265, 2.75261, 6.22717)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BedCamera:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2.1, 3.1, 4.6, 10, 21.9, 22.5, 24.6, 25.9, 26.7, 39),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 0.287175, 1, 0.00808801, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -3.14159, 0), Vector3(-0.228621, -3.14159, -3.5135e-08), Vector3(-0.228621, -3.14159, -3.5135e-08), Vector3(0.383276, -1.43528, -0.0131585), Vector3(0.201708, -1.58786, -0.0107959), Vector3(0.201708, -1.58786, -0.0107959), Vector3(-0.090897, -1.58473, -0.0106208), Vector3(-0.090897, -1.58473, -0.0106208), Vector3(-0.0401819, -0.583887, -0.0822424), Vector3(-0.0202305, -0.352718, -0.0892556), Vector3(0.00745019, -0.0491397, 0.0689581), Vector3(0.00745019, -0.0491397, 0.0689581), Vector3(0, 1.17668, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/BlackBg:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 7.2, 11.8, 18.1, 20.8),
+"transitions": PackedFloat32Array(1, 1, 0.000440064, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(17, 39),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"switch_to_good_env"
+}, {
+"args": [],
+"method": &"show_credits"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BedSounds:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("VoiceLines/BedTime:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("VoiceLines/WokeUp:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(20.5, 22.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("VoiceLines/WonderWhy:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(20.5, 27.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("VoiceLines/IGetIt:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(20.5, 34.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("UI/Screen1:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 25.7, 26.7, 39, 39.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("UI/Screen2:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 25.7, 27.4, 29.4, 39, 39.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("VoiceLines/ISThisGood:playing")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 36.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -1974,10 +2166,83 @@ tracks/14/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("VoiceLines/WokeUp:playing")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("VoiceLines/WonderWhy:playing")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("VoiceLines/IGetIt:playing")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("UI/Screen1:modulate")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("UI/Screen2:modulate")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("VoiceLines/ISThisGood:playing")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ekm18"]
 _data = {
 "BedSleep": SubResource("Animation_jhmpa"),
+"BedSleepGood": SubResource("Animation_ocd3v"),
 "Intro": SubResource("Animation_1s7te"),
 "PickingUpBrick": SubResource("Animation_ldxlu"),
 "RESET": SubResource("Animation_qyv4p")
@@ -2044,6 +2309,13 @@ collision_mask = 3
 size = Vector3(14.6852, 0.0614954, 7.91498)
 material = SubResource("StandardMaterial3D_frnoq")
 
+[node name="CSGBox3D7" type="CSGBox3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 3.87486, 2.93385, -1.72149)
+use_collision = true
+collision_mask = 3
+size = Vector3(15.1452, 0.0614954, 14.2095)
+material = SubResource("StandardMaterial3D_frnoq")
+
 [node name="Props" type="Node3D" parent="."]
 
 [node name="Pc" type="MeshInstance3D" parent="Props"]
@@ -2053,7 +2325,7 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_0m0d2")
 surface_material_override/1 = SubResource("StandardMaterial3D_ewuaj")
 surface_material_override/2 = SubResource("StandardMaterial3D_yxmb5")
-surface_material_override/3 = SubResource("StandardMaterial3D_ykqw7")
+surface_material_override/3 = SubResource("StandardMaterial3D_7kux1")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Props/Pc"]
 transform = Transform3D(2.19514, 0, 2.98023e-07, 0, 2.19514, 0, -2.98023e-07, 0, 2.19514, 2.07628, 1.04792, -0.316535)
@@ -2062,6 +2334,13 @@ light_color = Color(0.439216, 0.705882, 0.898039, 1)
 light_energy = 0.5
 shadow_enabled = true
 omni_range = 5.28997
+
+[node name="pcnoise" type="AudioStreamPlayer3D" parent="Props/Pc"]
+transform = Transform3D(2.19514, 0, 2.98023e-07, 0, 2.19514, 0, -2.98023e-07, 0, 2.19514, -3.96244, -1.34214, 1.85872)
+stream = ExtResource("7_4w5x7")
+volume_db = -3.0
+unit_size = 3.0
+bus = &"NormalSound"
 
 [node name="Computer" type="StaticBody3D" parent="Props"]
 transform = Transform3D(0.0390664, 0, 0, 0, 0.043037, 0, 0, 0, 0.039444, -0.276312, 2.17176, 1.5658)
@@ -2350,6 +2629,15 @@ light_energy = 0.4
 shadow_enabled = true
 shadow_blur = 1.575
 
+[node name="GoodSun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.657374, 0.321862, -0.68137, 0.212073, 0.946669, 0.242577, 0.723108, 0.0149634, -0.690573, -7.11174, 8.19276, 0)
+visible = false
+light_color = Color(0.913725, 0.478431, 0.443137, 1)
+light_energy = 5.0
+light_volumetric_fog_energy = 10.0
+shadow_enabled = true
+shadow_blur = 1.575
+
 [node name="VoiceLines" type="Node" parent="."]
 
 [node name="Intro" type="AudioStreamPlayer" parent="VoiceLines"]
@@ -2392,8 +2680,157 @@ stream = ExtResource("24_qj4i5")
 volume_db = -5.0
 bus = &"NormalSound"
 
+[node name="WokeUp" type="AudioStreamPlayer" parent="VoiceLines"]
+stream = ExtResource("26_0y6bl")
+volume_db = -5.0
+bus = &"NormalSound"
+
+[node name="WonderWhy" type="AudioStreamPlayer" parent="VoiceLines"]
+stream = ExtResource("27_dv4fy")
+volume_db = -2.0
+bus = &"NormalSound"
+
+[node name="IGetIt" type="AudioStreamPlayer" parent="VoiceLines"]
+stream = ExtResource("28_rp327")
+volume_db = -5.0
+bus = &"NormalSound"
+
+[node name="ISThisGood" type="AudioStreamPlayer" parent="VoiceLines"]
+stream = ExtResource("29_yehb4")
+volume_db = -4.0
+bus = &"MusicNormal"
+
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 2
+
+[node name="Screen1" type="TextureRect" parent="UI"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("29_d6jf1")
+expand_mode = 1
+
+[node name="Screen2" type="TextureRect" parent="UI"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("30_p6lup")
+expand_mode = 1
+
+[node name="Credits" type="Label" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -335.0
+offset_top = -2230.01
+offset_right = 335.0
+offset_bottom = -305.012
+grow_horizontal = 2
+grow_vertical = 0
+text = "Strict Rules
+A game by FoggyDude
+
+Voices:
+Rexium as The Spectator
+Swervzy as The Programmer
+FoggyDude as Scott Seeker
+
+The guy on the camera:
+My friend
+(he asked to not be named)
+
+Music:
+By FoggyDude except the boss theme
+For the boss Double Impact MIDI Pack by continuum.mid, Matzu, R0rque, Korp, and ZeMystic
+
+In the music player:
+Like the wind by unknown
+CIA by unknown
+Sneaky Snitch by Kevin Macleod
+
+With some art by Miziziziz
+With some textures from textures.com
+HDRI's from hdri-haven.com
+
+Fonts used:
+ModernDos8x16
+VCR_OSD_MONO
+
+Sound effects:
+Pistol sound effects by Michel Baradari
+Snow crunch by luminadii
+computer noise by matucha
+Step (rock) by leohpaz
+Exploding lightbulb by jorickhoofd
+Laser by SamsterBirdies
+Explosion_01 by tommccann
+tv turn off by harpoyume
+Door smash by egomassive
+DoorOpen05 by qubodup
+Night village by Gombar_Bendeguz
+Carpet footsteps by scholzi982
+getting into bed by btherad2000
+fast_whoosh by alanmcki
+
+Some were made using my mouth
+
+Most of these sounds I found on freesound.org or opengameart.org
+If I didn't credit some sounds it's because they're CC0
+(or I forgot, sorry)
+
+Special thanks to:
+Friends and family
+The Lads
+Godot Engine
+Schmiegs
+Xenify
+
+And most importantly...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+thank YOU for playing!"
+label_settings = SubResource("LabelSettings_ofqrl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SkipCredits" type="Button" parent="UI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -89.0
+offset_top = -43.0
+offset_right = -14.0
+offset_bottom = -12.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "SKIP"
 
 [node name="BlackBg" type="ColorRect" parent="UI"]
 anchors_preset = 15
@@ -2410,6 +2847,14 @@ stream = ExtResource("13_rx2qw")
 volume_db = 3.0
 max_db = 4.0
 autoplay = true
+panning_strength = 1.3
+bus = &"NormalSound"
+
+[node name="MorningAmbience" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.69433, 3.22279, 5.98942)
+stream = ExtResource("27_dh2ru")
+volume_db = 4.0
+max_db = 4.0
 panning_strength = 1.3
 bus = &"NormalSound"
 
@@ -2461,3 +2906,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.553723, 1.821, 5.83077)
 [connection signal="interacted" from="Props/BrickText/Brick" to="." method="_on_brick_interacted"]
 [connection signal="finished" from="VoiceLines/LightSwitch" to="." method="_on_light_switch_finished"]
 [connection signal="finished" from="VoiceLines/BedTime" to="." method="_on_light_switch_finished"]
+[connection signal="pressed" from="UI/SkipCredits" to="." method="_on_skip_credits_pressed"]

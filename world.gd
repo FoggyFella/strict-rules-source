@@ -14,13 +14,13 @@ var music_buses = [6,7]
 
 func _ready():
 	Global.should_play_input_sound = false
-	setup_viewports()
 	$UI/Settings.show()
 	$UI/Settings.scale = Vector2(1,0)
 	if Global.force_into_ex_fullscreen:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 	set_correct_setting_values()
 	await(get_tree().create_timer(1.0).timeout)
+	setup_viewports()
 	$AnimationPlayer.play("Camera")
 	await(get_tree().create_timer(4.5).timeout)
 	turn_on_terminal()
@@ -42,9 +42,17 @@ func _unhandled_input(event):
 		$TerminalViewport.push_input(event)
 
 func setup_viewports():
-	var logo_viewport_mat = StandardMaterial3D.new()
-	logo_viewport_mat.albedo_texture = $LogoViewport.get_texture()
-	$Stuffs/LogoPc.set_surface_override_material(2,logo_viewport_mat)
+	#var logo_viewport_mat = StandardMaterial3D.new()
+	#logo_viewport_mat.albedo_texture = $LogoViewport.get_texture()
+	#$Stuffs/LogoPc.set_surface_override_material(2,logo_viewport_mat)
+	
+	#$BloomLogo/TextureRect.texture = $LogoViewport.get_texture()
+	#var logo_viewport_mat = StandardMaterial3D.new()
+	#logo_viewport_mat.albedo_texture = $BloomLogo.get_texture()
+	#logo_viewport_mat.emission_enabled = true
+	#logo_viewport_mat.roughness = 0.5
+	#logo_viewport_mat.albedo_color = Color(1,1,1)
+	#$Stuffs/LogoPc.set_surface_override_material(2,logo_viewport_mat)
 	
 	$BloomViewport/TextureRect.texture = $TerminalViewport.get_texture()
 	var mat = StandardMaterial3D.new()

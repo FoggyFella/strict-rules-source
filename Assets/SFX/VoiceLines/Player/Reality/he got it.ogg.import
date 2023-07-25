@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cbd87a46dxpkh"
+path="res://.godot/imported/he got it.ogg-1c02f21cb9f52eaf05add7e0033d3169.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SFX/VoiceLines/Player/Reality/he got it.ogg"
+dest_files=["res://.godot/imported/he got it.ogg-1c02f21cb9f52eaf05add7e0033d3169.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

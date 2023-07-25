@@ -1810,7 +1810,6 @@ layer = 3
 
 [node name="BlackBg" type="ColorRect" parent="ScreenMessages"]
 process_mode = 3
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
