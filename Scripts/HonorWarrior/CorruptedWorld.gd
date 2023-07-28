@@ -163,6 +163,8 @@ func match_orb_count():
 			add_a_message("I think a new island has appeared at the start",purple_color)
 
 func show_chase_message(clue,time=0.25,no_effect=false):
+	Engine.time_scale = 0.3
+	$ChaseMusic.pitch_scale = 0.3
 	var mess_inst = screen_message.instantiate()
 	mess_inst.modulate = Color("9524e1")
 	mess_inst.should_dissapear = false
@@ -176,6 +178,8 @@ func show_chase_message(clue,time=0.25,no_effect=false):
 	await(get_tree().create_timer(time).timeout)
 	#chase_player.speed = 0.0
 	#chase_player.active = true
+	$ChaseMusic.pitch_scale = 1.0
+	Engine.time_scale = 1.0
 	$ScreenMessages/Efect.hide()
 	$ScreenMessages/BlackBg.hide()
 	mess_inst.queue_free()
@@ -186,12 +190,12 @@ func saw_chase_intro():
 func player_died():
 	get_tree().paused = true
 	var tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS).set_parallel(true)
-	$ScreenMessages/BlackBg.modulate = Color("000000")
+	$ScreenMessages/BlackBg.modulate = Color("ffffff")
 	$ScreenMessages/BlackBg.color = Color("000000")
-	$ScreenMessages/BlackBg.show()
 	$ScreenMessages/ScareyText.show()
 	$ScreenMessages/notyet.show()
 	$ScreenMessages/Efect.show()
+	$ScreenMessages/BlackBg.show()
 	tween.parallel().tween_property($ScreenMessages/ScareyText,"modulate",Color("ffffff"),15.0)
 	tween.parallel().tween_property($ScreenMessages/notyet,"modulate",Color("6604a69a"),6.5)
 	$riser.play()

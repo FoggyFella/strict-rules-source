@@ -1358,7 +1358,7 @@ horizontal_alignment = 1
 [node name="Label2" type="Label" parent="Screens/Browser/BrowsingHistory"]
 modulate = Color(0.101961, 0.117647, 0.254902, 1)
 layout_mode = 2
-text = "blastinwarrior.ezyro.com"
+text = "blastinwarrior.neocities.org"
 label_settings = SubResource("LabelSettings_585as")
 
 [node name="Label5" type="Label" parent="Screens/Browser/BrowsingHistory"]

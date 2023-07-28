@@ -6,7 +6,7 @@ func _ready():
 	randomize()
 	$TimeUntilFlick.timeout.connect(_on_until_flick)
 	$TimeUntilBack.timeout.connect(_on_until_back)
-	$TimeUntilFlick.start(randf_range(4,8))
+	$TimeUntilFlick.start(randf_range(2,8))
 
 func flicker():
 	randomize()

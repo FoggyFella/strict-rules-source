@@ -586,8 +586,8 @@ expand_mode = 1
 [node name="Time2" type="Label" parent="TaskBar/Panel2/DateTimeSound"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "10:36 PM
-22/11/2003"
+text = "7:32 AM
+23/11/2003"
 label_settings = SubResource("LabelSettings_n2i1k")
 horizontal_alignment = 1
 vertical_alignment = 1

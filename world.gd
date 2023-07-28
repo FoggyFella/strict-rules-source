@@ -81,6 +81,12 @@ func on_exit():
 func change_to_os():
 	get_tree().change_scene_to_file("res://Scenes/OS/MainOsScreen.tscn")
 
+func chase_skip():
+	terminal_active = false
+	Global.saw_corrupted_intro = true
+	Global.saw_chase_intro = true
+	get_tree().change_scene_to_file("res://Scenes/HonorWarrior/Corrupted.tscn")
+
 func _on_close_settings_pressed():
 	Global.emit_signal("settings_changed")
 	var tween = create_tween().set_trans(Tween.TRANS_CUBIC)

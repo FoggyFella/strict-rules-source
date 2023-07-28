@@ -24,3 +24,5 @@ func _on_detection_area_body_entered(body):
 
 func close():
 	$AnimationPlayer.play("RESET")
+	if get_node_or_null("DetectionArea") != null: 
+		$DetectionArea.queue_free()

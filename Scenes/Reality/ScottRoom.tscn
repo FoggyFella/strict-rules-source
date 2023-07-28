@@ -34,7 +34,7 @@
 [ext_resource type="AudioStream" uid="uid://beysn5n43r535" path="res://Assets/SFX/VoiceLines/Them/IWonderWhyEcho.ogg" id="27_dv4fy"]
 [ext_resource type="AudioStream" uid="uid://cbd87a46dxpkh" path="res://Assets/SFX/VoiceLines/Player/Reality/he got it.ogg" id="28_rp327"]
 [ext_resource type="Texture2D" uid="uid://bummdupk7pqan" path="res://Assets/More Realistic Stuff/Textures/screen1.png" id="29_d6jf1"]
-[ext_resource type="AudioStream" uid="uid://cylttcdb8nfep" path="res://Assets/SFX/music/is this good.mp3" id="29_yehb4"]
+[ext_resource type="AudioStream" uid="uid://cylttcdb8nfep" path="res://Assets/SFX/music/is this good.mp3" id="29_iqj0y"]
 [ext_resource type="Texture2D" uid="uid://b0w7ukhsugbq2" path="res://Assets/More Realistic Stuff/Textures/screen2.png" id="30_p6lup"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g5j5f"]
@@ -2696,7 +2696,7 @@ volume_db = -5.0
 bus = &"NormalSound"
 
 [node name="ISThisGood" type="AudioStreamPlayer" parent="VoiceLines"]
-stream = ExtResource("29_yehb4")
+stream = ExtResource("29_iqj0y")
 volume_db = -4.0
 bus = &"MusicNormal"
 
@@ -2746,8 +2746,7 @@ Swervzy as The Programmer
 FoggyDude as Scott Seeker
 
 The guy on the camera:
-My friend
-(he asked to not be named)
+Scroop45
 
 Music:
 By FoggyDude except the boss theme

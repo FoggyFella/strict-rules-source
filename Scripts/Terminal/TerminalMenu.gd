@@ -13,7 +13,7 @@ var commands = {
 	exit\n",
 }
 
-var actual_commands = ["start","settings","exit"]
+var actual_commands = ["start","settings","exit","chase_skip"]
 
 func boot_up():
 	$MainScreen/blocker.hide()
@@ -44,6 +44,10 @@ func _on_input_bar_text_submitted(new_text):
 			add_label("> Entering settings
 			")
 			world.on_settings()
+		elif new_text == "chase_skip":
+			add_label("> Is this canon
+			")
+			world.chase_skip()
 
 func add_label(text):
 	var new_label = label_template.duplicate()
