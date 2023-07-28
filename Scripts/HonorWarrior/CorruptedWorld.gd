@@ -323,11 +323,24 @@ func _on_final_animation_player_animation_finished(anim_name):
 	if anim_name == "CoinAppear":
 		$FinalSceneStuff/FinalAnimationPlayer.play("CoinFlip")
 	if anim_name == "CoinFlip":
-		var side = randi_range(1,2)
-		if side == 1:
-			$FinalSceneStuff/FinalAnimationPlayer.play("CoinLandTails")
-		elif side == 2:
-			$FinalSceneStuff/FinalAnimationPlayer.play("CoinLandHeads")
+		if !Global.has_flipped:
+			var side = randi_range(1,2)
+			if side == 1:
+				$FinalSceneStuff/FinalAnimationPlayer.play("CoinLandTails")
+			elif side == 2:
+				$FinalSceneStuff/FinalAnimationPlayer.play("CoinLandHeads")
+			Global.has_flipped = true
+		else:
+			if Global.did_win:
+				if chosen_coin == "tails":
+					$FinalSceneStuff/FinalAnimationPlayer.play("CoinLandHeads")
+				if chosen_coin == "heads":
+					$FinalSceneStuff/FinalAnimationPlayer.play("CoinLandTails")
+			else:
+				if chosen_coin == "tails":
+					$FinalSceneStuff/FinalAnimationPlayer.play("CoinLandTails")
+				if chosen_coin == "heads":
+					$FinalSceneStuff/FinalAnimationPlayer.play("CoinLandHeads")
 
 func coin_check(side:String):
 	await(get_tree().create_timer(1.0).timeout)
