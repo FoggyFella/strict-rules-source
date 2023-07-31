@@ -1,4 +1,4 @@
-[gd_scene load_steps=183 format=3 uid="uid://nniaujoqxxjv"]
+[gd_scene load_steps=186 format=3 uid="uid://nniaujoqxxjv"]
 
 [ext_resource type="Texture2D" uid="uid://ckxftvkfs62qy" path="res://Assets/More Realistic Stuff/Textures/Carpet/carpet_albedo.png" id="1_dkgwl"]
 [ext_resource type="Texture2D" uid="uid://cj48gyjnm0ky5" path="res://Assets/More Realistic Stuff/Textures/TexturesCom_Wood_Worn3_512_albedo.png" id="1_dw464"]
@@ -1440,12 +1440,39 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ilm8q")
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_mhmik"]
-dof_blur_far_enabled = true
 dof_blur_far_distance = 20.0
 dof_blur_far_transition = 6.0
 dof_blur_near_enabled = true
 dof_blur_near_distance = 1.1
 dof_blur_amount = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qnkeh"]
+emission_shape = 3
+emission_box_extents = Vector3(10, 1, 1)
+particle_flag_align_y = true
+flatness = 1.0
+gravity = Vector3(0, -4, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+radial_accel_max = 6.31
+angle_min = -720.0
+angle_max = 720.0
+scale_min = 0.01
+scale_max = 0.1
+collision_mode = 2
+collision_use_scale = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ahewl"]
+transparency = 1
+albedo_color = Color(0.780392, 0.823529, 0.866667, 0.552941)
+roughness = 0.0
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 2.94
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_u2a54"]
+material = SubResource("StandardMaterial3D_ahewl")
+radius = 0.307
 
 [sub_resource type="LabelSettings" id="LabelSettings_ofqrl"]
 font_size = 15
@@ -1615,10 +1642,10 @@ tracks/2/path = NodePath("BedCamera:position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 2.1, 3.1, 21.9, 22.9, 23.6, 24.6, 25.9, 26.7, 39),
-"transitions": PackedFloat32Array(1, 1, 0.0358969, 1.03526, 1.03526, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 2.1, 3.8, 6.3, 21.9, 22.9, 23.6, 24.6, 25.9, 26.7, 42.2),
+"transitions": PackedFloat32Array(1, 1, 0.0358969, 0.0358969, 1.03526, 1.03526, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.541951, 2.89988, 6.2048), Vector3(-1.77366, 2.41716, 7.04949), Vector3(-1.76275, 2.42642, 7.52121), Vector3(-1.76275, 2.42642, 7.52121), Vector3(-1.76275, 2.42642, 7.52121), Vector3(-0.31563, 2.20066, 5.63531), Vector3(-0.506832, 2.50072, 3.81885), Vector3(-0.40622, 2.51545, 1.81758), Vector3(-0.40622, 2.51545, 1.81758), Vector3(4.47265, 2.75261, 6.22717)]
+"values": [Vector3(-0.541951, 2.89988, 6.2048), Vector3(-1.77366, 2.41716, 7.04949), Vector3(-1.76275, 2.42642, 7.52121), Vector3(-1.76275, 2.42642, 7.52121), Vector3(-1.76275, 2.42642, 7.52121), Vector3(-1.76275, 2.42642, 7.52121), Vector3(-0.31563, 2.20066, 5.63531), Vector3(-0.506832, 2.50072, 3.81885), Vector3(-0.40622, 2.51545, 1.81758), Vector3(-0.40622, 2.51545, 1.81758), Vector3(4.47265, 2.75261, 6.22717)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -1627,10 +1654,10 @@ tracks/3/path = NodePath("BedCamera:rotation")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1, 1.5, 2.1, 3.1, 4.6, 10, 21.9, 22.5, 24.6, 25.9, 26.7, 39),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 0.287175, 1, 0.00808801, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1, 1.5, 2.1, 3.8, 4.6, 6.3, 10, 21.9, 22.5, 24.6, 25.9, 26.7, 42.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 0.287175, 1, 0.287175, 0.00808801, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, -3.14159, 0), Vector3(-0.228621, -3.14159, -3.5135e-08), Vector3(-0.228621, -3.14159, -3.5135e-08), Vector3(0.383276, -1.43528, -0.0131585), Vector3(0.201708, -1.58786, -0.0107959), Vector3(0.201708, -1.58786, -0.0107959), Vector3(-0.090897, -1.58473, -0.0106208), Vector3(-0.090897, -1.58473, -0.0106208), Vector3(-0.0401819, -0.583887, -0.0822424), Vector3(-0.0202305, -0.352718, -0.0892556), Vector3(0.00745019, -0.0491397, 0.0689581), Vector3(0.00745019, -0.0491397, 0.0689581), Vector3(0, 1.17668, 0)]
+"values": [Vector3(0, -3.14159, 0), Vector3(-0.228621, -3.14159, -3.5135e-08), Vector3(-0.228621, -3.14159, -3.5135e-08), Vector3(0.383276, -1.43528, -0.0131585), Vector3(0.201708, -1.58786, -0.0107959), Vector3(0.201708, -1.58786, -0.0107959), Vector3(0.201708, -1.58786, -0.0107959), Vector3(-0.090897, -1.58473, -0.0106208), Vector3(-0.090897, -1.58473, -0.0106208), Vector3(-0.0401819, -0.583887, -0.0822424), Vector3(-0.0202305, -0.352718, -0.0892556), Vector3(0.00745019, -0.0491397, 0.0689581), Vector3(0.00745019, -0.0491397, 0.0689581), Vector3(0, 1.17668, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -2266,6 +2293,12 @@ use_collision = true
 collision_mask = 3
 size = Vector3(17.0622, 0.0614954, 15.7471)
 
+[node name="CSGBox3D8" type="CSGBox3D" parent="Room"]
+transform = Transform3D(0.999175, 0.0406026, 0, -0.0406026, 0.999175, 0, 0, 0, 1, 10.7578, 6.78257, 3.64026)
+use_collision = true
+collision_mask = 3
+size = Vector3(17.0622, 0.0614954, 15.7471)
+
 [node name="CSGBox3D3" type="CSGBox3D" parent="Room"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 3.87486, 3.6036, 9.10242)
 use_collision = true
@@ -2629,14 +2662,26 @@ light_energy = 0.4
 shadow_enabled = true
 shadow_blur = 1.575
 
+[node name="GPUParticlesCollisionHeightField3D" type="GPUParticlesCollisionHeightField3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4513, -1.45143, 0)
+size = Vector3(30.5356, 14.6026, 26.6994)
+
 [node name="GoodSun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.657374, 0.321862, -0.68137, 0.212073, 0.946669, 0.242577, 0.723108, 0.0149634, -0.690573, -7.11174, 8.19276, 0)
 visible = false
-light_color = Color(0.913725, 0.478431, 0.443137, 1)
-light_energy = 5.0
+light_color = Color(0.560784, 0.627451, 0.741176, 1)
 light_volumetric_fog_energy = 10.0
 shadow_enabled = true
 shadow_blur = 1.575
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="GoodSun"]
+transform = Transform3D(0.74512, 0.139132, 0.652256, 0.0888215, 0.948583, -0.303808, -0.660989, 0.284308, 0.694451, 2.89738, 1.13943, -2.4197)
+cast_shadow = 0
+amount = 600
+lifetime = 5.0
+visibility_aabb = AABB(-6.56094, -11.4739, -4, 13.1219, 22.9478, 8)
+process_material = SubResource("ParticleProcessMaterial_qnkeh")
+draw_pass_1 = SubResource("CapsuleMesh_u2a54")
 
 [node name="VoiceLines" type="Node" parent="."]
 
@@ -2868,8 +2913,9 @@ bus = &"NormalSound"
 [node name="BedSounds" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.418089, 1.53746, 7.6601)
 stream = ExtResource("23_gpmvq")
-volume_db = 2.0
+volume_db = -1.0
 unit_size = 5.0
+max_db = -1.0
 panning_strength = 1.3
 bus = &"NormalSound"
 

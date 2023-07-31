@@ -81,6 +81,9 @@ func on_exit():
 func change_to_os():
 	get_tree().change_scene_to_file("res://Scenes/OS/MainOsScreen.tscn")
 
+func change_to_bricker():
+	get_tree().change_scene_to_file("res://Scenes/Bricker/Bricker.tscn")
+
 func chase_skip():
 	terminal_active = false
 	Global.saw_corrupted_intro = true

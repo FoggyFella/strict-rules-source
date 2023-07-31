@@ -27,7 +27,7 @@ var saw_corrupted_intro = false
 var force_into_ex_fullscreen = false
 var saw_snowlands_intro = false
 var saw_coin_flip = false
-var start_from_flip = true
+var start_from_flip = false
 
 var has_flipped = false
 

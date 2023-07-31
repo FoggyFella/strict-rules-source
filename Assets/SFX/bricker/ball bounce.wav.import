@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bnxxsvffr07f6"
+path="res://.godot/imported/ball bounce.wav-d3fa6d0c4dc7f2135f9dd12ed357cd83.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/bricker/ball bounce.wav"
+dest_files=["res://.godot/imported/ball bounce.wav-d3fa6d0c4dc7f2135f9dd12ed357cd83.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -49,8 +49,6 @@ func bad_change():
 func switch_to_good_env():
 	$DirectionalLight3D.hide()
 	$GoodSun.show()
-	$Props/Glass1.hide()
-	$Props/Glass2.hide()
 	$Ambience.stop()
 	$MorningAmbience.play
 	$Props/Pc/pcnoise.play()

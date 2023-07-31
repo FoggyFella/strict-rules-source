@@ -11,9 +11,11 @@ var commands = {
 	start\n
 	settings\n
 	exit\n",
+	"circles":"not a big fan",
+	"octagons":"hell yeah"
 }
 
-var actual_commands = ["start","settings","exit","chase_skip"]
+var actual_commands = ["start","settings","exit","chase_skip","bricker"]
 
 func boot_up():
 	$MainScreen/blocker.hide()
@@ -48,6 +50,10 @@ func _on_input_bar_text_submitted(new_text):
 			add_label("> Is this canon
 			")
 			world.chase_skip()
+		elif new_text == "bricker":
+			add_label("> Bricker time
+			")
+			world.change_to_bricker()
 
 func add_label(text):
 	var new_label = label_template.duplicate()

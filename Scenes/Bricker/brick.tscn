@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://c37clb1spxyji"]
+
+[ext_resource type="Script" path="res://Scenes/Bricker/brick.gd" id="1_hm616"]
+[ext_resource type="Texture2D" uid="uid://bx0el5k3o6461" path="res://Scenes/Bricker/briock.png" id="1_kr435"]
+[ext_resource type="AudioStream" uid="uid://b1d7lj3hxh516" path="res://Assets/SFX/bricker/brick break.wav" id="3_typwh"]
+[ext_resource type="AudioStream" uid="uid://ce08chxfqndas" path="res://Assets/SFX/bricker/brick hit.wav" id="4_xbet0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nj4ip"]
+size = Vector2(43, 16)
+
+[node name="Brick" type="StaticBody2D" groups=["bricks_group"]]
+scale = Vector2(2, 2)
+script = ExtResource("1_hm616")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_nj4ip")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.5, -2.98023e-07)
+scale = Vector2(0.671875, 0.25)
+texture = ExtResource("1_kr435")
+
+[node name="over" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_typwh")
+volume_db = -4.0
+bus = &"NormalSound"
+
+[node name="hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_xbet0")
+volume_db = -3.0
+bus = &"NormalSound"

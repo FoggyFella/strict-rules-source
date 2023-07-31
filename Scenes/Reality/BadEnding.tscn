@@ -411,7 +411,7 @@ angle_max = 720.0
 scale_min = 0.01
 scale_max = 0.1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ahewl"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tf2f5"]
 transparency = 1
 albedo_color = Color(0.780392, 0.823529, 0.866667, 0.552941)
 roughness = 0.0
@@ -420,7 +420,7 @@ emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 2.94
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_v4vac"]
-material = SubResource("StandardMaterial3D_ahewl")
+material = SubResource("StandardMaterial3D_tf2f5")
 radius = 0.307
 
 [sub_resource type="Animation" id="Animation_ev6tk"]

@@ -968,7 +968,7 @@ tracks/0/path = NodePath("Video/Panel:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 12.2, 12.7),
+"times": PackedFloat32Array(0, 10.5, 11),
 "transitions": PackedFloat32Array(0.277392, 0.277392, 1),
 "update": 0,
 "values": [Vector2(1e-05, 1e-05), Vector2(1e-05, 1e-05), Vector2(1, 1)]
@@ -1015,7 +1015,7 @@ tracks/4/path = NodePath("Sounds/maximize:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 12.2),
+"times": PackedFloat32Array(0, 10.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -1027,7 +1027,7 @@ tracks/5/path = NodePath("Video/Panel/loading:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 12.2, 13.1, 13.9, 14.7),
+"times": PackedFloat32Array(0, 10.5, 11.4, 12.2, 13),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, -6.28319, -12.5664, -18.1514]
@@ -1053,7 +1053,7 @@ tracks/7/path = NodePath("Video/Panel/loading:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 14.3, 14.4),
+"times": PackedFloat32Array(0, 12.6, 12.7),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, true, false]
@@ -1065,7 +1065,7 @@ tracks/8/path = NodePath("Video/Panel/Camera1")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(14.3),
+"times": PackedFloat32Array(12.6),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -1079,7 +1079,7 @@ tracks/9/path = NodePath("Video/Panel/Camera1/Timer")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(14.3),
+"times": PackedFloat32Array(12.6),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [-1],
@@ -1093,7 +1093,7 @@ tracks/10/path = NodePath("Video/Panel/Camera2/ColorRect:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 14.7),
+"times": PackedFloat32Array(0, 12.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, false]
