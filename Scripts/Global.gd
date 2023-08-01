@@ -21,6 +21,7 @@ var turned_camera_off = false
 var disk_collected = false
 var saw_the_mine_intro = false
 var saw_chase_intro = false
+var saw_chase_switch = false
 var saw_os_intro = false
 var saw_boss_intro = false
 var saw_corrupted_intro = false

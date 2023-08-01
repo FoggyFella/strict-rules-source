@@ -241,9 +241,15 @@ func _on_music_switch_timeout():
 	new_environemnt.set("fog_height_density",3.0)
 	new_environemnt.set("adjustment_contrast",1.3)
 	world_environment.environment = new_environemnt
+	Global.saw_chase_switch = true
 	$ChasePlayer.enable_particles()
 	$ChasePlayer.camera_3d.add_trauma(3.0)
 
+func start_from_red():
+	$ChaseDoors/SwitchDoor.close()
+	_on_music_switch_timeout()
+	$ChasePlayer.position = $SwitchMarker.position
+	$ChasePlayer.rotation = $SwitchMarker.rotation
 
 func _on_chase_scene_trigger_body_entered(body):
 	if !Global.saw_chase_intro:
@@ -253,9 +259,14 @@ func _on_chase_scene_trigger_body_entered(body):
 		await get_tree().create_timer(0.4).timeout
 		$ChasePlayer.active = false
 		$ChasePlayer.activate()
-		$ChaseMusic.play()
-		$MusicSwitch.start(48.6)
-		$MusicRestSwitch.start(88.9)
+		if !Global.saw_chase_switch:
+			$ChaseMusic.play()
+			$MusicSwitch.start(48.6)
+			$MusicRestSwitch.start(88.9)
+		else:
+			$ChaseMusic.play(48.6)
+			$MusicRestSwitch.start(40.3)
+			start_from_red()
 		enable_fog()
 
 func _on_music_rest_switch_timeout():
